@@ -11,42 +11,79 @@
 
   <style>
     .navbar {
-      justify-content: space-between;
-    }
+            display: flex;
+            justify-content: space-between;
+            padding: 2% 5%;
+            background: rgba(0, 0, 0, 0.6); /* Slight dark overlay */
+        }
 
-    .navbar-brand,
-    .nav-link {
-      font-size: 30px;
-      color: white;
-    }
+        .navbar-brand, .nav-link {
+            font-size: 30px;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
 
-    .navbar-brand {
-      font-size: 50px; /* Increase font size to 40px */
-    }
+        .navbar-brand:hover, .nav-link:hover {
+            color: red; 
+        }
 
-    .navbar-brand:hover,
-    .nav-link:hover {
-      color: white; /* Set the hover color to be the same as the normal color */
-    }
+        .main-content {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(128, 128, 128, 0.5);
+          -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+          padding:5px;
+        }
+
+        .main-content h1 {
+            font-size: 50px;
+        }
+
+        .main-content a {
+            display: inline-block;
+            padding: 10px 30px;
+            font-size: 24px;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .main-content a:hover {
+            background-color: darkred;
+            transform: scale(1.05);
+        }
+        /* .card2 {
+          background-color: rgba(121, 121, 121, 0.114);
+          -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+          padding: 50px;
+          text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        } */
   </style>
 </head>
 <body class="background-image"> <!-- Apply background class to the body -->
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <div class="navbar">
-          <a class="navbar-brand" href="#">Welcome to Chess Connect!</a>
-          <p>Find your queen.</p>
-          <ul class="navbar-nav ml-auto">
-            <!-- Add the login link without custom class -->
-            <li class="nav-item">
-              <a class="nav-link" href="login/login.php">Login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+<div class="navbar">
+        <a class="navbar-brand" href="#">Chess Connect</a>
+        <a class="nav-link" href="login/login.php">Login</a>
     </div>
-  </div>
+    <!-- <div class="card1"> -->
+      
+      <div class="main-content">
+          <h1>Welcome to Chess Connect!</h1>
+          <p>Find your queen.</p>
+          <a href="login/login.php">Login Now</a>
+      </div>
+  <!-- </div> -->
 </body>
 </html>
