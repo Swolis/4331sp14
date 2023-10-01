@@ -45,26 +45,55 @@ $userDetails = [
     <meta charset="UTF-8">
     <title>User Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "../css/main.css" rel="stylesheet">
+    <style>
+        .background-color {
+            background-color: rgba(128, 128, 128, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                VANTA.BIRDS({
+                    el: "#vanta-canvas",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    backgroundColor: 0xfae7e7,
+                    color1: 0x221d1d,
+                    color2: 0x131416
+                    
+                })
+            });
+        </script>
 </head>
     <body>
-        <!-- Navigation Bar should be placed at the top so have it be the first thing in the body -->
+    <div id="vanta-canvas">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-                <a class="navbar-brand" href="#">Chess Connect</a>
-                <div class="navbar">
+            <a class="navbar-brand" href="#">Chess Connect</a>
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="../login/login.php">Sign Out</a>
+                        <a class="nav-link" href="../login/login.php">Sign Out</a>
                     </li>
                 </ul>
-                </div>
-            </nav>
+            </div>
         </div>
+    </nav>
         <!--end of nav-->
     <!--beginning of the users profile info -->
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-8 offset-md-2 background-color">
                     <h2>User Profile</h2>
                     <table class="table table-bordered">
                         <tr>
@@ -109,66 +138,72 @@ $userDetails = [
             </div>
         </div>
         <!--end of the users profile info-->
+        <div class="container mt-5">
+            <h3>Your Contacts</h3>
+            <div class="background-color p-3">
+            
+                <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Country</th>
+                        <th>Chess Rating</th>
+                        <th>Favorite Opening</th>
+                        <th>Title</th>
+                        <th>Address</th>
+                        <!-- Add other fields as necessary -->
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <?php foreach ($contacts as $contact): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($contact["name"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["email"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["country"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["title"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["address"]??''); ?></td>
+                        <td><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
+                        <!-- Output other fields as necessary -->
+                        <td>
+                            <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
+                            <a href="edit.php?id=<?php echo $contact["id"]; ?>">Edit</a>
+                            <!-- Add delete button -->
+                            <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+                </table>
+            </div>
+        </div>
         
-        <h3>Your Contacts</h3>
-        <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Country</th>
-                <th>Chess Rating</th>
-                <th>Favorite Opening</th>
-                <th>Title</th>
-                <th>Address</th>
-                <!-- Add other fields as necessary -->
-                <th>Notes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($contacts as $contact): ?>
-            <tr>
-                <td><?php echo htmlspecialchars($contact["name"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["email"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["country"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["title"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["address"]??''); ?></td>
-                <td><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
-                <!-- Output other fields as necessary -->
-                <td>
-                    <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
-                    <a href="edit.php?id=<?php echo $contact["id"]; ?>">Edit</a>
-                    <!-- Add delete button -->
-                    <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-        </table>
+        <div class="container mt-5">
+            <h3>Create a new contact</h3>
+            <form action="create.php" method="POST" class="background-color p-3">
+               
+                    <input type="text" name="name" placeholder="Name" required>
+                
+                
+                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="phone" placeholder="Phone">
+                <input type="text" name="country" placeholder="Country">
+                <input type="number" name="chessRating" placeholder="Chess Rating">
+                <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
+                <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
+                <button type="submit" class="btn btn-danger m-1">Create</button>
+            </form>
+        </div>
+        
 
-        <h3>Create a new contact</h3>
-        <form action="create.php" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="phone" placeholder="Phone">
-            <input type="text" name="country" placeholder="Country">
-            <input type="number" name="chessRating" placeholder="Chess Rating">
-            <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
-            <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
-            <button type="submit">Create</button>
-        </form>
-
-        <h3>Delete a contact</h3>
-        <form action="delete.php" method="GET">
-            <input type="text" name="id" placeholder="Enter Contact ID to Delete" required>
-            <button type="submit">Delete</button>
-        </form>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        </div>
     </body>
 </html>

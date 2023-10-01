@@ -28,7 +28,13 @@
         .signup-text {
             text-align: center; /* Horizontal alignment */
             margin-top: 15px; /* Adjust the margin as needed */
+            
         }
+        .signup-text a {
+            /* background-color: rgba(121, 121, 121, 0.414); */
+            font-size: 30px;
+        }
+
     </style>
 </head>
 <body class="background-image2"> <!-- Apply background class to the body -->   
