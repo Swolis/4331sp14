@@ -26,6 +26,9 @@
         $stmt->bind_param("isssssss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         $stmt->execute();
         
+        $stmt->close();
+    $conn->close();
+   header("Location: ../profile/");
     }
 
 ?>
