@@ -23,6 +23,18 @@
         <!--end of nav-->
 
     <div class="container">
+         <?php
+            $username = "";
+            $password = "";
+            $firstName ="";
+            $lastName = "";
+            $email = "";
+            $phone = "";
+            $country = "";
+            $chessRating = 0;
+            $favoriteOpening = "";
+            $title = "";
+?php>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card mt-5">
@@ -35,39 +47,39 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password" class="form-control" id="password" name="password"value="<?php echo $password ?>" required>
                             </div>
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName">
+                                <input type="text" class="form-control" id="firstName" name="firstName"value="<?php echo $firstName ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName">
+                                <input type="text" class="form-control" id="lastName" name="lastName"value="<?php echo $firstName ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email"value="<?php echo $email ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone">
+                                <input type="text" class="form-control" id="phone" name="phone"value="<?php echo $phone ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="country" class="form-label">Country</label>
-                                <input type="text" class="form-control" id="country" name="country">
+                                <input type="text" class="form-control" id="country" name="country"value="<?php echo $country?>>
                             </div>
                             <div class="mb-3">
                                 <label for="chessRating" class="form-label">Chess Rating</label>
-                                <input type="number" class="form-control" id="chessRating" name="chessRating">
+                                <input type="number" class="form-control" id="chessRating" name="chessRating"value="<?php echo $chessRating ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="favoriteOpening" class="form-label">Favorite Opening</label>
-                                <input type="text" class="form-control" id="favoriteOpening" name="favoriteOpening">
+                                <input type="text" class="form-control" id="favoriteOpening" name="favoriteOpening"<?php echo $favoriteOpening ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="title" name="title">
+                                <input type="text" class="form-control" id="title" name="title""value="<?php echo $title ?>">
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
                             <button type="submit" class="btn btn-primary">Register</button>
