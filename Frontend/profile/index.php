@@ -173,6 +173,21 @@ $userDetails = [
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
                             <button type = "submit" id = "edit-button">Edit</button>
+                            <script>
+                                const paragraph = document.getElementById("edit");
+                                const edit_button = document.getElementById("edit-button");
+                                const end_button = document.getElementById("end-editing");
+
+                                edit_button.addEventListener("click", function() {
+                                paragraph.contentEditable = true;
+                                paragraph.style.backgroundColor = "#dddbdb";
+                                } );
+
+                                end_button.addEventListener("click", function() {
+                                paragraph.contentEditable = false;
+                                paragraph.style.backgroundColor = "#ffe44d";
+                                } );
+                            </script>
                             <a href = "edit.php?id=<?php echo $contact["id"]; ?><button type= "submit" id = "end-editing">Done</button></a>
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
