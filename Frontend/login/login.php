@@ -50,7 +50,7 @@
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
                     </div>
-                    <p class="signup-text">Don't have an account? <a href="../register">Register</a></p>
+                    <p class="signup-text">Don't have an account? <a href="../register/register.php">Register</a></p>
                 </div>
             </div>
         </div>
