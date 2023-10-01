@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $stmt = $conn->prepare("DELETE FROM contacts WHERE id = ?");
         $stmt->bind_param("i", $id);  // Assuming 'id' is an integer
         $stmt->execute();
-        header("Location: https://chessconnect.xyz/profile/")
+        header("Location: https://chessconnect.xyz/profile")
 
     }
     
