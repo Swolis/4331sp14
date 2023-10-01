@@ -160,21 +160,22 @@ $userDetails = [
                 <tbody >
                     <?php foreach ($contacts as $contact): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($contact["name"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["email"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["country"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["title"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["address"]??''); ?></td>
-                        <td><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["title"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["address"]??''); ?></td>
+                        <td id = "edit"><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
                         <!-- Output other fields as necessary -->
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
-                           <button name="subject" type="submit" value="Edit">Edit</button>
+                            <button type = "submit" id = "edit-button">Edit</button>
+                            <a href = "edit.php?id=<?php echo $contact["id"]; ?><button type= "submit" id = "end-editing">Done</button></a>
                             <!-- Add delete button -->
-                            <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</a>
+                            <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
