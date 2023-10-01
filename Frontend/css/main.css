@@ -1,4 +1,4 @@
-/* Define the falling animation */
+
 @keyframes falling {
     from {
       transform: translateY(-100vh);
@@ -43,3 +43,31 @@
     background-color: lightgreen;
   }
   
+.background-image {
+  background-image: url('image.jpg'); /* Replace 'your-image-url.jpg' with the actual URL of your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff; /* Adjust text color for readability */
+  margin: 0; /* Remove default margin for body element */
+  padding: 0; /* Remove default padding for body element */
+}
+
+.background-image2 {
+  background-image: url('ChessBoardMarble.png'); /* Replace 'your-image-url.jpg' with the actual URL of your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff; /* Adjust text color for readability */
+  margin: 0; /* Remove default margin for body element */
+  padding: 0; /* Remove default padding for body element */
+}
+
+.card {
+  background-color: rgba(121, 121, 121, 0.114);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  padding: 50px;
+}
