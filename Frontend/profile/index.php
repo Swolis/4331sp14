@@ -172,8 +172,7 @@ $userDetails = [
                         <!-- Output other fields as necessary -->
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
-                            <button name="Edit" type="switch" value="Edit" <button/>
-                            <label for="switch" class="toggle"></label>
+                           <button name="subject" type="submit" value="Edit">HTML</button>
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');">Delete</a>
                         </td>
