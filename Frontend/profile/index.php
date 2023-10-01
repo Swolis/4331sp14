@@ -160,35 +160,61 @@ $userDetails = [
                 <tbody >
                     <?php foreach ($contacts as $contact): ?>
                     <tr>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["title"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["address"]??''); ?></td>
-                        <td id = "edit"><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
+                        <td id = "edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
+                        <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
+                        <td id = "edit-phone"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
+                        <td id = "edit-country"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
+                        <td id = "edit-rating"><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
+                        <td id = "edit-opening"><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
+                        <td id = "edit-title"><?php echo htmlspecialchars($contact["title"]??''); ?></td>
+                        <td id = "edit-address"><?php echo htmlspecialchars($contact["address"]??''); ?></td>
+                        <td id = "edit-notes"><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
                         <!-- Output other fields as necessary -->
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
                             <button type = "submit" id = "edit-button">Edit</button>
                             <script>
-                                const paragraph = document.getElementById("edit");
+                                const name = document.getElementById("edit-name");
+                                const email = document.getElementById("edit-email");
+                                const phone = document.getElementById("edit-phone");
+                                const country = document.getElementById("edit-country");
+                                const rating = document.getElementById("edit-rating");
+                                const opening = document.getElementById("edit-opening");
+                                const title = document.getElementById("edit-title");
+                                const address = document.getElementById("edit-address");
+                                const notes = document.getElementById("edit-notes");
+
                                 const edit_button = document.getElementById("edit-button");
                                 const end_button = document.getElementById("end-editing");
 
                                 edit_button.addEventListener("click", function() {
-                                paragraph.contentEditable = true;
+                                name.contentEditable = true;
+                                email.contentEditable = true;
+                                phone.contentEditable = true;
+                                country.contentEditable = true;
+                                rating.contentEditable = true;
+                                opening.contentEditable = true;
+                                title.contentEditable = true;
+                                address.contentEditable = true;
+                                notes.contentEditable = true;
                                 paragraph.style.backgroundColor = "#dddbdb";
                                 } );
 
                                 end_button.addEventListener("click", function() {
-                                paragraph.contentEditable = false;
+                                    name.contentEditable = false;
+                                email.contentEditable = false;
+                                phone.contentEditable = false;
+                                country.contentEditable = false;
+                                rating.contentEditable = false;
+                                opening.contentEditable = false;
+                                title.contentEditable = false;
+                                address.contentEditable = false;
+                                notes.contentEditable = false;
                                 paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
-                            <a href = "edit.php?id=<?php echo $contact["id"]; ?><button type= "submit" id = "end-editing">Done</button></a>
+                            <a href = "edit.php?id=<?php echo $contact["id"]; ?>"><button type= "submit" id = "end-editing">Done</button></a>
+
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
                         </td>
