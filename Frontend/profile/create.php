@@ -25,10 +25,10 @@
         $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("isssssss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         $stmt->execute();
-        
+         header("Location: chessconnect.xyz/profile/index.php");}
         $stmt->close();
     $conn->close();
-   header("Location: chessconnect.xyz/profile/index.php");
-    }
+  
+    
 
 ?>
