@@ -202,23 +202,23 @@ $userDetails = [
 
                                 end_button.addEventListener("click", function() {
                                     ename.contentEditable = false;
-                                    <?php $contact["name"]=ename; ?>
+                                   
                                     eemail.contentEditable = false;
-                                    <?php $contact["email"]=eemail; ?>
+                              
                                     ephone.contentEditable = false;
-                                    <?php $contact["phone"]=ephone; ?>
+                               
                                     ecountry.contentEditable = false;
-                                    <?php $contact["country"]=ecountry; ?>
+                                 
                                     erating.contentEditable = false;
-                                    <?php $contact["rating"]=erating; ?>
+                                   
                                     eopening.contentEditable = false;
-                                    <?php $contact["opening"]=eopening; ?>
+                              
                                     etitle.contentEditable = false;
-                                    <?php $contact["title"]=etitle; ?>
+                                   
                                     eaddress.contentEditable = false;
-                                    <?php $contact["eaddress"]=eaddress; ?>
+                                   
                                     enotes.contentEditable = false;
-                                    //<?php $contact["ecountry"]=ecountry; ?>
+                                  
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
