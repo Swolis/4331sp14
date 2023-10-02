@@ -56,7 +56,7 @@ $userDetails = [
     <!--script code for live editing of sql database-->
     <script>
         function saveText(sid){
-            console.log('saveText called correctly' + sid);
+            console.log('saveText called correctly', sid);
             var xr = new XMLHttpRequest();
             var url = "edit.php";
             var hid = sid;
@@ -82,9 +82,8 @@ $userDetails = [
             var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
             xr.open ("POST", url, true);
             xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            console.log('vars is ' + vars);
+            console.log('vars is ', vars);
             xr.send(vars);
-
             }
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
@@ -217,7 +216,7 @@ $userDetails = [
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
                             <button type = "submit" id = "edit-button">Edit</button>
-                            <button type = "submit" id = "end-editing" onclick="saveText(<?php echo $contact['id']; ?>)">Done</button>
+                            <button type = "submit" id = "end-editing">Done</button>
                             <script>
                                 var ename = document.getElementById("edit-name");
                                 var eemail = document.getElementById("edit-email");
@@ -247,23 +246,16 @@ $userDetails = [
 
                                 end_button.addEventListener("click", function() {
                                     ename.contentEditable = false;
-                                   
                                     eemail.contentEditable = false;
-                              
                                     ephone.contentEditable = false;
-                               
                                     ecountry.contentEditable = false;
-                                 
                                     erating.contentEditable = false;
-                                   
                                     eopening.contentEditable = false;
-                              
                                     etitle.contentEditable = false;
-                                   
                                     eaddress.contentEditable = false;
-                                   
                                     enotes.contentEditable = false;
-                                  
+                                    
+                                    saveText(<?php echo $contact['id']; ?>);
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
