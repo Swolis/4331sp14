@@ -168,7 +168,8 @@ $userDetails = [
                             $index++;
                         endforeach; 
                     ?>
-                    <?php foreach ($contArray as $contact): ?>
+                    <?php foreach ($contArray as $contact): 
+                        $cid = $contact['id']?>
                     <tr>
                         <td id = "edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
                         <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
@@ -185,11 +186,10 @@ $userDetails = [
                             <button type = "submit" id = "edit-button">Edit</button>
                             <!--script code for live editing of sql database-->
                             <script>
-                                function saveText(){
+                                function saveText(id){
                                     var xr = new XMLHttpRequest();
                                     var url = "edit.php";
-                                    const hid = "<?php echo '$contact["id"];'?>";
-                                    alert(hid);
+                                    var hid = id;
                                     var vid = "id=" + hid;
                                     var hname = document.getElementById("edit-name").innerHTML;
                                     var vname = "newName=" + hname;
@@ -216,7 +216,7 @@ $userDetails = [
 
                                 }
                             </script>
-                            <button type="submit" id="end-editing" onclick="saveText()">Done</button>
+                            <button type="submit" id="end-editing" onclick="saveText(<?php echo $contact['id'] ?>)">Done</button>
                             <script>
                                 var ename = document.getElementById("edit-name");
                                 var eemail = document.getElementById("edit-email");
