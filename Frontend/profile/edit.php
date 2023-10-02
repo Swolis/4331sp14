@@ -1,4 +1,3 @@
-<script>console.log("in the beginning");</script>
 <?php
 // Connect to the database
     echo "pain";
@@ -12,7 +11,7 @@
         }
         echo "hi";
         // Prepare a SQL statement to insert the new user
-        
+        if(isset($_SESSION['user_id'])) {
         $id = $_GET['id'];
             echo $id;
         $name = $_POST['newName'];
@@ -42,6 +41,6 @@
         $stmt->close();
         $conn->close();
         header("Location: ../profile/");
-        
+        }
     }
 ?>
