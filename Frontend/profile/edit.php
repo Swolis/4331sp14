@@ -23,7 +23,7 @@ echo "hi";
         $title = $_POST['newTitle'];
         $address = $_POST['newAddress'];
 
-        $stmt = $conn->prepare("UPDATE contacts SET name = ".$name.", email = ".$email.", phone=".$phone.", country=".$country.", chess_rating=".$chessRating.", favorite_opening=".$favoriteOpening.", title=".$title.", address=".$address.", notes=".$notes." WHERE id =".$id.);
+        $stmt = $conn->prepare("UPDATE contacts SET name = "$name", email = "$email", phone="$phone", country="$country", chess_rating="$chessRating", favorite_opening="$favoriteOpening", title="$title", address="$address", notes="$notes" WHERE id ="$id);
             //$stmt->bind_param("i", $id);  // Assuming 'id' is an integer
         $stmt->execute();
             
