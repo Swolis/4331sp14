@@ -1,5 +1,6 @@
 <?php
 // Connect to the database
+    echo "pain";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
@@ -8,7 +9,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-echo "hi";
+        echo "hi";
         // Prepare a SQL statement to insert the new user
         if(isset($_SESSION['user_id'])) {
         $id = $_POST['id'];
