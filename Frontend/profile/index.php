@@ -192,6 +192,8 @@ $userDetails = [
                                     var hid = sid;
                                     var vid = "id=" + hid;
                                     var hname = document.getElementById("edit-name").innerHTML;
+                                    console.log(hname);
+                                    console.log(document.getElementById("edit-name"))
                                     var vname = "newName=" + hname;
                                     var hemail = document.getElementById("edit-email").innerHTML;
                                     var vemail = "newEmail=" + hemail;
