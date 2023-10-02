@@ -1,6 +1,7 @@
 <?php
 // Connect to the database
     echo "pain";
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
@@ -40,7 +41,7 @@ echo "hi";
         // Close the connection
         $stmt->close();
         $conn->close();
-        header("Location: ../profile/");
+        //header("Location: ../profile/");
         }
     }
 ?>
