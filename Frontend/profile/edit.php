@@ -1,4 +1,4 @@
-o<?php
+<?php
 // Connect to the database
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
