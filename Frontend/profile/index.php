@@ -189,6 +189,7 @@ $userDetails = [
                                     var xr = new XMLHttpRequest();
                                     var url = "edit.php";
                                     const hid = "<?php echo '$contact["id"];'?>";
+                                    alert(hid);
                                     var vid = "id=" + hid;
                                     var hname = document.getElementById("edit-name").innerHTML;
                                     var vname = "newName=" + hname;
