@@ -202,14 +202,23 @@ $userDetails = [
 
                                 end_button.addEventListener("click", function() {
                                     ename.contentEditable = false;
+                                   
                                     eemail.contentEditable = false;
+                              
                                     ephone.contentEditable = false;
+                               
                                     ecountry.contentEditable = false;
+                                 
                                     erating.contentEditable = false;
+                                   
                                     eopening.contentEditable = false;
+                              
                                     etitle.contentEditable = false;
+                                   
                                     eaddress.contentEditable = false;
+                                   
                                     enotes.contentEditable = false;
+                                  
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
 
