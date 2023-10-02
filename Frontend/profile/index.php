@@ -212,7 +212,7 @@ $userDetails = [
                                     var hnotes = document.getElementById("edit-notes").innerHTML;
                                     var vnotes = "newNotes=" + hnotes;
                                     var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
-                                    xr.open ("POST", url, true);
+                                    //xr.open ("POST", url, true);
                                     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                                     console.log('vars is ', vars);
                                     xr.send(vars);
