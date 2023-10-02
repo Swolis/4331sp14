@@ -172,7 +172,7 @@ $userDetails = [
                     <?php foreach ($contArray as $contact): 
                         $cid = $contact['id']?>
                     <tr>
-                        <td id = "edit-name"><?php echo $contact["name"]??''; ?></td>
+                        <td id = "edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
                         <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
                         <td id = "edit-phone"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
                         <td id = "edit-country"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
