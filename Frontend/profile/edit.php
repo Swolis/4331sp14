@@ -19,14 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Prepare a SQL statement to insert the new user
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-        $name = $dochtml->getElementById('edit-name');
-        echo $name;
-        $email = $dochtml->getElementById('edit-email');
-        $phone = $dochtml->getElementById('edit-phone');
-        $country = $dochtml->getElementById('edit-country');
-        $chessRating = $dochtml->getElementById('edit-rating');
-        $favoriteOpening = $dochtml->getElementById('edit-opening');
-        $title = $dochtml->getElementById('edit-title');
+        $name = $dochtml->getElementById("edit-name");
+        $email = $dochtml->getElementById("edit-email");
+        $phone = $dochtml->getElementById("edit-phone");
+        $country = $dochtml->getElementById("edit-country");
+        $chessRating = $dochtml->getElementById("edit-rating");
+        $favoriteOpening = $dochtml->getElementById("edit-opening");
+        $title = $dochtml->getElementById("edit-title");
 
         $stmt = $conn->prepare("UPDATE contacts WHERE id = ?");
         $stmt->bind_param("issssiss", $id,$email,$phone,$country,$chessRating,$favoriteOpening,$title);  // Assuming 'id' is an integer
