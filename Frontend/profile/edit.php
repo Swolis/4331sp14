@@ -14,6 +14,7 @@
         $id = $_GET['id'];
             echo $id;
         $name = $_GET['newName'];
+            echo $name;
         $email = $_GET['newEmail'];
         $phone = $_GET['newPhone'];
         $country = $_GET['newCountry'];
