@@ -1,7 +1,7 @@
 <?php
 // Connect to the database
 print "hi";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   /* if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
 
@@ -42,5 +42,5 @@ echo "hi";
         $conn->close();
         header("Location: https://chessconnect.xyz/profile/");
         }
-    }
+    }*/
 ?>
