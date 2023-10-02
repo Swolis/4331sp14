@@ -39,8 +39,8 @@ echo "hi";
     
 
         // Close the connection
-        $stmt->close();
-        $conn->close();
+        //$stmt->close();
+        //$conn->close();
         //header("Location: ../profile/");
         }
     }
