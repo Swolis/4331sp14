@@ -11,18 +11,18 @@ o<?php
 echo "hi";
         // Prepare a SQL statement to insert the new user
         if(isset($_SESSION['user_id'])) {
-        $id = $_GET['id'];
+        $id = $_POST['id'];
             echo $id;
-        $name = $_GET['newName'];
+        $name = $_POST['newName'];
             echo $name;
-        $email = $_GET['newEmail'];
-        $phone = $_GET['newPhone'];
-        $country = $_GET['newCountry'];
-        $chessRating = $_GET['newRating'];
-        $favoriteOpening = $_GET['newOpening'];
-        $title = $_GET['newTitle'];
-        $address = $_GET['newAddress'];
-        $notes = $_GET['newNotes'];
+        $email = $_POST['newEmail'];
+        $phone = $_POST['newPhone'];
+        $country = $_POST['newCountry'];
+        $chessRating = $_POST['newRating'];
+        $favoriteOpening = $_POST['newOpening'];
+        $title = $_POST['newTitle'];
+        $address = $_POST['newAddress'];
+        $notes = $_POST['newNotes'];
 
         $stmt = $conn->prepare("UPDATE contacts SET name = ".$name.", email = ".$email.", phone=".$phone.", country=".$country.", chess_rating=".$chessRating.", favorite_opening=".$favoriteOpening.", title=".$title.", address=".$address.", notes=".$notes." WHERE id =".$id.);
             //$stmt->bind_param("i", $id);  // Assuming 'id' is an integer
