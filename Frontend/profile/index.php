@@ -188,7 +188,7 @@ $userDetails = [
                                 function saveText(){
                                     var xr = new XMLHttpRequest();
                                     var url = "edit.php";
-                                    var hid = "<?php echo "$contact['id'];"?>";
+                                    const hid = "<?php echo '$contact["id"];'?>";
                                     var vid = "id=" + hid;
                                     var hname = document.getElementById("edit-name").innerHTML;
                                     var vname = "newName=" + hname;
