@@ -73,6 +73,8 @@ $userDetails = [
                 })
             });
         </script>
+
+        
 </head>
     <body>
     <div id="vanta-canvas">
@@ -181,16 +183,49 @@ $userDetails = [
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
                             <button type = "submit" id = "edit-button">Edit</button>
+                            <!--script code for live editing of sql database-->
                             <script>
-                                const ename = document.getElementById("edit-name");
-                                const eemail = document.getElementById("edit-email");
-                                const ephone = document.getElementById("edit-phone");
-                                const ecountry = document.getElementById("edit-country");
-                                const erating = document.getElementById("edit-rating");
-                                const eopening = document.getElementById("edit-opening");
-                                const etitle = document.getElementById("edit-title");
-                                const eaddress = document.getElementById("edit-address");
-                                const enotes = document.getElementById("edit-notes");
+                                function saveText(){
+                                    var xr = new XMLHttpRequest();
+                                    var url = "edit.php";
+                                    var hid = alert("<?php echo $contact['id'];?>");
+                                    var vid = "id=" + hid;
+                                    var hname = document.getElementById("edit-name").innerHTML;
+                                    var vname = "newName=" + hname;
+                                    var hemail = document.getElementById("edit-email").innerHTML;
+                                    var vemail = "newEmail=" + hemail;
+                                    var hphone = document.getElementById("edit-phone").innerHTML;
+                                    var vphone = "newPhone=" + hphone;
+                                    var hcountry = document.getElementById("edit-country").innerHTML;
+                                    var vcountry = "newCountry=" + hcountry;
+                                    var hrating = document.getElementById("edit-rating").innerHTML;
+                                    var vrating = "newRating=" + hrating;
+                                    var hopening = document.getElementById("edit-opening").innerHTML;
+                                    var vopening = "newOpening=" + hopening;
+                                    var htitle = document.getElementById("edit-title").innerHTML;
+                                    var vtitle = "newTitle=" + htitle;
+                                    var haddress = document.getElementById("edit-address").innerHTML;
+                                    var vaddress = "newAddress=" + haddress;
+                                    var hnotes = document.getElementById("edit-notes").innerHTML;
+                                    var vnotes = "newNotes=" + hnotes;
+                                    var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
+                                    xr.open ("POST", url, true);
+                                    xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                    xr.send(vars);
+
+                                }
+                            </script>
+                            <button type="submit" id="end-editing" onclick="saveText()">Done</button>
+                            <script>
+                                var ename = document.getElementById("edit-name");
+                                var eemail = document.getElementById("edit-email");
+                                var ephone = document.getElementById("edit-phone");
+                                var ecountry = document.getElementById("edit-country");
+                                var erating = document.getElementById("edit-rating");
+                                var eopening = document.getElementById("edit-opening");
+                                var etitle = document.getElementById("edit-title");
+                                var eaddress = document.getElementById("edit-address");
+                                var enotes = document.getElementById("edit-notes");
 
                                 const edit_button = document.getElementById("edit-button");
                                 const end_button = document.getElementById("end-editing");
@@ -230,7 +265,6 @@ $userDetails = [
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
-                            <a href = "edit.php?id=<?php echo $contact['id'];?>"><button type="submit" id="end-editing">Done</button></a>
 
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>

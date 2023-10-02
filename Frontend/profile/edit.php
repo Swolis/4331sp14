@@ -1,10 +1,4 @@
 <?php
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-
-// Get the username, password, and additional user information from the form
-    
-
 // Connect to the database
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
 
@@ -16,16 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Prepare a SQL statement to insert the new user
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-        $name = $_GET['name'];
-        $email = $_GET['email'];
-        $phone = $_GET['phone'];
-        $country = $_GET['country'];
-        $chessRating = $_GET['rating'];
-        $favoriteOpening = $_GET['opening'];
-        $title = $_GET['title'];
+        $name = $_POST['newName'];
+        $email = $_POST['newEmail'];
+        $phone = $_POST['newPhone'];
+        $country = $_POST['newCountry'];
+        $chessRating = $_POST['newRating'];
+        $favoriteOpening = $_POST['newOpening'];
+        $title = $_POST['newTitle'];
+        $address = $_POST['newAddress'];
+        $notes = $_POST['newNotes'];
 
-        $stmt = $conn->prepare("UPDATE contacts WHERE id = ?");
-        $stmt->bind_param("issssiss", $id,$email,$phone,$country,$chessRating,$favoriteOpening,$title);  // Assuming 'id' is an integer
+        $stmt = $conn->prepare("UPDATE contacts SET name = '".$name."', email = '".$email."', phone='".$phone."', country='".$country."', chess_rating='".$chessRating."', favorite_opening='".$favoriteOpening."', title='".$title."', address='".$address."', notes='".$notes."' WHERE id = ?");
+        //$stmt->bind_param("issssiss", $id,$email,$phone,$country,$chessRating,$favoriteOpening,$title);  // Assuming 'id' is an integer
         $stmt->execute();
         
         
@@ -40,5 +36,4 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $stmt->close();
     $conn->close();
     header("Location: https://chessconnect.xyz/profile/");
-    }
 ?>
