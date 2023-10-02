@@ -14,10 +14,10 @@
         if(isset($_SESSION['user_id'])) {
            
         $id = $_POST['id'];
-           /*
-            echo $id;
+           
+            
         $name = $_POST['newName'];
-            echo $name;
+            /*
         $email = $_POST['newEmail'];
         $phone = $_POST['newPhone'];
         $country = $_POST['newCountry'];
