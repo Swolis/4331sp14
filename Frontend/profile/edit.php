@@ -38,9 +38,9 @@ session_start();
     
 
         // Close the connection
-        //$stmt->close();
-        //$conn->close();
-        //header("Location: ../profile/");
+        $stmt->close();
+        $conn->close();
+        header("Location: ../profile/");
         }
     }
 ?>
