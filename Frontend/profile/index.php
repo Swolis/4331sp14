@@ -216,7 +216,7 @@ $userDetails = [
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
                             <button type = "submit" id = "edit-button">Edit</button>
-                            <button type="submit" id="end-editing" onclick="saveText(<?php echo $contact['id'] ?>)">Done</button>
+                            <button type="submit" id="end-editing" onclick="saveText(<?php echo $contact['id']; ?>)">Done</button>
                             <script>
                                 var ename = document.getElementById("edit-name");
                                 var eemail = document.getElementById("edit-email");
