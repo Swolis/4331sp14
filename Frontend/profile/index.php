@@ -212,8 +212,18 @@ $userDetails = [
                                     enotes.contentEditable = false;
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
+
+                                var uname = document.getElementById("edit-name").innerHTML;
+                                var uemail = document.getElementById("edit-email").innerHTML;
+                                var uphone = document.getElementById("edit-phone").innerHTML;
+                                var ucountry = document.getElementById("edit-country").innerHTML;
+                                var urating = document.getElementById("edit-rating").innerHTML;
+                                var uopening = document.getElementById("edit-opening".innerHTML;
+                                var utitle = document.getElementById("edit-title").innerHTML;
+                                var uaddress = document.getElementById("edit-address").innerHTML;
+                                var unotes = document.getElementById("edit-notes").innerHTML;
                             </script>
-                            <a href = "edit.php" onclick="location.href=this.href+'?id=<?php echo $contact['id'];?>'+'&name='+ename+'&email='+eemail+'&phone='+ephone+'&country='+ecountry+'&rating='+erating+'&opening='+eopening+'&title='+etitle+'&address='+eaddress+'&notes='+enotes"><button type="submit" id="end-editing">Done</button></a>
+                            <a href = "edit.php?id=<?php echo $contact['id'];?>&name=<?php echo $uname;?>&email=<?php echo $uemail;?>&phone=<?php echo $uphone;?>&country=<?php echo $ucountry;?>&rating=<?php echo $urating;?>&opening=<?php echo $uopening;?>&title=<?php echo $utitle;?>&address=<?php echo $uaddress;?>&notes=<?php echo $unotes;?>"><button type="submit" id="end-editing">Done</button></a>
 
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
