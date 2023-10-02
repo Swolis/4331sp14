@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     
 
 // Connect to the database
-    $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
+   /* $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
 
     // Check the connection
     if ($conn->connect_error) {
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     // Close the connection
     $stmt->close();
-    $conn->close();
+    $conn->close();*/
    header("Location: ../profile/");
     }
 ?>
