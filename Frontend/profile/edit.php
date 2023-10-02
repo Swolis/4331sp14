@@ -8,8 +8,8 @@
     }
 
     // Prepare a SQL statement to insert the new user
-    if(isset($_GET['id'])) {
-        $id = $_GET['id'];
+    //if(isset($_GET['id'])) {
+        $id = $_POST['id'];
         $name = $_POST['newName'];
         $email = $_POST['newEmail'];
         $phone = $_POST['newPhone'];
@@ -26,7 +26,7 @@
         
         
 
-    }
+    //}
     
 
     // Execute the statement
