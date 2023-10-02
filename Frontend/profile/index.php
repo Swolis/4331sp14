@@ -213,7 +213,7 @@ $userDetails = [
                                     paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
-                            <a href = "edit.php?id=<?php echo $contact["id"]; ?>&name=<?php echo getElementById("edit-name")?>&email=edit-email&phone=edit-phone&country=edit-country&rating=edit-rating&opening=edit-opening&title=edit-title&address=edit-address&notes=edit-notes"><button type= "submit" id = "end-editing">Done</button></a>
+                            <a href = "edit.php?id=<?php echo $contact["id"]; ?>&name=<?php echo getElementById("edit-name"); ?>&email=edit-email&phone=edit-phone&country=edit-country&rating=edit-rating&opening=edit-opening&title=edit-title&address=edit-address&notes=edit-notes"><button type= "submit" id = "end-editing">Done</button></a>
 
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
