@@ -172,7 +172,7 @@ $userDetails = [
                     <?php foreach ($contArray as $contact): 
                         $cid = $contact['id']?>
                     <tr>
-                        <td id = "edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
+                        <td id = "edit-name"><?php echo $contact["name"]??''; ?></td>
                         <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
                         <td id = "edit-phone"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
                         <td id = "edit-country"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
@@ -193,7 +193,7 @@ $userDetails = [
                                     var vid = "id=" + hid;
                                     var hname = document.getElementById("edit-name").innerHTML;
                                     console.log(hname);
-                                    console.log(document.getElementById("edit-name"))
+                                    console.log(document.getElementById("edit-name").innerHTML);
                                     var vname = "newName=" + hname;
                                     var hemail = document.getElementById("edit-email").innerHTML;
                                     var vemail = "newEmail=" + hemail;
