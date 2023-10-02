@@ -188,7 +188,7 @@ $userDetails = [
                                 function saveText(sid){
                                     console.log('saveText called correctly', sid);
                                     var xr = new XMLHttpRequest();
-                                    var url = "/edit.php";
+                                    var url = "edit.php";
                                     var hid = sid;
                                     var vid = "id=" + hid;
                                     var hname = document.getElementById("edit-name").innerHTML;
