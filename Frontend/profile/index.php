@@ -172,6 +172,7 @@ $userDetails = [
                     <?php foreach ($contArray as $contact): 
                         $cid = $contact['id']?>
                     <tr>
+                        <td id ="edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
                         <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
                         <td id = "edit-phone"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
                         <td id = "edit-country"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
@@ -274,9 +275,7 @@ $userDetails = [
             <h3>Create a new contact</h3>
             <form action="create.php" method="POST" class="background-color p-3">
                
-                    <input type="text" name="name" placeholder="Name" required>
-                
-                
+                <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email">
                 <input type="text" name="phone" placeholder="Phone">
                 <input type="text" name="country" placeholder="Country">
