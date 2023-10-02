@@ -1,3 +1,4 @@
+<script>console.log("in the beginning");</script>
 <?php
 // Connect to the database
     echo "pain";
