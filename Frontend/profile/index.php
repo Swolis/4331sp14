@@ -230,8 +230,8 @@ $userDetails = [
                                 var eaddress = document.getElementById("edit-address");
                                 var enotes = document.getElementById("edit-notes");
 
-                                const edit_button = document.getElementById("edit-button");
-                                const end_button = document.getElementById("end-editing");
+                                var edit_button = document.getElementById("edit-button");
+                                var end_button = document.getElementById("end-editing");
 
                                 edit_button.addEventListener("click", function() {
                                     ename.contentEditable = true;
