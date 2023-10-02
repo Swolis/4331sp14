@@ -158,7 +158,15 @@ $userDetails = [
                     </tr>
                 </thead>
                 <tbody >
-                    <?php foreach ($contacts as $contact): ?>
+                    <?php
+                        $index = 0;
+                        $contArray = array();
+                        foreach ($contacts as $cont):
+                            $contArray[$index] = $cont;
+                            $index++;
+                        endforeach; 
+                    ?>
+                    <?php foreach ($contArray as $contact): ?>
                     <tr>
                         <td id = "edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
                         <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
@@ -222,7 +230,7 @@ $userDetails = [
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
-                            <a href = "edit.php?id=<?php echo $contact['id'];?>&name=<?php echo $ename;?>&email=<?php echo $eemail;?>&phone=<?php echo $ephone;?>&country=<?php echo $ecountry;?>&rating=<?php echo $erating;?>&opening=<?php echo $eopening;?>&title=<?php echo $etitle;?>&address=<?php echo $eaddress;?>&notes=<?php echo $enotes;?>"><button type="submit" id="end-editing">Done</button></a>
+                            <a href = "edit.php?id=<?php echo $contact['id'];?>&name=<?php echo $ename.innerHTML;?>&email=<?php echo $eemail;?>&phone=<?php echo $ephone;?>&country=<?php echo $ecountry;?>&rating=<?php echo $erating;?>&opening=<?php echo $eopening;?>&title=<?php echo $etitle;?>&address=<?php echo $eaddress;?>&notes=<?php echo $enotes;?>"><button type="submit" id="end-editing">Done</button></a>
 
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
