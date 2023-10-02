@@ -13,16 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         die("Connection failed: " . $conn->connect_error);
     }
 
+    $dochtml = new DOMDocument();
+    $dochtml->loadHTMLFile('index.php');
+
     // Prepare a SQL statement to insert the new user
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-        $name = $_GET['name'];
-        $email = $_GET['email'];
-        $phone = $_GET['phone'];
-        $country = $_GET['country'];
-        $chessRating = $_GET['chessRating'];
-        $favoriteOpening = $_GET['favoriteOpening'];
-        $title = $_GET['title'];
+        $name = $dochtml->getElementById('edit-name');
+        $email = $dochtml->getElementById('edit-email');
+        $phone = $dochtml->getElementById('edit-phone');
+        $country = $dochtml->getElementById('edit-country');
+        $chessRating = $dochtml->getElementById('edit-rating');
+        $favoriteOpening = $dochtml->getElementById('edit-opening');
+        $title = $dochtml->getElementById('edit-title');
 
         $stmt = $conn->prepare("UPDATE contacts WHERE id = ?");
         $stmt->bind_param("issssiss", $id,$email,$phone,$country,$chessRating,$favoriteOpening,$title);  // Assuming 'id' is an integer

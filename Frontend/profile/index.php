@@ -174,46 +174,46 @@ $userDetails = [
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
                             <button type = "submit" id = "edit-button">Edit</button>
                             <script>
-                                const name = document.getElementById("edit-name");
-                                const email = document.getElementById("edit-email");
-                                const phone = document.getElementById("edit-phone");
-                                const country = document.getElementById("edit-country");
-                                const rating = document.getElementById("edit-rating");
-                                const opening = document.getElementById("edit-opening");
-                                const title = document.getElementById("edit-title");
-                                const address = document.getElementById("edit-address");
-                                const notes = document.getElementById("edit-notes");
+                                const ename = document.getElementById("edit-name");
+                                const eemail = document.getElementById("edit-email");
+                                const ephone = document.getElementById("edit-phone");
+                                const ecountry = document.getElementById("edit-country");
+                                const erating = document.getElementById("edit-rating");
+                                const eopening = document.getElementById("edit-opening");
+                                const etitle = document.getElementById("edit-title");
+                                const eaddress = document.getElementById("edit-address");
+                                const enotes = document.getElementById("edit-notes");
 
                                 const edit_button = document.getElementById("edit-button");
                                 const end_button = document.getElementById("end-editing");
 
                                 edit_button.addEventListener("click", function() {
-                                    name.contentEditable = true;
-                                    email.contentEditable = true;
-                                    phone.contentEditable = true;
-                                    country.contentEditable = true;
-                                    rating.contentEditable = true;
-                                    opening.contentEditable = true;
-                                    title.contentEditable = true;
-                                    address.contentEditable = true;
-                                    notes.contentEditable = true;
-                                    paragraph.style.backgroundColor = "#dddbdb";
+                                    ename.contentEditable = true;
+                                    eemail.contentEditable = true;
+                                    ephone.contentEditable = true;
+                                    ecountry.contentEditable = true;
+                                    erating.contentEditable = true;
+                                    eopening.contentEditable = true;
+                                    etitle.contentEditable = true;
+                                    eaddress.contentEditable = true;
+                                    enotes.contentEditable = true;
+                                    //paragraph.style.backgroundColor = "#dddbdb";
                                 } );
 
                                 end_button.addEventListener("click", function() {
-                                    name.contentEditable = false;
-                                    email.contentEditable = false;
-                                    phone.contentEditable = false;
-                                    country.contentEditable = false;
-                                    rating.contentEditable = false;
-                                    opening.contentEditable = false;
-                                    title.contentEditable = false;
-                                    address.contentEditable = false;
-                                    notes.contentEditable = false;
-                                    paragraph.style.backgroundColor = "#ffe44d";
+                                    ename.contentEditable = false;
+                                    eemail.contentEditable = false;
+                                    ephone.contentEditable = false;
+                                    ecountry.contentEditable = false;
+                                    erating.contentEditable = false;
+                                    eopening.contentEditable = false;
+                                    etitle.contentEditable = false;
+                                    eaddress.contentEditable = false;
+                                    enotes.contentEditable = false;
+                                    //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
-                            <a href = "edit.php?id=<?php echo $contact["id"]; ?>&name=edit-name&email=edit-email&phone=edit-phone&country=edit-country&rating=edit-rating&opening=edit-opening&title=edit-title&address=edit-address&notes=edit-notes"><button type="submit" id="end-editing">Done</button></a>
+                            <a href = "edit.php?id=<?php echo $contact["id"]; ?>"><button type="submit" id="end-editing">Done</button></a>
 
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
