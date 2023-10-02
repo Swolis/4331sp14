@@ -7,23 +7,23 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        if (!isset($_SESSION["user_id"])) {
+        if (!isset($_SESSION['user_id'])) {
             die("User ID not found in session. Please log in again.");
         }
         
         
         // Assuming you pass user_id from some other source like session
         $userId = $_SESSION["user_id"];
-        $name = $_POST["name"];
-        $email = $_POST["email"] ?? null;  // Uses null coalescing for optional fields
-        $phone = $_POST["phone"] ?? null;
-        $country = $_POST["country"] ?? null;
-        $chessRating = $_POST["chessRating"] ?? null;
-        $favoriteOpening = $_POST["favoriteOpening"] ?? null;
-        $title = $_POST["title"] ?? null;
+        $name = $_POST['nam'];
+        $email = $_POST['email'] ?? null;  // Uses null coalescing for optional fields
+        $phone = $_POST['phone'] ?? null;
+        $country = $_POST['country'] ?? null;
+        $chessRating = $_POST['chessRating'] ?? null;
+        $favoriteOpening = $_POST["'avoriteOpening'] ?? null;
+        $title = $_POST['title'] ?? null;
     
         $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isssssss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
+        $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         $stmt->execute();
     }
 
