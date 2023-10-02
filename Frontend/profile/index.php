@@ -188,32 +188,32 @@ $userDetails = [
                                 const end_button = document.getElementById("end-editing");
 
                                 edit_button.addEventListener("click", function() {
-                                name.contentEditable = true;
-                                email.contentEditable = true;
-                                phone.contentEditable = true;
-                                country.contentEditable = true;
-                                rating.contentEditable = true;
-                                opening.contentEditable = true;
-                                title.contentEditable = true;
-                                address.contentEditable = true;
-                                notes.contentEditable = true;
-                                paragraph.style.backgroundColor = "#dddbdb";
+                                    name.contentEditable = true;
+                                    email.contentEditable = true;
+                                    phone.contentEditable = true;
+                                    country.contentEditable = true;
+                                    rating.contentEditable = true;
+                                    opening.contentEditable = true;
+                                    title.contentEditable = true;
+                                    address.contentEditable = true;
+                                    notes.contentEditable = true;
+                                    paragraph.style.backgroundColor = "#dddbdb";
                                 } );
 
                                 end_button.addEventListener("click", function() {
                                     name.contentEditable = false;
-                                email.contentEditable = false;
-                                phone.contentEditable = false;
-                                country.contentEditable = false;
-                                rating.contentEditable = false;
-                                opening.contentEditable = false;
-                                title.contentEditable = false;
-                                address.contentEditable = false;
-                                notes.contentEditable = false;
-                                paragraph.style.backgroundColor = "#ffe44d";
+                                    email.contentEditable = false;
+                                    phone.contentEditable = false;
+                                    country.contentEditable = false;
+                                    rating.contentEditable = false;
+                                    opening.contentEditable = false;
+                                    title.contentEditable = false;
+                                    address.contentEditable = false;
+                                    notes.contentEditable = false;
+                                    paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
-                            <a href = "edit.php?id=<?php echo $contact["id"]; ?>&name=edit-name&email=edit-email&phone=edit-phone&country=edit-country&rating=edit-rating&opening=edit-opening&title=edit-title&address=edit-address&notes=edit-notes"><button type= "submit" id = "end-editing">Done</button></a>
+                            <a href = "edit.php?id=<?php echo $contact["id"]; ?>&name=<?php echo "edit-name"?>&email=edit-email&phone=edit-phone&country=edit-country&rating=edit-rating&opening=edit-opening&title=edit-title&address=edit-address&notes=edit-notes"><button type= "submit" id = "end-editing">Done</button></a>
 
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
