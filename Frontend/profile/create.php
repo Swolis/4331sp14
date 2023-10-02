@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
+       /* $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     
         // Check the connection
         if ($conn->connect_error) {
@@ -28,7 +28,7 @@
         $stmt->execute();
         
         $stmt->close();
-    $conn->close();
+    $conn->close();*/
    header("Location: https://chessconnect.xyz/profile/");}
     }
 
