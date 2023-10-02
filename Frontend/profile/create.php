@@ -7,14 +7,14 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['id'])) {
             die("User ID not found in session. Please log in again.");
         }
         
         
         // Assuming you pass user_id from some other source like session
-        if(isset($_GET['user_id']){
-        $userId = $_SESSION['user_id'];
+        if(isset($_GET['id']){
+        $userId = $_SESSION['id'];
         $name = $_POST['name'];
         $email = $_POST['email'] ?? null;  // Uses null coalescing for optional fields
         $phone = $_POST['phone'] ?? null;
