@@ -28,7 +28,7 @@
         
         $stmt->close();
     $conn->close();
-   header("Location: ./profile");
+   header("Location: /profile");
     }
 
 ?>
