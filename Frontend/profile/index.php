@@ -81,6 +81,7 @@ $userDetails = [
             var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
             xr.open ("POST", url, true);
             xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            alert(vars);
             xr.send(vars);
 
             }
@@ -203,7 +204,6 @@ $userDetails = [
                     <?php foreach ($contArray as $contact): 
                         $cid = $contact['id']?>
                     <tr>
-                        <td id = "edit-name"><?php echo $contact["name"]??''; ?></td>
                         <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
                         <td id = "edit-phone"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
                         <td id = "edit-country"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
