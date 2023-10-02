@@ -1,6 +1,6 @@
 <?php
 // Connect to the database
-echo "hi";
+print "hi";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
