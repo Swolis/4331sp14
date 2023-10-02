@@ -12,7 +12,7 @@
         }
         echo "hi";
         // Prepare a SQL statement to insert the new user
-        if(isset($_SESSION['user_id'])) {
+        
         $id = $_GET['id'];
             echo $id;
         $name = $_POST['newName'];
@@ -42,6 +42,6 @@
         $stmt->close();
         $conn->close();
         header("Location: ../profile/");
-        }
+        
     }
 ?>
