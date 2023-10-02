@@ -16,13 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Prepare a SQL statement to insert the new user
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-        $name = $_GET["firstName"];
-        $email = $_GET["email"];
-        $phone = $_GET["phone"];
-        $country = $_GET["country"];
-        $chessRating = $_GET["chessRating"];
-        $favoriteOpening = $_GET["favoriteOpening"];
-        $title = $_GET["title"];
+        $name = $_GET['name];
+        $email = $_GET['email'];
+        $phone = $_GET['phone'];
+        $country = $_GET['country'];
+        $chessRating = $_GET['chessRating'];
+        $favoriteOpening = $_GET['favoriteOpening'];
+        $title = $_GET['title'];
 
         $stmt = $conn->prepare("UPDATE contacts WHERE id = ?");
         $stmt->bind_param("issssiss", $id,$email,$phone,$country,$chessRating,$favoriteOpening,$title);  // Assuming 'id' is an integer
