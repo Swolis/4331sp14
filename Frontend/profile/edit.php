@@ -9,20 +9,20 @@
 
     // Prepare a SQL statement to insert the new user
     //if(isset($_GET['id'])) {
-        $id = $_POST['id'];
-        $name = $_POST['newName'];
-        $email = $_POST['newEmail'];
-        $phone = $_POST['newPhone'];
-        $country = $_POST['newCountry'];
-        $chessRating = $_POST['newRating'];
-        $favoriteOpening = $_POST['newOpening'];
-        $title = $_POST['newTitle'];
-        $address = $_POST['newAddress'];
-        $notes = $_POST['newNotes'];
+    $id = $_POST['id'];
+    $name = $_POST['newName'];
+    $email = $_POST['newEmail'];
+    $phone = $_POST['newPhone'];
+    $country = $_POST['newCountry'];
+    $chessRating = $_POST['newRating'];
+    $favoriteOpening = $_POST['newOpening'];
+    $title = $_POST['newTitle'];
+    $address = $_POST['newAddress'];
+    $notes = $_POST['newNotes'];
 
-        $stmt = $conn->prepare("UPDATE contacts SET name = ".$name.", email = ".$email.", phone=".$phone.", country=".$country.", chess_rating=".$chessRating.", favorite_opening=".$favoriteOpening.", title=".$title.", address=".$address.", notes=".$notes." WHERE id =".$id.);
+    $stmt = $conn->prepare("UPDATE contacts SET name = ".$name.", email = ".$email.", phone=".$phone.", country=".$country.", chess_rating=".$chessRating.", favorite_opening=".$favoriteOpening.", title=".$title.", address=".$address.", notes=".$notes." WHERE id =".$id.);
         //$stmt->bind_param("i", $id);  // Assuming 'id' is an integer
-        $stmt->execute();
+    $stmt->execute();
         
         
 
