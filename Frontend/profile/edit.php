@@ -8,7 +8,7 @@
 echo "hi";
         // Check the connection
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            echo "hi";
         }
         
         // Prepare a SQL statement to insert the new user
