@@ -53,6 +53,38 @@ $userDetails = [
             padding: 15px;
         }
     </style>
+    <!--script code for live editing of sql database-->
+    <script>
+        function saveText(id){
+            var xr = new XMLHttpRequest();
+            var url = "edit.php";
+            var hid = id;
+            var vid = "id=" + hid;
+            var hname = document.getElementById("edit-name").innerHTML;
+            var vname = "newName=" + hname;
+            var hemail = document.getElementById("edit-email").innerHTML;
+            var vemail = "newEmail=" + hemail;
+            var hphone = document.getElementById("edit-phone").innerHTML;
+            var vphone = "newPhone=" + hphone;
+            var hcountry = document.getElementById("edit-country").innerHTML;
+            var vcountry = "newCountry=" + hcountry;
+            var hrating = document.getElementById("edit-rating").innerHTML;
+            var vrating = "newRating=" + hrating;
+            var hopening = document.getElementById("edit-opening").innerHTML;
+            var vopening = "newOpening=" + hopening;
+            var htitle = document.getElementById("edit-title").innerHTML;
+            var vtitle = "newTitle=" + htitle;
+            var haddress = document.getElementById("edit-address").innerHTML;
+            var vaddress = "newAddress=" + haddress;
+            var hnotes = document.getElementById("edit-notes").innerHTML;
+            var vnotes = "newNotes=" + hnotes;
+            var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
+            xr.open ("POST", url, true);
+            xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xr.send(vars);
+
+            }
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
         <script>
@@ -184,38 +216,6 @@ $userDetails = [
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
                             <button type = "submit" id = "edit-button">Edit</button>
-                            <!--script code for live editing of sql database-->
-                            <script>
-                                function saveText(id){
-                                    var xr = new XMLHttpRequest();
-                                    var url = "edit.php";
-                                    var hid = id;
-                                    var vid = "id=" + hid;
-                                    var hname = document.getElementById("edit-name").innerHTML;
-                                    var vname = "newName=" + hname;
-                                    var hemail = document.getElementById("edit-email").innerHTML;
-                                    var vemail = "newEmail=" + hemail;
-                                    var hphone = document.getElementById("edit-phone").innerHTML;
-                                    var vphone = "newPhone=" + hphone;
-                                    var hcountry = document.getElementById("edit-country").innerHTML;
-                                    var vcountry = "newCountry=" + hcountry;
-                                    var hrating = document.getElementById("edit-rating").innerHTML;
-                                    var vrating = "newRating=" + hrating;
-                                    var hopening = document.getElementById("edit-opening").innerHTML;
-                                    var vopening = "newOpening=" + hopening;
-                                    var htitle = document.getElementById("edit-title").innerHTML;
-                                    var vtitle = "newTitle=" + htitle;
-                                    var haddress = document.getElementById("edit-address").innerHTML;
-                                    var vaddress = "newAddress=" + haddress;
-                                    var hnotes = document.getElementById("edit-notes").innerHTML;
-                                    var vnotes = "newNotes=" + hnotes;
-                                    var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
-                                    xr.open ("POST", url, true);
-                                    xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                    xr.send(vars);
-
-                                }
-                            </script>
                             <button type="submit" id="end-editing" onclick="saveText(<?php echo $contact['id'] ?>)">Done</button>
                             <script>
                                 var ename = document.getElementById("edit-name");
