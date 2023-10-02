@@ -9,9 +9,10 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-/*
+
         // Prepare a SQL statement to insert the new user
         if(isset($_SESSION['user_id'])) {
+           /*
         $id = $_POST['id'];
             echo $id;
         $name = $_POST['newName'];
@@ -40,7 +41,7 @@
         // Close the connection
         $stmt->close();
         $conn->close();
-        header("Location: https://chessconnect.xyz/profile/");
-        }*/
+        header("Location: https://chessconnect.xyz/profile/");*/
+        }
     }
 ?>
