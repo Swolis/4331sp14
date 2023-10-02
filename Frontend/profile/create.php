@@ -28,7 +28,7 @@
         
         $stmt->close();
     $conn->close();
-   header("Location: chessconnect.xyz/profile/");
+   header("Location: chessconnect.xyz/profile/index.php");
     }
 
 ?>
