@@ -26,8 +26,8 @@
           $notes=$_POST['newNotes']  ;
 
         $stmt = $conn->prepare("UPDATE contacts SET name = "$name", email = "$email", phone="$phone", country="$country", chess_rating="$chessRating", favorite_opening="$favoriteOpening", title="$title", address="$address", notes="$notes" WHERE id ="$id);
-            //$stmt->bind_param("i", $id);  // Assuming 'id' is an integer
-        /*$stmt->execute();
+        $stmt->bind_param("ssssisss", $name,$email,$phone,$country,$chessRating,$favoriteOpening,$title,$address,$notes);  // Assuming 'id' is an integer
+        $stmt->execute();
             
             
 
@@ -40,7 +40,7 @@
         // Close the connection
         $stmt->close();
         $conn->close();
-        header("Location: https://chessconnect.xyz/profile/");*/
+        header("Location: ../profile/");
         }
     }
 ?>
