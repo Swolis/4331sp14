@@ -13,13 +13,13 @@
         
         
         // Assuming you pass user_id from some other source like session
-        $userId = $_SESSION["user_id"];
-        $name = $_POST['nam'];
+        $userId = $_SESSION['user_id'];
+        $name = $_POST['name'];
         $email = $_POST['email'] ?? null;  // Uses null coalescing for optional fields
         $phone = $_POST['phone'] ?? null;
         $country = $_POST['country'] ?? null;
         $chessRating = $_POST['chessRating'] ?? null;
-        $favoriteOpening = $_POST["'avoriteOpening'] ?? null;
+        $favoriteOpening = $_POST['favoriteOpening'] ?? null;
         $title = $_POST['title'] ?? null;
     
         $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
