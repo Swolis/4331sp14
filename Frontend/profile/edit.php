@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
         $name = $dochtml->getElementById('edit-name');
+        echo $name;
         $email = $dochtml->getElementById('edit-email');
         $phone = $dochtml->getElementById('edit-phone');
         $country = $dochtml->getElementById('edit-country');
