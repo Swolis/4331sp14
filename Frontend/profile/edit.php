@@ -1,6 +1,7 @@
 <?php
 // Connect to the database
     echo "pain";
+session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -8,7 +9,7 @@
 echo "hi";
         // Check the connection
         if ($conn->connect_error) {
-            echo "hi";
+            die("Connection failure");
         }
         
         // Prepare a SQL statement to insert the new user
