@@ -219,6 +219,7 @@ $userDetails = [
                             <button type = "submit" id = "edit-button">Edit</button>
                             <button type = "submit" id = "end-editing">Done</button>
                             <script>
+                                console.log("test2");
                                 var ename = document.getElementById("edit-name");
                                 var eemail = document.getElementById("edit-email");
                                 var ephone = document.getElementById("edit-phone");
