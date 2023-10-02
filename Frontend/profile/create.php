@@ -13,6 +13,7 @@
         
         
         // Assuming you pass user_id from some other source like session
+        if(isset($_GET['id']){
         $userId = $_SESSION["user_id"];
         $name = $_POST["name"];
         $email = $_POST["email"] ?? null;  // Uses null coalescing for optional fields
@@ -28,7 +29,7 @@
         
         $stmt->close();
     $conn->close();
-   header("Location: https://chessconnect.xyz/profile/");
+   header("Location: https://chessconnect.xyz/profile/");}
     }
 
 ?>
