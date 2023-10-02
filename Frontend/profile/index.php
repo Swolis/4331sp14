@@ -256,7 +256,7 @@ $userDetails = [
                                     eaddress.contentEditable = false;
                                     enotes.contentEditable = false;
                                     
-                                    console.log("test1")
+                                    console.log("test1");
                                     saveText('<?php echo $contact['id']; ?>');
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
