@@ -81,7 +81,7 @@ $userDetails = [
             var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
             xr.open ("POST", url, true);
             xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            alert(vars);
+            window.alert(vars);
             xr.send(vars);
 
             }
