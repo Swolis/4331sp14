@@ -1,7 +1,7 @@
 <?php
 // Connect to the database
     echo "pain";
-
+echo "$_POST['newName']"
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
