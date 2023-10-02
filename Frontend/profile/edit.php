@@ -1,4 +1,4 @@
-<?php
+o<?php
 // Connect to the database
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -8,7 +8,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
+echo "hi";
         // Prepare a SQL statement to insert the new user
         if(isset($_POST['id'])) {
         $id = $_POST['id'];
