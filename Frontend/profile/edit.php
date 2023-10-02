@@ -10,7 +10,7 @@
         }
 
         // Prepare a SQL statement to insert the new user
-        if(isset($_GET['id'])) {
+        if(isset($_POST['id'])) {
         $id = $_POST['id'];
             echo $id;
         $name = $_POST['newName'];
