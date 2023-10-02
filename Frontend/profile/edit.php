@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
     $dochtml = new DOMDocument();
-    $dochtml->loadHTMLFile('index.php');
+    $dochtml->loadHTMLFile('profile/index.php');
 
     // Prepare a SQL statement to insert the new user
     if(isset($_GET['id'])) {
