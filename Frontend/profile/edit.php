@@ -41,8 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
    
 
     // Close the connection
-    $stmt->close();
-    $conn->close();
-   header("Location: https://chessconnect.xyz/profile/");
+   
+   header("Location: ../profile/");
     }
 ?>
