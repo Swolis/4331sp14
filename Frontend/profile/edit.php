@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Prepare a SQL statement to insert the new user
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-        $name = $_GET['name];
+        $name = $_GET['name'];
         $email = $_GET['email'];
         $phone = $_GET['phone'];
         $country = $_GET['country'];
