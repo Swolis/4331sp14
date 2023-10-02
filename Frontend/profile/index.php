@@ -180,7 +180,6 @@ $userDetails = [
                         <td id = "edit-opening"><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
                         <td id = "edit-title"><?php echo htmlspecialchars($contact["title"]??''); ?></td>
                         <td id = "edit-address"><?php echo htmlspecialchars($contact["address"]??''); ?></td>
-                        <td id = "edit-notes"><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
                         <!-- Output other fields as necessary -->
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
@@ -209,9 +208,9 @@ $userDetails = [
                                     var vtitle = "newTitle=" + htitle;
                                     var haddress = document.getElementById("edit-address").innerHTML;
                                     var vaddress = "newAddress=" + haddress;
-                                    var hnotes = document.getElementById("edit-notes").innerHTML;
-                                    var vnotes = "newNotes=" + hnotes;
-                                    var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress + "&" + vnotes;
+                                    //var hnotes = document.getElementById("edit-notes").innerHTML;
+                                    //var vnotes = "newNotes=" + hnotes;
+                                    var vars = vid + "&" + vname + "&" + vemail + "&" + vphone + "&" + vcountry + "&" + vrating + "&" + vopening + "&" + vtitle + "&" + vaddress;
                                     xr.open ("POST", url, true);
                                     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                                     console.log('vars is ', vars);
@@ -230,7 +229,7 @@ $userDetails = [
                                 var eopening = document.getElementById("edit-opening");
                                 var etitle = document.getElementById("edit-title");
                                 var eaddress = document.getElementById("edit-address");
-                                var enotes = document.getElementById("edit-notes");
+                                //var enotes = document.getElementById("edit-notes");
 
                                 var edit_button = document.getElementById("edit-button");
                                 var end_button = document.getElementById("end-editing");
@@ -244,7 +243,7 @@ $userDetails = [
                                     eopening.contentEditable = true;
                                     etitle.contentEditable = true;
                                     eaddress.contentEditable = true;
-                                    enotes.contentEditable = true;
+                                    //enotes.contentEditable = true;
                                     //paragraph.style.backgroundColor = "#dddbdb";
                                 } );
 
@@ -257,7 +256,7 @@ $userDetails = [
                                     eopening.contentEditable = false;
                                     etitle.contentEditable = false;
                                     eaddress.contentEditable = false;
-                                    enotes.contentEditable = false;
+                                    //enotes.contentEditable = false;
                                     
                                     console.log("test1");
                                     saveText('<?php echo $contact['id']; ?>');
