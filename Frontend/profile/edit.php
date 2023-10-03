@@ -26,7 +26,7 @@ session_start();
             $notes=$_POST['newNotes']  ;
 
         $stmt = $conn->prepare("UPDATE contacts SET name =?, email =?, phone=?, country=?, chess_rating=?, favorite_opening=?, title=?, address=?, notes=? WHERE id =? LIMIT 1");
-      // $stmt->bind_param("ssssissssi",$name,$email,$phone,$country,$chessRating,$favoriteOpening,$title,$address,$notes,$id);  // Assuming 'id' is an integer
+       $stmt->bind_param("ssssissssi",$name,$email,$phone,$country,$chessRating,$favoriteOpening,$title,$address,$notes,$id);  // Assuming 'id' is an integer
         $stmt->execute();
             
             
