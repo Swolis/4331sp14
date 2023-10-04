@@ -41,7 +41,7 @@ if ($conn->connect_error) {
     $stmt->bind_param("ssssssssss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
  if($stmt->execute()){
     
-       header("Location:.login/login.php");
+       header("Location:https://chessconnect.xyz/login/login.php");
         exit();
  }
  $stmt->close();
