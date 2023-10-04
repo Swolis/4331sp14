@@ -23,16 +23,7 @@
         <!--end of nav-->
 
     <div class="container">
-            id "username" = "";
-            id "password" = "";
-            id "firstName" ="";
-            id "lastName" = "";
-            id "email" = "";
-            id "phone" = "";
-            id "country" = "";
-            id "chessRating" = 0;
-            id "favoriteOpening" = "";
-            id "title" = "";
+         
                  
            
 /*
