@@ -156,7 +156,7 @@
                                             title:document.getElementById("title").value
                                                 };
                                     
-                                    var UserString = JSON.stringify(sendUserInfo);
+                                    var UserString = JSON.stringify(user);
                                     const xhr = new XMLHttpRequest();
                                     xhr.open("POST", url, true);
                                     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
