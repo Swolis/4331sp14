@@ -31,7 +31,7 @@ if ($conn->connect_error) {
 
     if($stmt->execute(){
  
-    header("Location: ../login/login.php");
+    //header("Location: ../login/login.php");
      
        
     }
