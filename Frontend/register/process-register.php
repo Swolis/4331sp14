@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $chessRating = $_POST["chessRating"];
     $favoriteOpening = $_POST["favoriteOpening"];
     $title = $_POST["title"];
-/*
+
     // Connect to the database
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
 
@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare a SQL statement to insert the new user
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    /*
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
    
      $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '$_POST['username']'");
