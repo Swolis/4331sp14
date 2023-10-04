@@ -13,13 +13,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     
     $password=$inData['password'];
      $firstName=$inData['firstName'];
-    $lastName=$_inData['lastName'];
-     $email=$_inData['email'];
-    $phone=$_inData['phone'];
-     $country=$_inData['country'];
-    $chessRating=$_inData['chessRating'];
-     $favoriteOpening=$_inData['favoriteOpening'];
-    $title=$_inData['title'];
+    $lastName=$inData['lastName'];
+     $email=$inData['email'];
+    $phone=$inData['phone'];
+     $country=$inData['country'];
+    $chessRating=$inData['chessRating'];
+     $favoriteOpening=$inData['favoriteOpening'];
+    $title=$inData['title'];
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_inData['username']."'");
+   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$inData['username']."'");
 
     if(mysqli_num_rows($result)>0){
         die();
