@@ -39,8 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
         
         // Registration successful, redirect to the login page
-        header("Location: ../login/login.php");}
-        exit();
+        header("Location: ../login/login.php");
+      exit();
+  }
+        
     
 
     // Close the connection
