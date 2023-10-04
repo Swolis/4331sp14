@@ -1,7 +1,7 @@
 <?php
 // Start session
 echo "hi";
-/*
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the username, password, and additional user information from the form
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $chessRating = $_POST["chessRating"];
     $favoriteOpening = $_POST["favoriteOpening"];
     $title = $_POST["title"];
-
+/*
     // Connect to the database
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
 
@@ -52,5 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the connection
     $stmt->close();
     $conn->close();
-}*/
+    */
+}
+    
 ?>
