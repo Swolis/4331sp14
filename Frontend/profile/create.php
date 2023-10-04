@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
   if(!isset[$userid]){
     die("User not found");
   }
-  $name=$_GET['name'];
+  /*$name=$_GET['name'];
   $email=$_GET['email'];
   $phone=$_GET['phone'];
   $country=$_GET['country'];
@@ -21,6 +21,6 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
   $stmt = $conn->prepare("INSERT INTO contacts (user_id,name, email, phone, country, chess_rating, favorite_opening, title) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
   $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
   $stmt->execute();
-header("Location: ../profile/");
+header("Location: ../profile/");*/
 }
 ?>
