@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_GET['username'];
+
 if($_SERVER['REQUEST_METHOD']=="POST"){
    $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
    if ($conn->connect_error) {
