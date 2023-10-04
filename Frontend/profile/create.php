@@ -11,7 +11,7 @@
             die("User ID not found in session. Please log in again.");
         }
         
-        
+        echo "hi";
         // Assuming you pass user_id from some other source like session
         $userId = $_SESSION['user_id'];
         $name = $_GET['name'];
