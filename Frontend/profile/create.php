@@ -5,7 +5,7 @@
 //echo $_GET['cphone'];
 //echo $_GET['ccountry'];
 //echo $_GET['cchessRating'];
-/*
+
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     
@@ -33,6 +33,6 @@
         $stmt->execute();
         header("Location: ../profile/");
     }
-*/
+
 
 ?>
