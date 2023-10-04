@@ -143,8 +143,16 @@ $userDetails = [
         <!--end of the users profile info-->
         <div class="container mt-5">
             <h3>Your Contacts</h3>
+            <!-- search bar (get search text from user to use later)-->
+            <div class="input-group mb-3">
+                <input type="text" id="searchInput" class="form-control" name="searchTerm" placeholder="Search contacts...">
+            </div>
+            <!-- get the search term (if available) -->
+            <?php
+                $searchTerm = isset($_GET['searchTerm']) ? 
+                mysqli_real_escape_string($conn, $_GET['searchTerm']) : '';
+            ?>
             <div class="background-color p-3">
-            
                 <table>
                 <thead>
                     <tr>
@@ -169,8 +177,22 @@ $userDetails = [
                             $index++;
                         endforeach; 
                     ?>
-                    <?php foreach ($contArray as $contact): 
-                        $cid = $contact['id']?>
+                    <?php
+                        foreach ($contArray as $contact):
+                            // Check if the search term is empty or if it matches the contact's name, email, or other relevant fields
+                            if (empty($searchTerm) || 
+                                strpos($contact['name'], $searchTerm) !== false || 
+                                strpos($contact['email'], $searchTerm) !== false ||
+                                strpos($contact['phone'], $searchTerm) !== false ||
+                                strpos($contact['country'], $searchTerm) !== false ||
+                                strpos($contact['rating'], $searchTerm) !== false ||
+                                strpos($contact['opening'], $searchTerm) !== false ||
+                                strpos($contact['title'], $searchTerm) !== false ||
+                                strpos($contact['address'], $searchTerm) !== false ||
+                                strpos($contact['notes'], $searchTerm) !== false
+                                // Add more fields as needed for searching
+                            ):
+                    ?>
                     <tr>
                         <td id = "edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
                         <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
@@ -269,7 +291,7 @@ $userDetails = [
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
+                    <?php endif; endforeach; ?>
                 </tbody>
                 </table>
             </div>
