@@ -32,8 +32,7 @@ if ($conn->connect_error) {
    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_GET['username']."'");
 
     if(mysqli_num_rows($result)>0){
-        header("Location:../register/register.php");
-        exit();
+        die();
     }
     
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
