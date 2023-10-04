@@ -32,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
-   
+   /*
      $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '$_POST['username']'");
-  /*
+  
     // Execute the statement
     if (!mysqli_num_rows($select)&&$stmt->execute()) {
         // Registration successful, redirect to the login page
