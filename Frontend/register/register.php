@@ -141,7 +141,7 @@
                             <button type="submit" id="formSubmission" class="btn btn-primary">Register</button>
                             <script>
                                    formSubmission.addEventListener ("click",function(){
-                                        //var sendThis=new XMLHttpRequest();
+                                        var sendThis=new XMLHttpRequest();
                                          var url = "process-register.php";
                                        var user="username="+document.getElementById("username").value+"&"+"password="+document.getElementById("password").value+"&"+"firstName="+document.getElementById("firstName").value+"&"+"lastName="+document.getElementById("lastName").value+"&"+"email="+document.getElementById("email").value+"&"+"phone="+document.getElementById("phone").value+"&"+"country="+document.getElementById("country").value+"&"+"chessRating="+document.getElementById("chessRating").value+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").value+"&"+"title="+document.getElementById("title").value;
                                        
