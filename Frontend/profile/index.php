@@ -321,6 +321,7 @@ $userDetails = [
                                 sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                             
                                 sendThis.send(user);
+                            console.log(sendThis);
                            
            });
        </script>
