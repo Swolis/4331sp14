@@ -15,10 +15,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-}
+} 
+    $result = mysqli_query($conn,"SELECT * FROM users WHERE username='$username'");
+    if(mysqli_num_rows($result)>0){
+        die();
+    }else{
      $stmt = $conn->prepare("INSERT INTO users (username,password, first_name, last_name,email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
     $stmt->bind_param("sssssssiss",$username,$hashedPassword,$firstName,$lastName,$email,$phone,$country,$chessRating,$favoriteOpening,$title);
-    echo "hi";
+    
+    $stmt->execute();
+    }
+   
 }
     
 ?>
