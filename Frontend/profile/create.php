@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     die("User not found");
   }
    
-   /*
+   
     $userid=$_SESSION['user_id'];
   $name=$_GET['name'];
   $email=$_GET['email'];
@@ -25,6 +25,6 @@ $stmt = $conn->prepare("INSERT INTO contacts (user_id,name, email, phone, countr
  $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
  $stmt->execute();
 header("Location: ../profile/");
-   */
+   
 }
 ?>
