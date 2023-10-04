@@ -37,13 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $select = mysqli_query($conn,"SELECT * FROM users WHERE username = '$_POST['username']'");
     echo mysqli_num_rows($select);
    
-  if($stmt->execute()&&mysqli_num_rows($select)<=0){
+ /* if($stmt->execute()&&mysqli_num_rows($select)<=0){
     // Execute the statement
    
         
         // Registration successful, redirect to the login page
         header("Location: ../login/login.php");
       exit();
+      */
   }
         
     
