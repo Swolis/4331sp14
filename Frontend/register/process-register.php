@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
     $result = mysqli_query($conn,"SELECT * FROM users WHERE username='$username'");
-    if(mysqli_num_rows($result)>=0){
+    if(mysqli_num_rows($result)>0){
         header("Location:../register/register.php");
         die();
     }else{
