@@ -27,6 +27,9 @@ $userid=$_SESSION['user_id'];
    if( $stmt->execute()){
 
  header("https://chessconnect.xyz/");
+      exit();
    }
+   $stmt->close();
+   $conn->close();
 }
 ?>
