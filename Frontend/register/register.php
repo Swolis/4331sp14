@@ -145,7 +145,10 @@
                                         var url = "https://chessconnect.xyz/register/process-register.php";
                                        sendThis.open('POST',url);
                                        sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                       console.log(JSON.parse(sendThis.responseText))
+                                       if(sendThis.readyState===4 && sendThis.status===201){
+                                           console.log(JSON.parse(sendThis.responseText))
+                                       }
+                                       
                                        // var user="username="+document.getElementById("username").value+"&"+"password="+document.getElementById("password").value+"&"+"firstName="+document.getElementById("firstName").value+"&"+"lastName="+document.getElementById("lastName").value+"&"+"email="+document.getElementById("email").value+"&"+"phone="+document.getElementById("phone").value+"&"+"country="+document.getElementById("country").value+"&"+"chessRating="+document.getElementById("chessRating").value+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").value+"&"+"title="+document.getElementById("title").value;
                                       
                                       // sendThis.send(user);
