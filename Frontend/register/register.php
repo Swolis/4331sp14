@@ -144,9 +144,9 @@
                                         var sendThis=new XMLHttpRequest();
                                         
                                        var user="username="+document.getElementById("username").innerHTML+"&"+"password="+document.getElementById("password").innerHTML+"&"+"firstName="+document.getElementById("firstName").innerHTML+"&"+"lastName="+document.getElementById("lastName").innerHTML+"&"+"email="+document.getElementById("email").innerHTML+"&"+"phone="+document.getElementById("phone").innerHTML+"&"+"country="+document.getElementById("country").innerHTML+"&"+"chessRating="+document.getElementById("chessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").innerHTML+"&"+"title="+document.getElementById("title").innerHTML;
-                                       sendThis.open("POST","process-register.php",true);
+                                       sendThis.open("POST","process-register.php?"+user,true);
                                        sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                       sendThis.send(user);
+                                       sendThis.send();
            });
        </script>
                         </form>
