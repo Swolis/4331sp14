@@ -317,7 +317,7 @@ $userDetails = [
                                 var sendThis=new XMLHttpRequest(); 
                                 var user="name="+document.getElementById("cname").innerHTML+"&"+"email="+document.getElementById("cemail").innerHTML+"&"+"phone="+document.getElementById("cphone").innerHTML+"&"+"country="+document.getElementById("ccountry").innerHTML+"&"+"chessRating="+document.getElementById("cchessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("cfavoriteOpening").innerHTML+"&"+"title="+document.getElementById("ctitle").innerHTML;
                                 console.log(user);
-                            sendThis.open("POST","create.php",true);
+                            sendThis.open("POST","https:chessconnect.xyz/profile/create.php",true);
                                 sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                             
                                 sendThis.send(user);
