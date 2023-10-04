@@ -103,7 +103,7 @@
                 <div class="card mt-5">
                     <div class="card-header">Register</div>
                     <div class="card-body">
-                        <form method="POST" action="process-register.php?username="$username"&password="$password"&firstName="$firstName"&lastName="$lastName"&email="$email"&phone="$phone"&country="$country"&chessRating="$chessRating"&favoriteOpening="$favoriteOpening"&title="$title>
+                        <form method="POST" action="process-register.php?username="$_POST['username']"&password="$password"&firstName="$firstName"&lastName="$lastName"&email="$email"&phone="$phone"&country="$country"&chessRating="$chessRating"&favoriteOpening="$favoriteOpening"&title="$title>
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
