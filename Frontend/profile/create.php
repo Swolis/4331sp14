@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
    if ($conn->connect_error) {
             die("Connection failure");
     }
- 
+ /*
   if(!isset['user_id'){
     die("User not found");
   }
@@ -23,5 +23,6 @@ $stmt = $conn->prepare("INSERT INTO contacts (user_id,name, email, phone, countr
  $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
  $stmt->execute();
 header("Location: ../profile/");
+   */
 }
 ?>
