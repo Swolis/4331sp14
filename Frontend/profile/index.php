@@ -307,10 +307,10 @@ $userDetails = [
                 
                 <input type="email" id= "cemail" name="email" placeholder="Email">
                 <input type="text" id="cphone" name="phone" placeholder="Phone">
-                <input type="text" name="country" id="ccountry" placeholder="Country">
-                <input type="number" name="chessRating" id="cchessRating" placeholder="Chess Rating">
-                <input type="text" name="favoriteOpening" id="cfavoriteOpening" placeholder="Favorite Opening">
-                <input type="text" name="title" id="ctitle" placeholder="Title (e.g. IM, GM)">
+                <input type="text"  id="ccountry" name="country"  placeholder="Country">
+                <input type="number" id="cchessRating" name="chessRating"  placeholder="Chess Rating">
+                <input type="text" id="cfavoriteOpening" name="favoriteOpening"  placeholder="Favorite Opening">
+                <input type="text" id="ctitle" name="title"  placeholder="Title (e.g. IM, GM)">
                 <button type="submit" id="formSubmission" class="btn btn-danger m-1">Create</button>
                     <script>
                         formSubmission.addEventListener ("click",function(){
