@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $select = $conn->query( "SELECT * FROM users WHERE username = '$username'");
   
     // Execute the statement
-    if (!mysqli_num_rows($select)) {
+    if (mysqli_num_rows($select)<=0) {
         $stmt->execute()
         // Registration successful, redirect to the login page
         header("Location: ../login/login.php");
