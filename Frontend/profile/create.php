@@ -12,8 +12,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
   }
    
    
-    $userid=$_SESSION['user_id'];
-  $name=$_GET['name'];
+$userid=$_SESSION['user_id'];
+  $name=$_GET['name']??null;
   $email=$_GET['email']??null;
   $phone=$_GET['phone']??null;
   $country=$_GET['country']??null;
