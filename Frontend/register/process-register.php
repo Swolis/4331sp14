@@ -43,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
         header("Location: ../register/register.php?");
         //$username = ($_POST["username"]);
-       die('Sorry, the Username '.$_POST['username'].' has already been used to register.');
-        echo "Error: " . $stmt->error;
+      // die('Sorry, the Username '.$_POST['username'].' has already been used to register.');
+        //echo "Error: " . $stmt->error;
 
         exit();
     }
