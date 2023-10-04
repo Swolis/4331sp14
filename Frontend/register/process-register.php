@@ -6,8 +6,8 @@ echo "hi";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the username, password, and additional user information from the form
     $username = $_POST["username"];
-    echo $_POST["username"];
-    /*
+    
+    
     $password = $_POST["password"];
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];
@@ -35,6 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
    
      $select = mysqli_query($conn,"SELECT * FROM users WHERE username = '$username'");
+    echo mysqli_num_rows($select);
+    echo "hi';
   if($stmt->execute()&&mysqli_num_rows($select)<=0){
     // Execute the statement
    
@@ -50,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
     
-    */
+    
 }
     
 ?>
