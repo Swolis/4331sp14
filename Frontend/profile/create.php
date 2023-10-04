@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
  //echo $_GET['cname'];
 //echo $_GET['cemail'];
 //echo $_GET['cphone'];
