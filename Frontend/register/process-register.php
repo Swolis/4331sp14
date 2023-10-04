@@ -8,7 +8,7 @@ ini_set("display_errors", "1"); // shows all errors
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 if($_SERVER["REQUEST_METHOD"]=="GET"){
-    $username=$_POST['username'];
+    $username=$_GET['username'];
     
     $password=$_GET['password'];
      $firstName=$_GET['firstName'];
