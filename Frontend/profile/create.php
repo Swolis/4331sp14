@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
    if ($conn->connect_error) {
             die("Connection failure");
     }
- echo $_SESSION['user_id'];
+
   if(!isset($_SESSION['user_id'])){
     die("User not found");
   }
