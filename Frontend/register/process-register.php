@@ -12,7 +12,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
      $favoriteOpening=$_POST['favoriteOpening'];
     $title=$_POST['title'];
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
-    $hashedPassword=password_hash($password,PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+               
+               
+                $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -22,12 +26,16 @@ if ($conn->connect_error) {
         header("Location:../register/register.php");
         die();
     }else{
-     $stmt = $conn->prepare("INSERT INTO users (username,password, first_name, last_name,email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssss",$username,$hashedPassword,$firstName,$lastName,$email,$phone,$country,$chessRating,$favoriteOpening,$title);
+ $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("ssssssssss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
+
+
    //$stmt->execute();
     header("Location: ../login/login.php");
+        exit();
+        $stmt->close();
     }
-   
+   $conn->close();
 }
     
 ?>
