@@ -301,16 +301,26 @@ $userDetails = [
             <h3>Create a new contact</h3>
             <form action="create.php" method="POST" class="background-color p-3">
                
-                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="text" name="name" id="name" placeholder="Name" required>
                 
                 
-                <input type="email" name="email" placeholder="Email">
-                <input type="text" name="phone" placeholder="Phone">
-                <input type="text" name="country" placeholder="Country">
-                <input type="number" name="chessRating" placeholder="Chess Rating">
-                <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
-                <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
-                <button type="submit" class="btn btn-danger m-1">Create</button>
+                <input type="email" id= "email" name="email" placeholder="Email">
+                <input type="text" id="phone" name="phone" placeholder="Phone">
+                <input type="text" name="country" id="country" placeholder="Country">
+                <input type="number" name="chessRating" id="chessRating" placeholder="Chess Rating">
+                <input type="text" name="favoriteOpening" id="favoriteOpening" placeholder="Favorite Opening">
+                <input type="text" name="title" id="title" placeholder="Title (e.g. IM, GM)">
+                <button type="submit" id="formSubmission" class="btn btn-danger m-1">Create</button>
+                    <script>
+                                   formSubmission.addEventListener ("click",function(){
+                                        var sendThis=new XMLHttpRequest();
+                                        
+                                       var user="name="+document.getElementById("name").innerHTML+"&"+"email="+document.getElementById("email").innerHTML+"&"+"phone="+document.getElementById("phone").innerHTML+"&"+"country="+document.getElementById("country").innerHTML+"&"+"chessRating="+document.getElementById("chessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").innerHTML+"&"+"title="+document.getElementById("title").innerHTML;
+                                       sendThis.open("POST","create.php",true);
+                                       sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                       sendThis.send(user);
+           });
+       </script>
             </form>
         </div>
         
