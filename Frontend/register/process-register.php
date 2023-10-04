@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $chessRating = $_POST["chessRating"];
     $favoriteOpening = $_POST["favoriteOpening"];
     $title = $_POST["title"];
-
+/*
     // Connect to the database
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
 
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the connection
     $stmt->close();
     $conn->close();
-    
+    */
 }
     
 ?>
