@@ -1,6 +1,7 @@
 <?php
     session_start();
-    //if ($_SERVER["REQUEST_METHOD"] == "POST"){
+echo $_GET['name'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     
         // Check the connection
@@ -26,6 +27,6 @@
         $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         $stmt->execute();
         header("Location: ../profile/");
-  //  }
+    }
 
 ?>
