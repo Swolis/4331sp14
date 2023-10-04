@@ -34,9 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
    
      $select = $conn->query( "SELECT * FROM users WHERE username = '$username'");
-  /*
+  
     // Execute the statement
-    if (!mysqli_num_rows($select)&&$stmt->execute()) {
+    if (!mysqli_num_rows($select)) {
+        $stmt->execute()
         // Registration successful, redirect to the login page
         header("Location: ../login/login.php");
         exit();
@@ -54,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the connection
     $stmt->close();
     $conn->close();
-    */
+    
     
 }
     
