@@ -4,7 +4,7 @@ echo "hi";
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the username, password, and additional user information from the form
+    //Get the username, password, and additional user information from the form
     $username = $_POST["username"];
     
     
@@ -34,10 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
     echo "hi';
-    //$select = mysqli_query($conn,"SELECT * FROM users WHERE username = '$_POST['username']'");
-   // echo mysqli_num_rows($select);
+    /*
+    $select = mysqli_query($conn,"SELECT * FROM users WHERE username = '$_POST['username']'");
+    echo mysqli_num_rows($select);
    
- /* if($stmt->execute()&&mysqli_num_rows($select)<=0){
+  if($stmt->execute()&&mysqli_num_rows($select)<=0){
     // Execute the statement
    
         
@@ -45,14 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../login/login.php");
       exit();
       
-  }*/
+  }
         
     
 
     // Close the connection
     $stmt->close();
     $conn->close();
-    
+    */
     
 }
     
