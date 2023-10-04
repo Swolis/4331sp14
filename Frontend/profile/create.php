@@ -6,10 +6,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
    if ($conn->connect_error) {
             die("Connection failure");
     }
- /*
+ 
   if(!isset['user_id'){
     die("User not found");
   }
+   /*
     $userid=$_SESSION['user_id'];
   $name=$_GET['name'];
   $email=$_GET['email'];
