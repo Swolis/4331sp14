@@ -143,15 +143,15 @@
                                    formSubmission.addEventListener ("click",function(){
                                         var sendThis=new XMLHttpRequest();
                                         var url = "https://chessconnect.xyz/register/process-register.php";
-                                       sendThis.open('POST',url);
-                                       sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                       if(sendThis.readyState===4 && sendThis.status===201){
-                                           console.log(JSON.parse(sendThis.responseText))
-                                       }
-                                       
-                                       var user="username="+document.getElementById("username").value+"&"+"password="+document.getElementById("password").value+"&"+"firstName="+document.getElementById("firstName").value+"&"+"lastName="+document.getElementById("lastName").value+"&"+"email="+document.getElementById("email").value+"&"+"phone="+document.getElementById("phone").value+"&"+"country="+document.getElementById("country").value+"&"+"chessRating="+document.getElementById("chessRating").value+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").value+"&"+"title="+document.getElementById("title").value;
+                                        var user="username="+document.getElementById("username").value+"&"+"password="+document.getElementById("password").value+"&"+"firstName="+document.getElementById("firstName").value+"&"+"lastName="+document.getElementById("lastName").value+"&"+"email="+document.getElementById("email").value+"&"+"phone="+document.getElementById("phone").value+"&"+"country="+document.getElementById("country").value+"&"+"chessRating="+document.getElementById("chessRating").value+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").value+"&"+"title="+document.getElementById("title").value;
+                                      let jsonPayload=JSON.stringify(user);
                                       
-                                      sendThis.send(user);
+                                       sendThis.open('POST',url,true);
+                                       sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                   
+                                        sendThis.send(jsonPayload);
+                                       
+                                     
                                       
                                        
                                       // sendThis.send(user);
