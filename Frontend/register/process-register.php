@@ -1,11 +1,7 @@
 <?php
 // Start session
-
-session.start();
-<script>
-    
-    console.log("hi");
-    </script>
+echo "hi";
+/*
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the username, password, and additional user information from the form
@@ -56,5 +52,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the connection
     $stmt->close();
     $conn->close();
-}
+}*/
 ?>
