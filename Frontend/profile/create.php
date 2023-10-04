@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+ echo $_GET['name'];;
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     
@@ -22,7 +22,7 @@
         $chessRating = $_GET['chessRating'] ?? null;
         $favoriteOpening = $_GET['favoriteOpening'] ?? null;
         $title = $_GET['title'] ?? null;
-    echo $name;
+   
         //$stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         //$stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         //$stmt->execute();
