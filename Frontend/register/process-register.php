@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $username=$_POST['username'];
     $password=$_POST['password'];
@@ -16,12 +16,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
                
                
-                $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
+$select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-    $result = mysqli_query($conn,"SELECT * FROM users WHERE username='$username'");
+   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
+
     if(mysqli_num_rows($result)>0){
         header("Location:../register/register.php");
         exit();
@@ -31,8 +32,8 @@ if ($conn->connect_error) {
 
     if($stmt->execute(){
  
-    //header("Location: ../login/login.php");
-     
+    header("Location: ../login/login.php");
+     exit();
        
     }
  $stmt->close();
