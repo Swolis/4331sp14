@@ -160,7 +160,7 @@
                                     const xhr = new XMLHttpRequest();
                                     xhr.open("POST", url, true);
                                     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-                                     
+                                     xhr.send(UserString);
                                       
                                        
                                       // sendThis.send(user);
