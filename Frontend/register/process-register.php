@@ -6,7 +6,7 @@ echo "hi";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the username, password, and additional user information from the form
     $username = $_POST["username"];
-    //echo $_POST["username"];
+    echo $_POST["username"];
     /*
     $password = $_POST["password"];
     $firstName = $_POST["firstName"];
@@ -44,13 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       exit();
   }
         
-    */
+    
 
     // Close the connection
     $stmt->close();
     $conn->close();
     
-    
+    */
 }
     
 ?>
