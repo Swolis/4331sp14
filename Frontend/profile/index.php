@@ -299,7 +299,7 @@ $userDetails = [
         
         <div class="container mt-5">
             <h3>Create a new contact</h3>
-            <form action="create.php" method="POST" class="background-color p-3">
+            <form class="background-color p-3">
                
                     <input type="text" name="name" id="name" placeholder="Name" required>
                 
@@ -312,13 +312,12 @@ $userDetails = [
                 <input type="text" name="title" id="title" placeholder="Title (e.g. IM, GM)">
                 <button type="submit" id="formSubmission" class="btn btn-danger m-1">Create</button>
                     <script>
-                                   formSubmission.addEventListener ("click",function(){
-                                        var sendThis=new XMLHttpRequest();
-                                        
-                                       var user="name="+document.getElementById("name").innerHTML+"&"+"email="+document.getElementById("email").innerHTML+"&"+"phone="+document.getElementById("phone").innerHTML+"&"+"country="+document.getElementById("country").innerHTML+"&"+"chessRating="+document.getElementById("chessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").innerHTML+"&"+"title="+document.getElementById("title").innerHTML;
-                                       sendThis.open("POST","create.php",true);
-                                       sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                       sendThis.send(user);
+                        formSubmission.addEventListener ("click",function(){
+                                var sendThis=new XMLHttpRequest(); 
+                                var user="name="+document.getElementById("name").innerHTML+"&"+"email="+document.getElementById("email").innerHTML+"&"+"phone="+document.getElementById("phone").innerHTML+"&"+"country="+document.getElementById("country").innerHTML+"&"+"chessRating="+document.getElementById("chessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").innerHTML+"&"+"title="+document.getElementById("title").innerHTML;
+                                sendThis.open("POST","create.php",true);
+                                sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                sendThis.send(user);
            });
        </script>
             </form>
