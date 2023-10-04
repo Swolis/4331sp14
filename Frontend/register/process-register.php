@@ -2,6 +2,10 @@
 // Start session
 
 session.start();
+<script>
+    
+    console.log("hi");
+    </script>
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the username, password, and additional user information from the form
