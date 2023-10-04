@@ -23,17 +23,18 @@
         <!--end of nav-->
 
     <div class="container">
-                 <?php
-            $username = "";
-            $password = "";
-            $firstName ="";
-            $lastName = "";
-            $email = "";
-            $phone = "";
-            $country = "";
-            $chessRating = 0;
-            $favoriteOpening = "";
-            $title = "";
+            id "username" = "";
+            id "password" = "";
+            id "firstName" ="";
+            id "lastName" = "";
+            id "email" = "";
+            id "phone" = "";
+            id "country" = "";
+            id "chessRating" = 0;
+            id "favoriteOpening" = "";
+            id "title" = "";
+                 
+           
 /*
             // Check if the form is submitted
 
@@ -95,57 +96,67 @@
                 $stmt->close();
                 $conn->close();
             }
-             */   
-        ?>
-
+               
+        ?>*/
+       <script>
+           function send(){
+               var sendThis=new XMLHttpRequest();
+               xr.open("POST","process-register.php",true);
+               
+var user="username="+document.getElementById("username").innerHTML+"&"+"password="+document.getElementById("password").innerHTML+"&"+"firstName="+document.getElementById("firstName").innerHTML+"&"+"lastName="+document.getElementById("lastName").innerHTML+"&"+"phone="+document.getElementById("phone").innerHTML+"&"+"email="+document.getElementById("email").innerHTML+"&"+"country="+document.getElementById("country").innerHTML+"&"+"chessRating="+document.getElementById("chessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").innerHTML+"&"+"title="++document.getElementById("title").innerHTML;
+           sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+               xr.send(user);
+           }
+       </script>
+            
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card mt-5">
                     <div class="card-header">Register</div>
                     <div class="card-body">
-                        <form method="POST" action="process-register.php?username=$_POST['username']&password="$password"&firstName="$firstName"&lastName="$lastName"&email="$email"&phone="$phone"&country="$country"&chessRating="$chessRating"&favoriteOpening="$favoriteOpening"&title="$title">
+                        <form>
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" value="<?php echo $password ?>"required>
+                                <input type="password" class="form-control" id="password" name="password" value=""required>
                             </div>
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName"value="<?php echo $firstName ?>">
+                                <input type="text" class="form-control" id="firstName" name="firstName"value="firstName">
                             </div>
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName"value="<?php echo $lastName ?>">
+                                <input type="text" class="form-control" id="lastName" name="lastName"value="">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email"value="<?php echo $email ?>">
+                                <input type="email" class="form-control" id="email" name="email"value="">
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $phone ?>">
+                                <input type="text" class="form-control" id="phone" name="phone" value="">
                             </div>
                             <div class="mb-3">
                                 <label for="country" class="form-label">Country</label>
-                                <input type="text" class="form-control" id="country" name="country" value="<?php echo $country?>">
+                                <input type="text" class="form-control" id="country" name="country" value="">
                             </div>
                             <div class="mb-3">
                                 <label for="chessRating" class="form-label">Chess Rating</label>
-                                <input type="number" class="form-control" id="chessRating" name="chessRating"value="<?php echo $chessRating ?>">
+                                <input type="number" class="form-control" id="chessRating" name="chessRating"value="">
                             </div>
                             <div class="mb-3">
                                 <label for="favoriteOpening" class="form-label">Favorite Opening</label>
-                                <input type="text" class="form-control" id="favoriteOpening" name="favoriteOpening"value="<?php echo $favoriteOpening ?>">
+                                <input type="text" class="form-control" id="favoriteOpening" name="favoriteOpening"value="">
                             </div>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="title" name="title"value="<?php echo $title ?>">
+                                <input type="text" class="form-control" id="title" name="title"value="">
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" id="formSubmission" class="btn btn-primary">Register</button>
                         </form>
                     </div>
                 </div>
