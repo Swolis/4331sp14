@@ -23,7 +23,7 @@
         <!--end of nav-->
 
     <div class="container">
-                 <?php
+  /*               <?php
             $username = "";
             $password = "";
             $firstName ="";
@@ -36,6 +36,7 @@
             $title = "";
 
             // Check if the form is submitted
+
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Get the username, password, and additional user information from the form
@@ -95,13 +96,13 @@
                 $conn->close();
             }
         ?>
-
+*/
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card mt-5">
                     <div class="card-header">Register</div>
                     <div class="card-body">
-                        <form method="POST" action="register.php">
+                        <form method="POST" action="process-register.php">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
