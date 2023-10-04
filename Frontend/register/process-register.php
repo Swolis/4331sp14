@@ -9,16 +9,16 @@ var_dump($_POST);
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the username, password, and additional user information from the form
-    $username = $_GET["username"];
-    $password = $_GET["password"];
-    $firstName = $_GET["firstName"];
-    $lastName = $_GET["lastName"];
-    $email = $_GET["email"];
-    $phone = $_GET["phone"];
-    $country = $_GET["country"];
-    $chessRating = $_GET["chessRating"];
-    $favoriteOpening = $_GET["favoriteOpening"];
-    $title = $_GET["title"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $country = $_POST["country"];
+    $chessRating = $_POST["chessRating"];
+    $favoriteOpening = $_POST["favoriteOpening"];
+    $title = $_POST["title"];
 
     // Connect to the database
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
