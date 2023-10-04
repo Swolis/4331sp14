@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     // Execute the statement
    
-        //$stmt->execute();
+        $stmt->execute();
         // Registration successful, redirect to the login page
         header("Location: ../login/login.php");
         exit();
