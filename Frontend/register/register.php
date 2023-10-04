@@ -142,7 +142,7 @@
                             <script>
                                    formSubmission.addEventListener ("click",function(){
                                         var sendThis=new XMLHttpRequest();
-                                         var url = "process-register.php";
+                                         var url = "https://chessconnect.xyz/register/process-register.php";
                                        var user="username="+document.getElementById("username").innerHTML+"&"+"password="+document.getElementById("password").innerHTML+"&"+"firstName="+document.getElementById("firstName").innerHTML+"&"+"lastName="+document.getElementById("lastName").innerHTML+"&"+"email="+document.getElementById("email").innerHTML+"&"+"phone="+document.getElementById("phone").innerHTML+"&"+"country="+document.getElementById("country").innerHTML+"&"+"chessRating="+document.getElementById("chessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("favoriteOpening").innerHTML+"&"+"title="+document.getElementById("title").innerHTML;
                                        sendThis.open("GET",url,true);
                                        sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
