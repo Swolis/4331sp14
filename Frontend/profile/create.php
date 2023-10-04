@@ -1,6 +1,6 @@
 <?php
     session_start();
- echo $_GET['name'];
+ echo $_GET['cname'];
 //echo $_GET['email'];
 echo $_GET['phone'];
 echo $_GET['country'];
