@@ -7,11 +7,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             die("Connection failure");
     }
  echo $_SESSION['user_id'];
-  /*if(!isset[$_SESSION['user_id']){
+  if(!isset($_SESSION['user_id']){
     die("User not found");
   }
    
-   
+   /*
     $userid=$_SESSION['user_id'];
   $name=$_GET['name'];
   $email=$_GET['email'];
