@@ -206,7 +206,7 @@ $userDetails = [
                         <!-- Output other fields as necessary -->
                         <td>
                             <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
-                            <script>
+                           /* <script>
                                 function saveText(sid){
                                     console.log('saveText called correctly', sid);
                                     var xr = new XMLHttpRequest();
@@ -239,10 +239,10 @@ $userDetails = [
                                     console.log('vars is ', vars);
                                     xr.send(vars);
                                     }
-                            </script>
+                           </script>*/
                             <button type = "submit" id = "edit-button">Edit</button>
                             <button type = "submit" id = "end-editing">Done</button>
-                            <script>
+                           /* <script>
                                 console.log("test2");
                                 var ename = document.getElementById("edit-name");
                                 var eemail = document.getElementById("edit-email");
@@ -286,6 +286,7 @@ $userDetails = [
                                     //paragraph.style.backgroundColor = "#ffe44d";
                                 } );
                             </script>
+                            */
 
                             <!-- Add delete button -->
                             <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
