@@ -90,7 +90,7 @@
                
         ?>*/
        <script>
-           function send(){
+           formSubmission send(){
                var sendThis=new XMLHttpRequest();
                xr.open("POST","process-register.php",true);
                
