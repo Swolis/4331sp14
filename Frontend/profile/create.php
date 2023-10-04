@@ -27,10 +27,10 @@ echo $_GET['chessRating'];
         $favoriteOpening = $_GET['favoriteOpening'] ?? null;
         $title = $_GET['title'] ?? null;
    
-        //$stmt = $conn->prepare("INSERT INTO contacts (user_id, name, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        //$stmt->bind_param("isssiss", $userId, $name,  $phone, $country, $chessRating, $favoriteOpening, $title);
-        //$stmt->execute();
-        //header("Location: ../profile/");
+        $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("isssiss", $userId, $name,  $phone, $country, $chessRating, $favoriteOpening, $title);
+        $stmt->execute();
+        header("Location: ../profile/");
     }
 
 ?>
