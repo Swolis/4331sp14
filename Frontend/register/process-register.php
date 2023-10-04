@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
-   
+    echo "hi';
      $select = mysqli_query($conn,"SELECT * FROM users WHERE username = '$username'");
     echo mysqli_num_rows($select);
-    echo "hi';
+   
   if($stmt->execute()&&mysqli_num_rows($select)<=0){
     // Execute the statement
    
