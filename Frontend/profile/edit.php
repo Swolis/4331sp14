@@ -2,7 +2,9 @@
 // Connect to the database
  
 session_start();
-
+<script>
+ console.log("hi");
+ </script>
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
