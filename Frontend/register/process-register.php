@@ -1,6 +1,6 @@
 <?php
 // Start session
-echo "hi";
+//echo "hi";
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
