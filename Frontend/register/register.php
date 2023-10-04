@@ -147,7 +147,7 @@
                                       let jsonPayload=JSON.stringify(user);
                                       
                                        sendThis.open('POST',url,true);
-                                       sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                       sendThis.setRequestHeader("Content-type", "application/json; charset=UTF-8");
                                    
                                         sendThis.send(jsonPayload);
                                        
