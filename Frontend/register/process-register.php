@@ -33,24 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
    
-     $select = $conn->query( "SELECT * FROM users WHERE username = '$username'");
+     //$select = $conn->query( "SELECT * FROM users WHERE username = '$username'");
   
     // Execute the statement
-    if (mysqli_num_rows($select)<=0) {
+   
         $stmt->execute();
         // Registration successful, redirect to the login page
         header("Location: ../login/login.php");
         exit();
-    }else {
-        // Registration failed, redirect back to the registration page with an error
-       
-        header("Location: ../register/register.php?");
-        //$username = ($_POST["username"]);
-      // die('Sorry, the Username '.$_POST['username'].' has already been used to register.');
-        //echo "Error: " . $stmt->error;
-
-        exit();
-    }
+    
 
     // Close the connection
     $stmt->close();
