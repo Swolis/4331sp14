@@ -16,12 +16,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
                
                
-$select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
+
 // Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
+   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_GET['username']."'");
 
     if(mysqli_num_rows($result)>0){
         header("Location:../register/register.php");
@@ -31,10 +31,10 @@ if ($conn->connect_error) {
     $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     echo "hi";
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
- 
-       // header("https://chessconnect.xyz/login/login.php");
+ if($stmt->execute()){
+       header("https://chessconnect.xyz/login/login.php");
         exit();
-    
+ }
 echo $username;
  $stmt->close();
    $conn->close();}
