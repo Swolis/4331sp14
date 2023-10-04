@@ -33,13 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
    
-     //$select = $conn->query( "SELECT * FROM users WHERE username = '$username'");
-  
+     $select = mysqli_query($conn,"SELECT * FROM users WHERE username = '$username'");
+  if($stmt->execute()&&mysqli_num_rows($select)<=0){
     // Execute the statement
    
-        $stmt->execute();
+        
         // Registration successful, redirect to the login page
-        header("Location: ../login/login.php");
+        header("Location: ../login/login.php");}
         exit();
     
 
