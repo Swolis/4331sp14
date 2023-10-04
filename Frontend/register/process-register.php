@@ -8,17 +8,18 @@ ini_set("display_errors", "1"); // shows all errors
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 if($_SERVER['REQUEST_METHOD']=="POST"){
-    $username=$_GET['username'];
+    $inData=getRequestInfo();
+    $username=$inData['username'];
     
-    $password=$_GET['password'];
-     $firstName=$_GET['firstName'];
-    $lastName=$_GET['lastName'];
-     $email=$_GET['email'];
-    $phone=$_GET['phone'];
-     $country=$_GET['country'];
-    $chessRating=$_GET['chessRating'];
-     $favoriteOpening=$_GET['favoriteOpening'];
-    $title=$_GET['title'];
+    $password=$inData['password'];
+     $firstName=$inData['firstName'];
+    $lastName=$_inData['lastName'];
+     $email=$_inData['email'];
+    $phone=$_inData['phone'];
+     $country=$_inData['country'];
+    $chessRating=$_inData['chessRating'];
+     $favoriteOpening=$_inData['favoriteOpening'];
+    $title=$_inData['title'];
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -29,7 +30,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_GET['username']."'");
+   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_inData['username']."'");
 
     if(mysqli_num_rows($result)>0){
         die();
