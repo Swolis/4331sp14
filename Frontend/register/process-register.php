@@ -1,5 +1,5 @@
 <?php
-echo $_GET['username'];
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $username=$_POST['username'];
     
