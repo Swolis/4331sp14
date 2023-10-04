@@ -23,8 +23,8 @@ if ($conn->connect_error) {
         die();
     }else{
      $stmt = $conn->prepare("INSERT INTO users (username,password, first_name, last_name,email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    //$stmt->bind_param("ssssssssss",$username,$hashedPassword,$firstName,$lastName,$email,$phone,$country,$chessRating,$favoriteOpening,$title);
-   $stmt->execute();
+    $stmt->bind_param("ssssssssss",$username,$hashedPassword,$firstName,$lastName,$email,$phone,$country,$chessRating,$favoriteOpening,$title);
+   //$stmt->execute();
     header("Location: ../login/login.php");
     }
    
