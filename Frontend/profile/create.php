@@ -20,9 +20,10 @@ $userid=$_SESSION['user_id'];
   $chessRating=$_GET['chessRating']??null;
   $favoriteOpening=$_GET['favoriteOpening']??null;
   $title=$_GET['title']??null;
-  /*
+  
 $stmt = $conn->prepare("INSERT INTO contacts (user_id,name, email, phone, country, chess_rating, favorite_opening, title) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
- $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
+ /*
+   $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
  $stmt->execute();
  header("https://chessconnect.xyz/");
    */
