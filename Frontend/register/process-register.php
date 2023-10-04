@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     // Execute the statement
     if (mysqli_num_rows($select)<=0) {
-        $stmt->execute()
+        $stmt->execute();
         // Registration successful, redirect to the login page
         header("Location: ../login/login.php");
         exit();
