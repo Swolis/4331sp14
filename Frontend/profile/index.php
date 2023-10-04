@@ -143,8 +143,11 @@ $userDetails = [
         <!--end of the users profile info-->
         <div class="container mt-5">
             <h3>Your Contacts</h3>
+            <!-- search bar (get search text from user to use later)-->
+            <div class="input-group mb-3">
+                <input type="text" id="searchInput" class="form-control" name="searchTerm" placeholder="Search contacts...">
+            </div>
             <div class="background-color p-3">
-            
                 <table>
                 <thead>
                     <tr>
