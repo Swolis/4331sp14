@@ -1,10 +1,10 @@
 <?php
     session_start();
  echo $_GET['cname'];
-//echo $_GET['email'];
-echo $_GET['phone'];
-echo $_GET['country'];
-echo $_GET['chessRating'];
+//echo $_GET['cemail'];
+echo $_GET['cphone'];
+echo $_GET['ccountry'];
+echo $_GET['cchessRating'];
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     
