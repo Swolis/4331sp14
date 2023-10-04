@@ -26,7 +26,7 @@
         $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         $stmt->execute();
-        header("Location: ../profile/");
+        //header("Location: ../profile/");
     }
 
 ?>
