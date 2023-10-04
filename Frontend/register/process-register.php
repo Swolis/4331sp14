@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+//if($_SERVER["REQUEST_METHOD"]=="POST"){
     $username=$_POST['username'];
     $password=$_POST['password'];
      $firstName=$_POST['firstName'];
@@ -33,6 +33,6 @@ if ($conn->connect_error) {
 echo $_POST['username'];
  $stmt->close();
    $conn->close();
-}
+//}
     
 ?>
