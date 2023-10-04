@@ -7,7 +7,7 @@ error_reporting(E_ALL); // reports all errors
 ini_set("display_errors", "1"); // shows all errors
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
-if($_SERVER['REQUEST_METHOD']=="POST"){
+
     $inData=getRequestInfo();
     $username=$inData['username'];
     
@@ -46,7 +46,6 @@ if ($conn->connect_error) {
  }
  $stmt->close();
    $conn->close();
-}
     	function getRequestInfo()
 	{
 		return json_decode(file_get_contents('php://input'), true);
