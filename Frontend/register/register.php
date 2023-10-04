@@ -23,7 +23,7 @@
         <!--end of nav-->
 
     <div class="container">
-  /*               <?php
+                 <?php
             $username = "";
             $password = "";
             $firstName ="";
@@ -34,7 +34,7 @@
             $chessRating = 0;
             $favoriteOpening = "";
             $title = "";
-
+/*
             // Check if the form is submitted
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -95,14 +95,15 @@
                 $stmt->close();
                 $conn->close();
             }
+             */   
         ?>
-*/
+
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card mt-5">
                     <div class="card-header">Register</div>
                     <div class="card-body">
-                        <form method="POST" action="process-register.php">
+                        <form method="POST" action="process-register.php?user='$username'&password='$password'&firstName='$firstName'&lastName='$lastName'&email='$email'&phone='$phone'&country='$country'&chessRating='$chessRating'&favoriteOpening='$favoriteOpening'&title='$title'">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
