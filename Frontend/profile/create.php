@@ -22,10 +22,11 @@ $userid=$_SESSION['user_id'];
   $title=$_GET['title']??null;
   
 $stmt = $conn->prepare("INSERT INTO contacts (user_id,name, email, phone, country, chess_rating, favorite_opening, title) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
- /*
+ 
    $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
- $stmt->execute();
+   if( $stmt->execute()){
+
  header("https://chessconnect.xyz/");
-   */
+   }
 }
 ?>
