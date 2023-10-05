@@ -26,7 +26,7 @@
          
                  
            
-/*
+
             // Check if the form is submitted
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -88,7 +88,7 @@
                 $conn->close();
             }
                
-        ?>*/
+        ?>
        
             
         <div class="row justify-content-center">
@@ -139,34 +139,7 @@
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
                             <button type="submit" id="formSubmission" class="btn btn-primary">Register</button>
-                            <script>
-                                   formSubmission.addEventListener ("click",function(){
-                                        
-                                        var url = "https://chessconnect.xyz/register/process-register.php";
-                                        var user=[
-                                            document.getElementById("username").innerHTML,
-                                            document.getElementById("password").innerHTML,
-                                           document.getElementById("firstName").innerHTML,
-                                            document.getElementById("lastName").innerHTML,
-                                            document.getElementById("email").innerHTML,
-                                            document.getElementById("phone").innerHTML,
-                                            document.getElementById("country").innerHTML,
-                                            document.getElementById("chessRating").innerHTML,
-                                            document.getElementById("favoriteOpening").innerHTML,
-                                            document.getElementById("title").innerHTML
-                                                ];
-                                    
-                                    var UserString = JSON.stringify(user);
-                                    const xhr = new XMLHttpRequest();
-                                    xhr.open("POST", url, true);
-                                    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-                                     xhr.send(UserString);
-                                      
-                                       
-                                      // sendThis.send(user);
-                                      
-           });
-       </script>
+
                         </form>
                     </div>
                 </div>
