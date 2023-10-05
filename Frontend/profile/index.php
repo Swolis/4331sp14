@@ -150,74 +150,90 @@ $userDetails = [
     </div>
             <div class="container mt-5">
                 <h3>Your Contacts</h3>
-                <!-- search bar (get search text from user to use later)-->
-                <div class="input-group mb-3">
-                    <input type="text" id="searchInput" class="form-control" name="searchTerm" placeholder="Search contacts...">
+                <div><!-- search bar (get search text from user to use later)-->
+                    <div class="input-group mb-3">
+                        <input type="text" id="searchInput" class="form-control" name="searchTerm" placeholder="Search contacts...">
+                    </div>
+                    <!-- get the search term (if available) -->
+                    <?php
+                        $searchTerm = isset($_GET['searchTerm']) ? 
+                        mysqli_real_escape_string($conn, $_GET['searchTerm']) : '';
+                    ?>
+                    <div class="background-color p-3">
+                        <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Country</th>
+                                <th>Chess Rating</th>
+                                <th>Favorite Opening</th>
+                                <th>Title</th>
+                                <th>Address</th>
+                                <!-- Add other fields as necessary -->
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <?php
+                                $index = 0;
+                                $contArray = array();
+                                foreach ($contacts as $cont):
+                                    $contArray[$index] = $cont;
+                                    $index++;
+                                endforeach; 
+                            ?>
+                            <?php
+                                foreach ($contArray as $contact):
+                                    // Check if the search term is empty or if it matches the contact's name, email, or other relevant fields
+                                    if (empty($searchTerm) || 
+                                        strpos($contact['name'], $searchTerm) !== false || 
+                                        strpos($contact['email'], $searchTerm) !== false ||
+                                        strpos($contact['phone'], $searchTerm) !== false ||
+                                        strpos($contact['country'], $searchTerm) !== false ||
+                                        strpos($contact['rating'], $searchTerm) !== false ||
+                                        strpos($contact['opening'], $searchTerm) !== false ||
+                                        strpos($contact['title'], $searchTerm) !== false ||
+                                        strpos($contact['address'], $searchTerm) !== false ||
+                                        strpos($contact['notes'], $searchTerm) !== false
+                                        // Add more fields as needed for searching
+                                    ):
+                            ?>
                 </div>
-                <!-- get the search term (if available) -->
-                <?php
-                    $searchTerm = isset($_GET['searchTerm']) ? 
-                    mysqli_real_escape_string($conn, $_GET['searchTerm']) : '';
-                ?>
-                <div class="background-color p-3">
-                    <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Country</th>
-                            <th>Chess Rating</th>
-                            <th>Favorite Opening</th>
-                            <th>Title</th>
-                            <th>Address</th>
-                            <!-- Add other fields as necessary -->
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody >
-                        <?php
-                            $index = 0;
-                            $contArray = array();
-                            foreach ($contacts as $cont):
-                                $contArray[$index] = $cont;
-                                $index++;
-                            endforeach; 
-                        ?>
-                        <?php
-                            foreach ($contArray as $contact):
-                                // Check if the search term is empty or if it matches the contact's name, email, or other relevant fields
-                                if (empty($searchTerm) || 
-                                    strpos($contact['name'], $searchTerm) !== false || 
-                                    strpos($contact['email'], $searchTerm) !== false ||
-                                    strpos($contact['phone'], $searchTerm) !== false ||
-                                    strpos($contact['country'], $searchTerm) !== false ||
-                                    strpos($contact['rating'], $searchTerm) !== false ||
-                                    strpos($contact['opening'], $searchTerm) !== false ||
-                                    strpos($contact['title'], $searchTerm) !== false ||
-                                    strpos($contact['address'], $searchTerm) !== false ||
-                                    strpos($contact['notes'], $searchTerm) !== false
-                                    // Add more fields as needed for searching
-                                ):
-                        ?>
-                        <tr class="edit-name" id="edit-name-<?php echo $contact['id']; ?>">
-                            <td id = "edit-name"><?php echo htmlspecialchars($contact["name"]??''); ?></td>
-                            <td id = "edit-email"><?php echo htmlspecialchars($contact["email"]??''); ?></td>
-                            <td id = "edit-phone"><?php echo htmlspecialchars($contact["phone"]??''); ?></td>
-                            <td id = "edit-country"><?php echo htmlspecialchars($contact["country"]??''); ?></td>
-                            <td id = "edit-rating"><?php echo htmlspecialchars($contact["chess_rating"]??''); ?></td>
-                            <td id = "edit-opening"><?php echo htmlspecialchars($contact["favorite_opening"]??''); ?></td>
-                            <td id = "edit-title"><?php echo htmlspecialchars($contact["title"]??''); ?></td>
-                            <td id = "edit-address"><?php echo htmlspecialchars($contact["address"]??''); ?></td>
-                            <td id = "edit-notes"><?php echo htmlspecialchars($contact["notes"]??''); ?></td>
-                            <!-- Output other fields as necessary -->
+                        
+                        <tr id="data-<?php echo $contact['id']; ?>">
+                            <td><?php echo htmlspecialchars($contact["name"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["email"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["phone"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["country"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["chess_rating"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["favorite_opening"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["title"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["address"]?? ''); ?></td>
+                            <td><?php echo htmlspecialchars($contact["notes"]?? ''); ?></td>
+                            <!-- ... other data cells ... -->
                             <td>
-                                <!-- Here you can provide an Edit link to another PHP script to handle editing. -->
-                                
-                                <button type="button" class="edit-button" data-id="<?php echo $contact['id']; ?>">Edit</button>
+                            <button type="button" class="edit-button" data-id="<?php echo $contact['id']; ?>">Edit</button>
+                            <button type="button" class="delete-button" data-id="<?php echo $contact['id']; ?>">Delete</button>
+
+                            </td>
+                        </tr>
+                        <!-- Editable Row -->
+                        <tr id="edit-<?php echo $contact['id']; ?>" style="display: none;">
+                            <td><input type="text" name="name" value="<?php echo htmlspecialchars($contact['name']?? ''); ?>"/></td>
+                            <td><input type="text" name="email" value="<?php echo htmlspecialchars($contact['email']?? ''); ?>"/></td>
+                            <td><input type="text" name="phone" value="<?php echo htmlspecialchars($contact['phone']?? ''); ?>"/></td>
+                            <td><input type="text" name="country" value="<?php echo htmlspecialchars($contact['country']?? ''); ?>"/></td>
+                            <td><input type="text" name="chess_rating" value="<?php echo htmlspecialchars($contact['chess_rating']?? ''); ?>"/></td>
+                            <td><input type="text" name="favorite_opening" value="<?php echo htmlspecialchars($contact['favorite_opening']?? ''); ?>"/></td>
+                            <td><input type="text" name="title" value="<?php echo htmlspecialchars($contact['title']?? ''); ?>"/></td>
+                            <td><input type="text" name="address" value="<?php echo htmlspecialchars($contact['address']?? ''); ?>"/></td>
+                            <td><input type="text" name="notes" value="<?php echo htmlspecialchars($contact['notes']?? ''); ?>"/></td>
+                            <!-- ... other editable cells ... -->
+                            <td>
                                 <button type="button" class="end-editing" data-id="<?php echo $contact['id']; ?>">Done</button>
-                                <!-- Add delete button -->
-                                <a href="delete.php?id=<?php echo $contact["id"]; ?>" onclick="return confirm('Are you sure you want to delete this contact?');"><button>Delete</button></a>
+                                <button type="button" class="cancel-editing" data-id="<?php echo $contact['id']; ?>">Cancel</button>
                             </td>
                         </tr>
                         <?php endif; endforeach; ?>
@@ -236,9 +252,11 @@ $userDetails = [
                     <input type="email" name="email" placeholder="Email">
                     <input type="text" name="phone" placeholder="Phone">
                     <input type="text" name="country" placeholder="Country">
-                    <input type="number" name="chessRating" placeholder="Chess Rating">
+                    <input type="number" name="chess_rating" placeholder="Chess Rating">
                     <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
                     <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
+                    <input type="text" name="address" placeholder="Adress">
+                    <input type="text" name="title" placeholder="Notes">
                     <button type="submit" class="btn btn-danger m-1">Create</button>
                 </form>
             </div>
