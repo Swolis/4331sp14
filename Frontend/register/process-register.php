@@ -9,17 +9,17 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
     $inData=getRequestInfo();
-    $username=$inData['username'];
+    $username=$inData[0];
     
-    $password=$inData['password'];
-     $firstName=$inData['firstName'];
-    $lastName=$inData['lastName'];
-     $email=$inData['email'];
-    $phone=$inData['phone'];
-     $country=$inData['country'];
-    $chessRating=$inData['chessRating'];
-     $favoriteOpening=$inData['favoriteOpening'];
-    $title=$inData['title'];
+    $password=$inData[1];
+     $firstName=$inData[2];
+    $lastName=$inData[3];
+     $email=$inData[4];
+    $phone=$inData[5];
+     $country=$inData[6];
+    $chessRating=$inData[7];
+     $favoriteOpening=$inData[8];
+    $title=$inData[9];
     $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -30,7 +30,7 @@ ini_set("error_log", "/tmp/php-error.log");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$inData['username']."'");
+   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$inData[0]."'");
 
     if(mysqli_num_rows($result)>0){
         die();
