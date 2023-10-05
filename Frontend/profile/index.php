@@ -300,31 +300,18 @@ $userDetails = [
         
         <div class="container mt-5">
             <h3>Create a new contact</h3>
-            <form class="background-color p-3">
+            <form action="create.php" method="POST" class="background-color p-3">
                
-                    <input type="text" name="name" id="cname" placeholder="Name" required>
+                    <input type="text" name="name" placeholder="Name" required>
                 
                 
-                <input type="email" id= "cemail" name="email" placeholder="Email">
-                <input type="text" id="cphone" name="phone" placeholder="Phone">
-                <input type="text"  id="ccountry" name="country"  placeholder="Country">
-                <input type="number" id="cchessRating" name="chessRating"  placeholder="Chess Rating">
-                <input type="text" id="cfavoriteOpening" name="favoriteOpening"  placeholder="Favorite Opening">
-                <input type="text" id="ctitle" name="title"  placeholder="Title (e.g. IM, GM)">
-                <button type="submit" id="formSubmission" class="btn btn-danger m-1">Create</button>
-                    <script>
-                        formSubmission.addEventListener ("click",function(){
-                                var sendThis=new XMLHttpRequest(); 
-                                var user="name="+document.getElementById("cname").innerHTML+"&"+"email="+document.getElementById("cemail").innerHTML+"&"+"phone="+document.getElementById("cphone").innerHTML+"&"+"country="+document.getElementById("ccountry").innerHTML+"&"+"chessRating="+document.getElementById("cchessRating").innerHTML+"&"+"favoriteOpening="+document.getElementById("cfavoriteOpening").innerHTML+"&"+"title="+document.getElementById("ctitle").innerHTML;
-                                console.log(user);
-                            sendThis.open("POST","create.php",true);
-                                sendThis.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                            
-                                sendThis.send(user);
-                            console.log(sendThis);
-                           
-           });
-       </script>
+                <input type="email" name="email" placeholder="Email">
+                <input type="text" name="phone" placeholder="Phone">
+                <input type="text" name="country" placeholder="Country">
+                <input type="number" name="chessRating" placeholder="Chess Rating">
+                <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
+                <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
+                <button type="submit" class="btn btn-danger m-1">Create</button>
             </form>
         </div>
         
