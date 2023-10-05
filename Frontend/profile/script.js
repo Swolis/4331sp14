@@ -19,51 +19,61 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Click event for all 'end editing' buttons
-    document.querySelectorAll('.end-editing').forEach(button => {
-        button.addEventListener('click', function() {
-            var id = this.getAttribute('data-id');
-            console.log("Checking ID:", id);
-            document.querySelector('#data-' + id).style.display = ''; // Show the data row
-            document.querySelector('#edit-' + id).style.display = 'none'; // Hide the edit row
-            saveText(id); 
-        });
+document.querySelectorAll('.end-editing').forEach(button => {
+    button.addEventListener('click', function() {
+        var id = this.getAttribute('data-id');
+
+        saveText(id, function(response) {
+            if (response.status === 'success') {
+                // On success, update the visible data
+                fields.forEach(field => {
+                    var inputEl = document.querySelector('#edit-' + id + ' input[name=' + field + ']');
+                    if (inputEl) {
+                        document.querySelector('#data-' + id + ' .' + field).textContent = inputEl.value.trim();
+                    }
+                });
+
+                // Switch visibility
+                document.querySelector('#data-' + id).style.display = ''; // Show the data row
+                document.querySelector('#edit-' + id).style.display = 'none'; // Hide the edit row
+            } else {
+                // Handle error - e.g., show an error message to the user
+                console.log("You got an error");
+                console.log(response.message);
+            }
+        }); 
+    });
+});
+
+
+function saveText(sid, callback){
+    console.log('saveText called correctly', sid);
+    var xr = new XMLHttpRequest();
+    var url = "edit.php";
+    
+    // Begin with the id parameter in the vars string
+    var vars = "id=" + sid;
+
+    // Add each field's textContent to the vars string, URL-encoded
+    fields.forEach(function(field) {
+        var inputEl = document.querySelector('#edit-' + sid + ' input[name=' + field + ']');
+        if (inputEl) {
+            vars += "&" + field + "=" + encodeURIComponent(inputEl.value.trim());
+        }
     });
 
-    function saveText(sid){
-        console.log('saveText called correctly', sid);
-        var xr = new XMLHttpRequest();
-        var url = "edit.php";
-        
-        // Begin with the id parameter in the vars string
-        var vars = "id=" + sid;
-
-        // Add each field's textContent to the vars string, URL-encoded
-        fields.forEach(function(field) {
-            var inputEl = document.querySelector('#edit-' + sid + ' input[name=' + field + ']');
-            if (inputEl) {
-                vars += "&" + field + "=" + encodeURIComponent(inputEl.value.trim());
-            }
-        });
+    // Handling server response
+    xr.onreadystatechange = function () {
+        if (xr.readyState == 4 && xr.status == 200) {
+            console.log('Server response:', xr.responseText);
+            var response = JSON.parse(xr.responseText);
+            if (callback) callback(response); // Call the callback with the response
+        }
+    };
     
-        // Handling server response
-        xr.onreadystatechange = function () {
-            if (xr.readyState == 4 && xr.status == 200) {
-                console.log('Server response:', xr.responseText);
-                var response = JSON.parse(xr.responseText);
-                if (response.status === 'success') {
-                    // Handle success - e.g., show a success message to the user
-                    console.log(response.message);
-                } else {
-                    // Handle error - e.g., show an error message to the user
-                    console.log("you got an error");
-                    console.log(response.message);
-                }
-            }
-        };
-        
-        xr.open("POST", url, true);
-        xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        console.log('Sending vars: ', vars);
-        xr.send(vars);
-    }
+    xr.open("POST", url, true);
+    xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    console.log('Sending vars: ', vars);
+    xr.send(vars);
+}
 });

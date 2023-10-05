@@ -203,15 +203,15 @@ $userDetails = [
                 </div>
                         
                         <tr id="data-<?php echo $contact['id']; ?>">
-                            <td><?php echo htmlspecialchars($contact["name"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["email"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["phone"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["country"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["chess_rating"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["favorite_opening"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["title"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["address"]?? ''); ?></td>
-                            <td><?php echo htmlspecialchars($contact["notes"]?? ''); ?></td>
+                            <td class="name"><?php echo htmlspecialchars($contact["name"]?? ''); ?></td>
+                            <td class="email"><?php echo htmlspecialchars($contact["email"]?? ''); ?></td>
+                            <td class="phone"><?php echo htmlspecialchars($contact["phone"]?? ''); ?></td>
+                            <td class="country"><?php echo htmlspecialchars($contact["country"]?? ''); ?></td>
+                            <td class="chess_rating"><?php echo htmlspecialchars($contact["chess_rating"]?? ''); ?></td>
+                            <td class="favorite_opening"><?php echo htmlspecialchars($contact["favorite_opening"]?? ''); ?></td>
+                            <td class="title"><?php echo htmlspecialchars($contact["title"]?? ''); ?></td>
+                            <td class="address"><?php echo htmlspecialchars($contact["address"]?? ''); ?></td>
+                            <td class="notes"><?php echo htmlspecialchars($contact["notes"]?? ''); ?></td>
                             <!-- ... other data cells ... -->
                             <td>
                             <button type="button" class="edit-button" data-id="<?php echo $contact['id']; ?>">Edit</button>
@@ -221,15 +221,15 @@ $userDetails = [
                         </tr>
                         <!-- Editable Row -->
                         <tr id="edit-<?php echo $contact['id']; ?>" style="display: none;">
-                            <td><input type="text" name="name" value="<?php echo htmlspecialchars($contact['name']?? ''); ?>"/></td>
-                            <td><input type="text" name="email" value="<?php echo htmlspecialchars($contact['email']?? ''); ?>"/></td>
-                            <td><input type="text" name="phone" value="<?php echo htmlspecialchars($contact['phone']?? ''); ?>"/></td>
-                            <td><input type="text" name="country" value="<?php echo htmlspecialchars($contact['country']?? ''); ?>"/></td>
-                            <td><input type="text" name="chess_rating" value="<?php echo htmlspecialchars($contact['chess_rating']?? ''); ?>"/></td>
-                            <td><input type="text" name="favorite_opening" value="<?php echo htmlspecialchars($contact['favorite_opening']?? ''); ?>"/></td>
-                            <td><input type="text" name="title" value="<?php echo htmlspecialchars($contact['title']?? ''); ?>"/></td>
-                            <td><input type="text" name="address" value="<?php echo htmlspecialchars($contact['address']?? ''); ?>"/></td>
-                            <td><input type="text" name="notes" value="<?php echo htmlspecialchars($contact['notes']?? ''); ?>"/></td>
+                            <td class="name"><input type="text" name="name" value="<?php echo htmlspecialchars($contact['name']?? ''); ?>"/></td>
+                            <td class="email"><input type="text" name="email" value="<?php echo htmlspecialchars($contact['email']?? ''); ?>"/></td>
+                            <td class="phone"><input type="text" name="phone" value="<?php echo htmlspecialchars($contact['phone']?? ''); ?>"/></td>
+                            <td class="country"><input type="text" name="country" value="<?php echo htmlspecialchars($contact['country']?? ''); ?>"/></td>
+                            <td class="chess_rating"><input type="text" name="chess_rating" value="<?php echo htmlspecialchars($contact['chess_rating']?? ''); ?>"/></td>
+                            <td class="favorite_opening"><input type="text" name="favorite_opening" value="<?php echo htmlspecialchars($contact['favorite_opening']?? ''); ?>"/></td>
+                            <td class="title"><input type="text" name="title" value="<?php echo htmlspecialchars($contact['title']?? ''); ?>"/></td>
+                            <td class="address"><input type="text" name="address" value="<?php echo htmlspecialchars($contact['address']?? ''); ?>"/></td>
+                            <td class="notes"><input type="text" name="notes" value="<?php echo htmlspecialchars($contact['notes']?? ''); ?>"/></td>
                             <!-- ... other editable cells ... -->
                             <td>
                                 <button type="button" class="end-editing" data-id="<?php echo $contact['id']; ?>">Done</button>
