@@ -45,6 +45,39 @@ document.querySelectorAll('.end-editing').forEach(button => {
     });
 });
 
+document.querySelectorAll('.delete-button').forEach(button => {
+    button.addEventListener('click', function() {
+        var id = this.getAttribute('data-id');
+        deleteRecord(id, function(response) {
+            if (response.status === 'success') {
+                // On success, remove the row from the table
+                document.querySelector('#data-' + id).remove();
+                document.querySelector('#edit-' + id).remove();
+            } else {
+                // Handle error - e.g., show an error message to the user
+                console.error("Error deleting record:", response.message);
+            }
+        });
+    });
+});
+function deleteRecord(id, callback){
+    var xr = new XMLHttpRequest();
+    var url = "delete.php"; // Use your actual delete endpoint
+    var vars = "id=" + id;
+    
+    xr.onreadystatechange = function () {
+        if (xr.readyState == 4 && xr.status == 200) {
+            var response = JSON.parse(xr.responseText);
+            if (callback) callback(response);
+        }
+    };
+    
+    xr.open("POST", url, true);
+    xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xr.send(vars);
+}
+
+
 
 function saveText(sid, callback){
     console.log('saveText called correctly', sid);
