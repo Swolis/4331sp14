@@ -191,19 +191,6 @@ $userDetails = [
                             ?>
                             <?php
                                 foreach ($contArray as $contact):
-                                    // Check if the search term is empty or if it matches the contact's name, email, or other relevant fields
-                                    if (empty($searchTerm) || 
-                                        strpos($contact['name'], $searchTerm) !== false || 
-                                        strpos($contact['email'], $searchTerm) !== false ||
-                                        strpos($contact['phone'], $searchTerm) !== false ||
-                                        strpos($contact['country'], $searchTerm) !== false ||
-                                        strpos($contact['chess_rating'], $searchTerm) !== false ||
-                                        strpos($contact['favorite_opening'], $searchTerm) !== false ||
-                                        strpos($contact['title'], $searchTerm) !== false ||
-                                        strpos($contact['address'], $searchTerm) !== false ||
-                                        strpos($contact['notes'], $searchTerm) !== false
-                                        // Add more fields as needed for searching
-                                    ):
                             ?>
                     </div>
                         
@@ -241,7 +228,7 @@ $userDetails = [
                                 <button type="button" class="cancel-editing" data-id="<?php echo $contact['id']; ?>">Cancel</button>
                             </td>
                         </tr>
-                        <?php endif; endforeach; ?>
+                        <?php endforeach; ?>
                     </tbody>
                     </table>
                 </div>
