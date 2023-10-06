@@ -269,7 +269,7 @@ $userDetails = [
         <script>
             var contactId = '<?php echo $contact["id"]; ?>';
         </script>
-        <script src = "script.js"> </script>
+    
         <script>
             // Store the original content of the table body
             const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
@@ -306,5 +306,6 @@ $userDetails = [
                 filterContacts(searchTerm);
             });
         </script>
+        <script src = "script.js"> </script>
     </body>
 </html>
