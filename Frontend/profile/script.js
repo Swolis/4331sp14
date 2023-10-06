@@ -112,5 +112,6 @@ function saveText(sid, callback){
     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     console.log('Sending vars: ', vars);
     xr.send(vars);
+    location.reload(true)
 }
 });
