@@ -148,6 +148,11 @@ $userDetails = [
 
 
     </div>
+    <script>
+            var contactId = '<?php echo $contact["id"]; ?>';  
+            
+        </script>
+    <script src = "script.js"> </script>
             <div class="container mt-5">
                 <h3>Your Contacts</h3>
                 <div><!-- search bar (get search text from user to use later)-->
@@ -266,10 +271,7 @@ $userDetails = [
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         </div>
-        <script>
-            var contactId = '<?php echo $contact["id"]; ?>';
-        </script>
-    
+
         <script>
             // Store the original content of the table body
             const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
@@ -306,7 +308,7 @@ $userDetails = [
                 filterContacts(searchTerm);
             });
         </script>
-        <script src = "script.js"> </script>
+      
 
     </body>
 </html>
