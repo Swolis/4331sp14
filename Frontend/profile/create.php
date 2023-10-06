@@ -18,7 +18,7 @@
         $email = $_POST['email'] ?? null;  // Uses null coalescing for optional fields
         $phone = $_POST['phone'] ?? null;
         $country = $_POST['country'] ?? null;
-        $chessRating = $_POST['chessRating'] ?? null;
+        $chessRating = $_POST['chess_rating'] ?? null;
         $favoriteOpening = $_POST['favoriteOpening'] ?? null;
         $title = $_POST['title'] ?? null;
         $address = $_POST['address'] ?? null;
