@@ -2,11 +2,18 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Fields to be edited
     var fields = ["name", "email", "phone", "country", "chess_rating", "favorite_opening", "title", "address", "notes"];
-    
-    // Click event for all 'edit' buttons
-    document.querySelectorAll('.edit-button').forEach(button => {
-        button.addEventListener('click', function() {
-            var id = this.getAttribute('data-id');
+
+    // This acts as a container for all buttons inside the contacts list
+    // This container allows the buttons to still work after the search bar is used
+    // Previously, the js would not apply to buttons after they were reloaded following a search
+    // This keeps the js for the buttons attached to the container rather than the buttons themselves
+    // Click event for the common ancestor of edit, end-editing, and delete buttons
+    document.querySelector('#contactsTable').addEventListener('click', function(event) {
+        var target = event.target;
+
+        // Edit button clicked
+        if (target.classList.contains('edit-button')) {
+            var id = target.getAttribute('data-id');
             console.log("Checking ID:", id);
             document.querySelector('#data-' + id).style.display = 'none'; // Hide the data row
             document.querySelector('#edit-' + id).style.display = ''; // Show the edit row
@@ -15,51 +22,48 @@ document.addEventListener("DOMContentLoaded", function() {
                 var el = document.querySelector('#edit-' + field + '-' + id);
                 if (el) el.contentEditable = true;
             });
-        });
+        }
+
+        // End Editing button clicked
+        if (target.classList.contains('end-editing')) {
+            var id = target.getAttribute('data-id');
+            saveText(id, function(response) {
+                if (response.status === 'success') {
+                    // On success, update the visible data
+                    fields.forEach(field => {
+                        var inputEl = document.querySelector('#edit-' + id + ' input[name=' + field + ']');
+                        if (inputEl) {
+                            document.querySelector('#data-' + id + ' .' + field).textContent = inputEl.value.trim();
+                        }
+                    });
+
+                    // Switch visibility
+                    document.querySelector('#data-' + id).style.display = ''; // Show the data row
+                    document.querySelector('#edit-' + id).style.display = 'none'; // Hide the edit row
+                } else {
+                    // Handle error - e.g., show an error message to the user
+                    console.log("You got an error");
+                    console.log(response.message);
+                }
+            });
+        }
+
+        // Delete button clicked
+        if (target.classList.contains('delete-button')) {
+            var id = target.getAttribute('data-id');
+            deleteRecord(id, function(response) {
+                if (response.status === 'success') {
+                    // On success, remove the row from the table
+                    document.querySelector('#data-' + id).remove();
+                    document.querySelector('#edit-' + id).remove();
+                } else {
+                    // Handle error - e.g., show an error message to the user
+                    console.error("Error deleting record:", response.message);
+                }
+            });
+        }
     });
 
-    // Click event for all 'end editing' buttons
-document.querySelectorAll('.end-editing').forEach(button => {
-    button.addEventListener('click', function() {
-        var id = this.getAttribute('data-id');
-
-        saveText(id, function(response) {
-            if (response.status === 'success') {
-                // On success, update the visible data
-                fields.forEach(field => {
-                    var inputEl = document.querySelector('#edit-' + id + ' input[name=' + field + ']');
-                    if (inputEl) {
-                        document.querySelector('#data-' + id + ' .' + field).textContent = inputEl.value.trim();
-                    }
-                });
-
-                // Switch visibility
-                document.querySelector('#data-' + id).style.display = ''; // Show the data row
-                document.querySelector('#edit-' + id).style.display = 'none'; // Hide the edit row
-            } else {
-                // Handle error - e.g., show an error message to the user
-                console.log("You got an error");
-                console.log(response.message);
-            }
-        }); 
-    });
-});
-
-document.querySelectorAll('.delete-button').forEach(button => {
-    button.addEventListener('click', function() {
-        var id = this.getAttribute('data-id');
-        deleteRecord(id, function(response) {
-            if (response.status === 'success') {
-                // On success, remove the row from the table
-                document.querySelector('#data-' + id).remove();
-                document.querySelector('#edit-' + id).remove();
-            } else {
-                // Handle error - e.g., show an error message to the user
-                console.error("Error deleting record:", response.message);
-            }
-        });
-    });
-});
 function deleteRecord(id, callback){
     var xr = new XMLHttpRequest();
     var url = "delete.php"; // Use your actual delete endpoint
