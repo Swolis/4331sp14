@@ -29,18 +29,18 @@ $userDetails = [
     "title" => $_SESSION["title"]
 ];
 // After displaying the user profile, retrieve the contacts
-$contacts_query = "SELECT * FROM contacts WHERE user_id = ?";
+            
+    $contacts_query = "SELECT * FROM contacts WHERE user_id = ?";
     $stmt = $conn->prepare($contacts_query);
     $stmt->bind_param("i", $_SESSION["user_id"]);
     $stmt->execute();
     $result = $stmt->get_result();
-    $contacts = $result->fetch_all(MYSQLI_ASS 
-
+    $contacts = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-  
+    
 <head>
     <meta charset="UTF-8">
     <title>User Profile</title>
