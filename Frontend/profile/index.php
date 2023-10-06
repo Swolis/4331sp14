@@ -161,28 +161,28 @@ $userDetails = [
                     ?>
                     <div class="background-color p-3">
                         <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Country</th>
-                                <th>Chess Rating</th>
-                                <th>Favorite Opening</th>
-                                <th>Title</th>
-                                <th>Address</th>
-                                <!-- Add other fields as necessary -->
-                                <th>Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody >
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Country</th>
+                                    <th>Chess Rating</th>
+                                    <th>Favorite Opening</th>
+                                    <th>Title</th>
+                                    <th>Address</th>
+                                    <!-- Add other fields as necessary -->
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                        <tbody id="contactsTable">
                             <?php
                                 $index = 0;
                                 $contArray = array();
                                 foreach ($contacts as $cont):
                                     $contArray[$index] = $cont;
                                     $index++;
-                                endforeach; 
+                                endforeach;
                             ?>
                             <?php
                                 foreach ($contArray as $contact):
@@ -192,15 +192,15 @@ $userDetails = [
                                         strpos($contact['email'], $searchTerm) !== false ||
                                         strpos($contact['phone'], $searchTerm) !== false ||
                                         strpos($contact['country'], $searchTerm) !== false ||
-                                        strpos($contact['rating'], $searchTerm) !== false ||
-                                        strpos($contact['opening'], $searchTerm) !== false ||
+                                        strpos($contact['chess_rating'], $searchTerm) !== false ||
+                                        strpos($contact['favorite_opening'], $searchTerm) !== false ||
                                         strpos($contact['title'], $searchTerm) !== false ||
                                         strpos($contact['address'], $searchTerm) !== false ||
                                         strpos($contact['notes'], $searchTerm) !== false
                                         // Add more fields as needed for searching
                                     ):
                             ?>
-                </div>
+                    </div>
                         
                         <tr id="data-<?php echo $contact['id']; ?>">
                             <td class="name"><?php echo htmlspecialchars($contact["name"]?? ''); ?></td>
@@ -270,6 +270,41 @@ $userDetails = [
             var contactId = '<?php echo $contact["id"]; ?>';
         </script>
         <script src = "script.js"> </script>
+        <script>
+            // Store the original content of the table body
+            const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
 
+            // Get the search input element
+            const searchInput = document.getElementById('searchInput');
+            // Get the contacts table body by ID
+            const contactsTableBody = document.getElementById('contactsTable');
+
+            // Function to filter and update the table based on the search term
+            function filterContacts(searchTerm) {
+                // Reset the table body content to the original content
+                contactsTableBody.innerHTML = originalTableBodyContent;
+
+                // Get all rows in the table body
+                const rows = contactsTableBody.querySelectorAll('tr');
+
+                // Loop through rows and hide those that do not match the search term
+                rows.forEach(row => {
+                    // Get the data from the row for filtering
+                    const rowData = row.innerText.toLowerCase();
+                    // If the search term is not found in the row's data, hide the row
+                    if (rowData.indexOf(searchTerm.toLowerCase()) === -1) {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+
+            // Add an event listener for the 'input' event on the search input
+            searchInput.addEventListener('input', function() {
+                // Get the search term from the input field
+                const searchTerm = searchInput.value;
+                // Call the filterContacts function with the search term
+                filterContacts(searchTerm);
+            });
+        </script>
     </body>
 </html>
