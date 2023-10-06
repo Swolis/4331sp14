@@ -79,6 +79,7 @@ function deleteRecord(id, callback){
     xr.open("POST", url, true);
     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xr.send(vars);
+     location.reload(true)
 }
 
 
@@ -112,6 +113,6 @@ function saveText(sid, callback){
     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     console.log('Sending vars: ', vars);
     xr.send(vars);
-    location.reload(true)
+   
 }
 });
