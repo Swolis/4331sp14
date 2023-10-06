@@ -256,7 +256,7 @@ $userDetails = [
                     <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
                     <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
                     <input type="text" name="address" placeholder="Adress">
-                    <input type="text" name="title" placeholder="Notes">
+                    <input type="text" name="notes" placeholder="Notes">
                     <button type="submit" class="btn btn-danger m-1">Create</button>
                 </form>
             </div>
