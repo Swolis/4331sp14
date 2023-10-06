@@ -36,6 +36,9 @@ $userDetails = [
     $stmt->execute();
     $result = $stmt->get_result();
     $contacts = $result->fetch_all(MYSQLI_ASSOC);
+
+    // Write $contacts to a session variable
+    $_SESSION['contacts'] = $contacts;
 ?>
 
 <!DOCTYPE html>
@@ -182,15 +185,15 @@ $userDetails = [
                             </thead>
                         <tbody id="contactsTable">
                             <?php
-                                $index = 0;
-                                $contArray = array();
-                                foreach ($contacts as $cont):
-                                    $contArray[$index] = $cont;
-                                    $index++;
-                                endforeach;
+                                $contacts_query = "SELECT * FROM contacts WHERE user_id = ?";
+                                $stmt = $conn->prepare($contacts_query);
+                                $stmt->bind_param("i", $_SESSION["user_id"]);
+                                $stmt->execute();
+                                $result = $stmt->get_result();
+                                $contacts = $result->fetch_all(MYSQLI_ASSOC);
                             ?>
                             <?php
-                                foreach ($contArray as $contact):
+                                foreach ($contacts as $contact):
                             ?>
                     </div>
                         
