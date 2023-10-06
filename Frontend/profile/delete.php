@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Close the connection
-    header("Location:https://chessconnect.xyz/profile/");
+    
     $stmt->close();
     $conn->close();
 } else {
