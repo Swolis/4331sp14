@@ -79,8 +79,7 @@ function deleteRecord(id, callback){
     xr.open("POST", url, true);
     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xr.send(vars);
-    window.reload()
-    window.reload()
+    
      
 }
 
