@@ -18,14 +18,14 @@
         $email = $_POST['email'] ?? null;  // Uses null coalescing for optional fields
         $phone = $_POST['phone'] ?? null;
         $country = $_POST['country'] ?? null;
-        $chess_rating = $_POST['chessRating'] ?? null;
+        $chessRating = $_POST['chessRating'] ?? null;
         $favoriteOpening = $_POST['favoriteOpening'] ?? null;
         $title = $_POST['title'] ?? null;
         $address = $_POST['address'] ?? null;
         $notes = $_POST['notes'] ?? null;
     
-        $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
+        $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title,address,notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
+        $stmt->bind_param("issssissss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title,$address,$notes);
         $stmt->execute();
         header("Location: ../profile/");
     }
