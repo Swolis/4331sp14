@@ -269,19 +269,19 @@ $userDetails = [
             // Get the search input element
             const searchInput = document.getElementById('searchInput');
             // Get the contacts table body by ID
-            var contactsTableBody = originalTableBodyContent.cloneNode(True);
+            var contactsTableBody = originalTableBodyContent.cloneNode(true);
             
             const del_button = document.getElementById("sdelete");
             const do_button = document.getElementById("sdone"); 
             
             del_button.addEventListener("click", function() {
                 originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
-                contactsTableBody = originalTableBodyContent.cloneNode(True);
+                contactsTableBody = originalTableBodyContent.cloneNode(true);
             } );
 
             do_button.addEventListener("click", function() {
                 originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
-                contactsTableBody = originalTableBodyContent.cloneNode(True);
+                contactsTableBody = originalTableBodyContent.cloneNode(true);
             } );
 
             // Function to filter and update the table based on the search term
