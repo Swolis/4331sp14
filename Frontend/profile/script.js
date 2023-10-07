@@ -163,6 +163,7 @@ function deleteRecord(id, callback){
 function saveText(sid, callback){
     console.log('saveText called correctly', sid);
     var xr = new XMLHttpRequest();
+var baseurl = "https://chessconnect.xyz/profile";
     var url = "edit.php";
     
     // Begin with the id parameter in the vars string
