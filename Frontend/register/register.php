@@ -78,7 +78,7 @@
                             <!-- Add fields for other user information (email, country, etc.) -->
                             <button type="submit" id="submit" class="btn btn-primary" </button></button>Register</button>
                                 <script>
-                                    submit.addEventListener("click",function(){
+                                    submit.addEventListener("onclick",function(){
                                         if(addUser()){
                                             window.location.href='https://chessconnect.xyz/login/login.php'
                                         }
