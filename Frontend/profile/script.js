@@ -1,9 +1,5 @@
-function addContact()
-{
-
-    
+function addContact() {
     var name = document.getElementById("name").value.trim();
-   
     var email = document.getElementById("email").value.trim();
     var phone = document.getElementById("phone").value.trim();
     var country = document.getElementById("country").value.trim();
@@ -13,12 +9,10 @@ function addContact()
     var address = document.getElementById("address").value.trim();
     var notes = document.getElementById("notes").value.trim();
 
-
 	// login-data json that interfaces with php / api
 	var jsonPayload = '{"name" : "' + name+'", "email" : "' + email+'", "phone" : "' + phone+'", "country" : "' + country+'", "chessRating" : "' + chessRating+'", "favoriteOpening" : "' + favoriteOpening+'", "title" : "' + title+'", "address" : "' + address+'", "notes" : "' + notes+'"}';
 	var baseurl = "https://chessconnect.xyz/profile";
 	var extention="/create.php";
-	
 	
 	// http POST : Attempt to send json with new-account login and pasword data to server.	
 	var xhr = new XMLHttpRequest();
@@ -27,57 +21,51 @@ function addContact()
 	
 	console.log(xhr);
 	xhr.setRequestHeader("Content-type", "application/json");
-	try{
-	xhr.send(jsonPayload);}
-	catch (err){
+	try {
+	    xhr.send(jsonPayload);
+    }
+	catch(err) {}
 
-		
-	}
 	console.log(xhr.responseText);
-	if(xhr.responseText==1){
+
+	if(xhr.responseText==1) {
 		var conn=new XMLHttpRequest();
 		conn.open("GET",baseurl+"/update.php");
 		conn.send();
-		}
-		else{
-			console.log("bye");
-			
-		}
+    }
+    else {
+        console.log("bye");
+    }
 }
 
-function update(){
+function update() {
 	var conn=new XMLHttpRequest();
 	var baseurl = "https://chessconnect.xyz/profile";
 	conn.open("GET",baseurl+"/update.php");
 	conn.send();
 }
 
-function refreshTable()
-{
+function refreshTable() {
 	var i;
 	
 	// clear all entries out of array of contact info
-	while(Object.keys(dataArray).length > 0)
-	{
+	while(Object.keys(dataArray).length > 0) {
 		dataArray.pop();
 	}
 	
 	// copy contact info to array
-	for(i = 0; i < Object.keys(jsonContacts).length; i++)
-	{
+	for(i = 0; i < Object.keys(jsonContacts).length; i++) {
 		dataArray[i] = jsonContacts[i];
 	}
         
 	// prevent last element from duplicating after a contact is deleted 
 	// *** no longer needed because all entries are cleared first ***
-	while(Object.keys(dataArray).length > Object.keys(jsonContacts).length)
-	{
+	while(Object.keys(dataArray).length > Object.keys(jsonContacts).length) {
 		dataArray.pop();
 	}
    
 	// deletes error contact entry
-	if(dataArray[0][0] === "_NO_CONTACTS_ERROR_")
-	{
+	if(dataArray[0][0] === "_NO_CONTACTS_ERROR_") {
 		dataArray.shift();
 	}
   	
@@ -174,8 +162,9 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     });
+});
 
-function deleteRecord(id, callback){
+function deleteRecord(id, callback) {
     var xr = new XMLHttpRequest();
     var url = "delete.php"; // Use your actual delete endpoint
     var vars = "id=" + id;
@@ -190,16 +179,12 @@ function deleteRecord(id, callback){
     xr.open("POST", url, true);
     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xr.send(vars);
-    
-     
 }
 
-
-
-function saveText(sid, callback){
+function saveText(sid, callback) {
     console.log('saveText called correctly', sid);
     var xr = new XMLHttpRequest();
-var baseurl = "https://chessconnect.xyz/profile";
+    var baseurl = "https://chessconnect.xyz/profile";
     var url = "edit.php";
     
     // Begin with the id parameter in the vars string
@@ -226,6 +211,4 @@ var baseurl = "https://chessconnect.xyz/profile";
     xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     console.log('Sending vars: ', vars);
     xr.send(vars);
-   
 }
-});
