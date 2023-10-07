@@ -27,13 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (target.classList.contains('cancel-editing')) {
             var id = target.getAttribute('data-id');
             console.log("Checking ID:", id);
-            document.querySelector('#data-' + id).style.display = ''; // Hide the data row
-            document.querySelector('#edit-' + id).style.display = 'none'; // Show the edit row
+            document.querySelector('#edit-' + id).style.display = 'none'; // hide the edit row
+            document.querySelector('#data-' + id).style.display = ''; // show the data row
             
-            fields.forEach(field => {
-                var el = document.querySelector('#edit-' + field + '-' + id);
-                if (el) el.contentEditable = false;
-            });
         }
 
         // End Editing button clicked
