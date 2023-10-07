@@ -210,7 +210,7 @@ $userDetails = [
                             <!-- ... other data cells ... -->
                             <td>
                             <button type="button" class="edit-button" data-id="<?php echo $contact['id']; ?>">Edit</button>
-                            <button type="button" class="delete-button" data-id="<?php echo $contact['id']; ?>">Delete</button>
+                            <button type="button" class="delete-button" id= "sdelete" data-id="<?php echo $contact['id']; ?>">Delete</button>
 
                             </td>
                         </tr>
@@ -227,8 +227,8 @@ $userDetails = [
                             <td class="notes"><input type="text" name="notes" value="<?php echo htmlspecialchars($contact['notes']?? ''); ?>"/></td>
                             <!-- ... other editable cells ... -->
                             <td>
-                                <button type="button" class="end-editing" id= "sdelete" data-id="<?php echo $contact['id']; ?>">Done</button>
-                                <button type="button" class="cancel-editing" id= "sedit" data-id="<?php echo $contact['id']; ?>">Cancel</button>
+                                <button type="button" class="end-editing" id= "sdone" data-id="<?php echo $contact['id']; ?>">Done</button>
+                                <button type="button" class="cancel-editing" data-id="<?php echo $contact['id']; ?>">Cancel</button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -272,13 +272,13 @@ $userDetails = [
             const contactsTableBody = document.getElementById('contactsTable');
             
             const del_button = document.getElementById("sdelete");
-            const ed_button = document.getElementById("sedit"); 
+            const do_button = document.getElementById("sdone"); 
             
             del_button.addEventListener("click", function() {
                 originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
-            ed_button.addEventListener("click", function() {
+            do_button.addEventListener("click", function() {
                 originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
