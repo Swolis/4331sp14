@@ -264,7 +264,7 @@ $userDetails = [
 
         <script>
             // Store the original content of the table body
-            var originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+            var originalTableBodyContent = document.getElementById('contactsTable');
 
             // Get the search input element
             const searchInput = document.getElementById('searchInput');
@@ -275,19 +275,19 @@ $userDetails = [
             const do_button = document.getElementById("sdone"); 
             
             del_button.addEventListener("click", function() {
-                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+                originalTableBodyContent = document.getElementById('contactsTable');
                 contactsTableBody = originalTableBodyContent.cloneNode(true);
             } );
 
             do_button.addEventListener("click", function() {
-                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+                originalTableBodyContent = document.getElementById('contactsTable');
                 contactsTableBody = originalTableBodyContent.cloneNode(true);
             } );
 
             // Function to filter and update the table based on the search term
             function filterContacts(searchTerm) {
                 // Reset the table body content to the original content
-                contactsTableBody.innerHTML = originalTableBodyContent;
+                contactsTableBody.innerHTML = originalTableBodyContent.innerHTML;
 
                 // Get all rows in the table body
                 const rows = contactsTableBody.querySelectorAll('tr');
