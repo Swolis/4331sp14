@@ -86,7 +86,7 @@
                                      console.log(relocate);
                                      if(relocate){
                                          console.log("urclose")
-                                        window.location.href = "https://chessconnect.xyz/login/login.php";
+                                      window.location.assign("https://chessconnect.xyz/login/login.php");
                                      }else{
                                          console.log("nope")
                                      }
