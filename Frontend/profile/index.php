@@ -313,7 +313,7 @@
                     const searchTerm = searchInput.value;
                     // Call the filterContacts function with the search term
                     filterContacts(searchTerm);
-                };
+                });
             </script>
         </div>
     </body>
