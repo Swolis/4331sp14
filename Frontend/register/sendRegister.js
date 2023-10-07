@@ -23,7 +23,7 @@ function addUser()
 	console.log(username);
 	// http POST : Attempt to send json with new-account login and pasword data to server.	
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", baseurl+extention, true);
+	xhr.open("POST", baseurl+extention,false);
 	console.log(xhr);
 	xhr.setRequestHeader("Content-type", "application/json");
 	try
