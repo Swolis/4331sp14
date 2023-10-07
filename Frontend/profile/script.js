@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        if (target.classList.contains('cancel-editing')) {
+        //Cancel button clicked
+        else if (target.classList.contains('cancel-editing')) {
             var id = target.getAttribute('data-id');
             console.log("Checking ID:", id);
             console.log("Why the fuck");
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // End Editing button clicked
-        if (target.classList.contains('end-editing')) {
+        else if (target.classList.contains('end-editing')) {
             var id = target.getAttribute('data-id');
             saveText(id, function(response) {
                 if (response.status === 'success') {
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Delete button clicked
-        if (target.classList.contains('delete-button')) {
+        else if (target.classList.contains('delete-button')) {
             var id = target.getAttribute('data-id');
             deleteRecord(id, function(response) {
                 if (response.status === 'success') {
