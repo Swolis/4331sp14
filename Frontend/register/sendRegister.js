@@ -29,13 +29,13 @@ function addUser()
 	try
 	{
 		xhr.send(jsonPayload);
-		return "fuck you";
+		
 		
         
 	}
 	catch(err)
 	{
-		return "fuck me";
+	
         // *** add error handler ***
 	}
 }
