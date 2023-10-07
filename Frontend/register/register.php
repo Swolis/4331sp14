@@ -80,7 +80,7 @@
                               <script>
                                   var submit=document.getElementById("submit");
                                   submit.addEventListener("click",function(){
-                                  if(addUser()){
+                                  if(addUser()==true){
                                       window.location.href="https://chessconnect.xyz/login/login.php"
                                   }
                                   });
