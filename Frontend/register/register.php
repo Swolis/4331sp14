@@ -87,7 +87,7 @@
                                      if(relocate){
                                          console.log("urclose")
                                         console.log("why")
-                                         <?php header("Location:https://chessconnect.xyz/login/login.php")
+                                         <?php header("Location:https://chessconnect.xyz/login/login.php");
     `                                        ?>
                                         
                                      }else{
