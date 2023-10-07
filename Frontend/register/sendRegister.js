@@ -35,16 +35,16 @@ function addUser()
 	}
 	catch(err)
 	{
-		if(err==="works"){
+		
+	
+        // *** add error handler ***
+	}
+	if(err==="works"){
 			return true;
 		}
 		else{
 			return false;
 		}
-	
-        // *** add error handler ***
-	}
-	return false;
 }
 
 function redirect(){
