@@ -308,7 +308,7 @@
                 }
 
                 // Add an event listener for the 'input' event on the search input
-                searchInput.addEventListener('input', function()) {
+                searchInput.addEventListener('input', function() {
                     // Get the search term from the input field
                     const searchTerm = searchInput.value;
                     // Call the filterContacts function with the search term
