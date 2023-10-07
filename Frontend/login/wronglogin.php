@@ -7,17 +7,35 @@
     <link rel="stylesheet" href="../css/main.css">
     <title>Login - Chess Contact Manager</title>
     <style>
-        /* Custom CSS to vertically center the login container */
-        .vertical-center {
+        .navbar {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 100vh; /* Set a minimum height to fill the viewport */
+            justify-content: space-between;
+            padding: 2% 5%;
+        }
+
+        .navbar-brand, .nav-link {
+            font-size: 25px;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: red; 
         }
 
         .card {
             color: white;
         }
+        /* Custom CSS to vertically center the login container */
+        /*
+        .vertical-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh; // Set a minimum height to fill the viewport 
+        }
+        */
 
         .card-header {
             font-size: 30px;
@@ -27,18 +45,22 @@
         /* Add custom CSS for the "Don't have an account?" text */
         .signup-text {
             text-align: center; /* Horizontal alignment */
-            margin-top: 15px; /* Adjust the margin as needed */
-            
+            margin-top: 0px; /* Adjust the margin as needed */
+            font-size: 18px;
         }
         .signup-text a {
             /* background-color: rgba(121, 121, 121, 0.414); */
-            font-size: 30px;
+            font-size: 22px;
         }
 
     </style>
 </head>
 <body class="background-image2"> <!-- Apply background class to the body -->   
-    <div class="container vertical-center"> <!-- Add the vertical-center class to center vertically -->
+    <div class="navbar">
+        <a class="navbar-brand" href="../#">Chess Connect</a>
+        <a class="nav-link" href="../register/register.php">Register</a>
+    </div>
+    <div class = "containter"> <!-- class="container vertical-center" Add the vertical-center class to center vertically -->
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
@@ -57,7 +79,7 @@
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
                     </div>
-                    <p class="signup-text">Don't have an account? <a href="../register/register.php">Register</a></p>
+                    <div class="signup-text">Don't have an account? <a href="../register/register.php">Register</a></div>
                 </div>
             </div>
         </div>
