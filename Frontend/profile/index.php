@@ -227,8 +227,8 @@ $userDetails = [
                             <td class="notes"><input type="text" name="notes" value="<?php echo htmlspecialchars($contact['notes']?? ''); ?>"/></td>
                             <!-- ... other editable cells ... -->
                             <td>
-                                <button type="button" class="end-editing" data-id="<?php echo $contact['id']; ?>">Done</button>
-                                <button type="button" class="cancel-editing" data-id="<?php echo $contact['id']; ?>">Cancel</button>
+                                <button type="button" class="end-editing" id= "sdelete" data-id="<?php echo $contact['id']; ?>">Done</button>
+                                <button type="button" class="cancel-editing" id= "sedit" data-id="<?php echo $contact['id']; ?>">Cancel</button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -263,18 +263,29 @@ $userDetails = [
         </div>
 
         <script>
+            // Store the original content of the table body
+            const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+
+            // Get the search input element
+            const searchInput = document.getElementById('searchInput');
+            // Get the contacts table body by ID
+            const contactsTableBody = document.getElementById('contactsTable');
             
+            const del_button = document.getElementById("sdelete");
+            const ed_button = document.getElementById("sedit"); 
+            
+            del_button.addEventListener("click", function() {
+                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+            } );
+
+            ed_button.addEventListener("click", function() {
+                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+            } );
 
             // Function to filter and update the table based on the search term
             function filterContacts(searchTerm) {
-                // Store the original content of the table body
-                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
-
-                // Get the search input element
-                const searchInput = document.getElementById('searchInput');
-                // Get the contacts table body by ID
-                const contactsTableBody = document.getElementById('contactsTable');
-                
+                // Reset the table body content to the original content
+                contactsTableBody.innerHTML = originalTableBodyContent;
 
                 // Get all rows in the table body
                 const rows = contactsTableBody.querySelectorAll('tr');
@@ -295,9 +306,6 @@ $userDetails = [
                         row.style.display = 'none';
                     }
                 });
-
-                // Reset the table body content to the original content
-                contactsTableBody.innerHTML = originalTableBodyContent;
             }
 
             // Add an event listener for the 'input' event on the search input
