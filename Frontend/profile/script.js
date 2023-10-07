@@ -35,12 +35,13 @@ function addContact()
 	}
 	console.log(xhr.responseText);
 	if(xhr.responseText==1){
-		console.log("hi");
-			return true;
+		var conn=new XMLHttpRequest();
+		conn.open("GET",baseurl+"/update.php");
+		conn.send();
 		}
 		else{
 			console.log("bye");
-			return false;
+			
 		}
 }
 
