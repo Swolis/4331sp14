@@ -45,6 +45,11 @@ function addContact()
 		}
 }
 
+function update(){
+	var conn=new XMLHttpRequest();
+	conn.open("GET",baseurl+"/update.php");
+	conn.send();
+}
 
 
 document.addEventListener("DOMContentLoaded", function() {
