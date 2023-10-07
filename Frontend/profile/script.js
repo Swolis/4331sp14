@@ -27,15 +27,12 @@ function addContact() {
 	catch(err) {}
 
 	console.log(xhr.responseText);
-
-	if(xhr.responseText==1) {
-		var conn=new XMLHttpRequest();
-		conn.open("GET",baseurl+"/update.php");
-		conn.send();
-    }
-    else {
-        console.log("bye");
-    }
+	if(xhr.responseText==1){
+	return true;
+	}
+	else {
+	return false;
+	}
 }
 
 function update() {
@@ -44,37 +41,6 @@ function update() {
 	conn.open("GET",baseurl+"/update.php");
 	conn.send();
 }
-
-function refreshTable() {
-	var i;
-	
-	// clear all entries out of array of contact info
-	while(Object.keys(dataArray).length > 0) {
-		dataArray.pop();
-	}
-	
-	// copy contact info to array
-	for(i = 0; i < Object.keys(jsonContacts).length; i++) {
-		dataArray[i] = jsonContacts[i];
-	}
-        
-	// prevent last element from duplicating after a contact is deleted 
-	// *** no longer needed because all entries are cleared first ***
-	while(Object.keys(dataArray).length > Object.keys(jsonContacts).length) {
-		dataArray.pop();
-	}
-   
-	// deletes error contact entry
-	if(dataArray[0][0] === "_NO_CONTACTS_ERROR_") {
-		dataArray.shift();
-	}
-  	
-	// add contact info from array to datatable
-	contactsTable.clear();
-	contactsTable.rows.add(dataArray);
-	contactsTable.draw();  
-}
-
 
 document.addEventListener("DOMContentLoaded", function() {
     // Fields to be edited
