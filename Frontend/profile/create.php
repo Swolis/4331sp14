@@ -23,7 +23,7 @@
         
         
         // Assuming you pass user_id from some other source like session
-        $userId = $data['user_id'];
+        $userId = $_SESSION['user_id'];
         $name = $data['name'];
         $email = $data['email'] ?? null;  // Uses null coalescing for optional fields
         $phone = $data['phone'] ?? null;
