@@ -8,58 +8,77 @@ ini_set("display_errors", "1"); // shows all errors
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
-    $inData=getRequestInfo();
-    $username=$inData[0];
-    
-    $password=$inData[1];
-     $firstName=$inData[2];
-    $lastName=$inData[3];
-     $email=$inData[4];
-    $phone=$inData[5];
-     $country=$inData[6];
-    $chessRating=$inData[7];
-     $favoriteOpening=$inData[8];
-    $title=$inData[9];
-    $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-               
-               
+$data=getRequestInfo();
+$conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
 
 // Check the connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$inData[0]."'");
+    returnWithError($conn->connect_error);
+}
+$stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
 
-    if(mysqli_num_rows($result)>0){
-        die();
-    }
-    
-    $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-  
-    $stmt->bind_param("ssssssssss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
- if($stmt->execute()){
-    
-       header("Location:https://chessconnect.xyz/login/login.php");
-        exit();
- }
- $stmt->close();
-   $conn->close();
-    	function getRequestInfo()
-	{
-		return json_decode(file_get_contents('php://input'), true);
-	}
+$select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$_POST['username']."'");
+   // Check if the form is submitted
+           
 
-	function sendResultInfoAsJson( $obj )
-	{
-		header('Content-type: application/json');
-		echo $obj;
-	}
-	
-	function returnWithError( $err )
-	{
-		$retValue = '{"error":"' . $err . '"}';
-		sendResultInfoAsJson( $retValue );
-	}
-?>
+                // Get the username, password, and additional user information from the form
+                $username = $data["username"];
+                $password = $data["password"];
+                $firstName =  $data["firstName"];
+                $lastName =  $data["lastName"];
+                $email =  $data["email"];
+                $phone =  $data["phone"];
+                $country =  $data["country"];
+                $chessRating =  $data["chessRating"];
+                $favoriteOpening = $data["favoriteOpening"];
+                $title =  $data["title"];
+
+                // Connect to the database
+
+
+                // Hash the password
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+                // Prepare a SQL statement to insert the new user
+
+
+                // Execute the statement
+                if (!mysqli_num_rows($select)&&$stmt->execute()) {
+                    // Registration successful, redirect to the login page
+                    header("Location: ../login/login.php");
+                    exit();
+                }else {
+                    // Registration failed, redirect back to the registration page with an error
+                    
+
+                echo('Sorry, the Username '.$_POST['username'].' has already been used to register.');
+                returnWithError("");
+
+                }
+
+                // Close the connection
+                $stmt->close();
+                $conn->close();
+        function getRequestInfo()
+                {
+                return json_decode(file_get_contents('php://input'), true);
+                }
+                
+                // send json
+        function sendResultInfoAsJson( $obj )
+                {
+                header('Content-type: application/json');
+                echo $obj;
+                }
+                
+                // return json with error message
+        function returnWithError( $err )
+                {
+                $retValue = '{"error":"' . $err . '"}';
+                sendResultInfoAsJson( $retValue );
+                }
+        ?>
+
+
