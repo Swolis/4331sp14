@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
             fields.forEach(field => {
                 var el = document.querySelector('#edit-' + field + '-' + id);
                 var da = document.querySelector('#data-' + field + '-' + id);
-                if(el) el.textContent = da.textContent;
+                if(el) el.textContent = da.value.trim();
             });
 
             fields.forEach(field => {
