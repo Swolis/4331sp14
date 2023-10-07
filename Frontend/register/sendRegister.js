@@ -35,7 +35,7 @@ function addUser()
 		
 	}
 	console.log(xhr.responseText);
-	if(xhr.responseText==="works"){
+	if(xhr.responseText==1){
 		console.log("hi");
 			return true;
 		}
