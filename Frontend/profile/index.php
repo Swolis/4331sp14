@@ -191,9 +191,9 @@ $userDetails = [
                                 </tr>
                             </thead>
                         <tbody id="contactsTable">
-                           <scipt>
-                               Update();
-                           </scipt>
+                           <script>
+                               update();
+                           </script>
                             <?php
                                 foreach ($contacts as $contact):
                             ?>
