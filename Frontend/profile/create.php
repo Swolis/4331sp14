@@ -33,11 +33,11 @@
         $title = $data['title'] ?? null;
         $address = $data['address'] ?? null;
         $notes = $data['notes'] ?? null;
-    
+    if($name!=""){
         $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         $stmt->execute();
-        
+    }
         function getRequestInfo()
         {
         return json_decode(file_get_contents('php://input'), true);
