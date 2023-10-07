@@ -40,7 +40,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" "required>
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName"">
+                                <input type="text" class="form-control" id="lastName" name="lastName">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
