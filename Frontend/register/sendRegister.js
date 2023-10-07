@@ -40,6 +40,7 @@ function addUser()
 			return true;
 		}
 		else{
+			console.log("bye");
 			return false;
 		}
 }
