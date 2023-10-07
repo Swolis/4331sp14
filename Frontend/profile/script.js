@@ -23,7 +23,7 @@ function addContact()
 	// http POST : Attempt to send json with new-account login and pasword data to server.	
 	var xhr = new XMLHttpRequest();
 	
-	xhr.open("POST", baseurl+extention,false);
+	xhr.open("POST", baseurl+extention,true);
 	
 	console.log(xhr);
 	xhr.setRequestHeader("Content-type", "application/json");
