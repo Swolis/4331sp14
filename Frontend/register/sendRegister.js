@@ -35,6 +35,12 @@ function addUser()
 	}
 	catch(err)
 	{
+		if(err===""){
+			return true;
+		}
+		else{
+			return false;
+		}
 	
         // *** add error handler ***
 	}
