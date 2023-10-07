@@ -261,7 +261,7 @@ $userDetails = [
                     <input type="text" name="notes" id="notes" placeholder="Notes">
                    
                 </form>
-                 <button type="submit" class="btn btn-danger m-1" onclick="addContact()">Create</button>
+                 <button type="reset" class="btn btn-danger m-1" onclick="addContact()">Create</button>
             </div>
             
 
