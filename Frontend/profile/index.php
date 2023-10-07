@@ -282,7 +282,12 @@ $userDetails = [
                 // Loop through rows and hide those that do not match the search term
                 rows.forEach(row => {
                     // Get the data from the row for filtering
-                    const rowData = row.innerText.toLowerCase();
+                    let rowData = row.innerText.toLowerCase();
+
+                    //remove 'edit' and 'delete' from end of row string
+                    rowData = rowData.replace(/edit/g, '');
+                    rowData = rowData.replace(/delete/g, '');
+
                     // If the search term is not found in the row's data, hide the row
                     if (rowData.indexOf(searchTerm.toLowerCase()) === -1) {
                         row.style.display = 'none';
