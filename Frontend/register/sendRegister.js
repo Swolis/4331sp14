@@ -29,7 +29,7 @@ function addUser()
 	try
 	{
 		xhr.send(jsonPayload);
-		window.location.replace("https://chessconnect.xyz/login/login.php");
+		redirect();
 		
         
 	}
@@ -38,4 +38,13 @@ function addUser()
 		
         // *** add error handler ***
 	}
+}
+
+function redirect(){
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "https://chessconnect.xyz/login/login.php", false);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	xhr.send();
+	
+	
 }
