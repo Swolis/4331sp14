@@ -81,7 +81,7 @@
                                   var submit=document.getElementById("submit");
                                   var relocate=addUser();
                                  
-                                 submit.eventAddEventListener("click",function(){
+                                 submit.addEventListener("click",function(){
                                      console.log(relocate);
                                     
                                  });
