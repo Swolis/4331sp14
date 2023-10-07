@@ -76,14 +76,8 @@
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
-                            <button type="submit" class="btn btn-primary" onclick=<script>
-                                if(addUser()){
-                                <php?>
-                                    header("Location: .login/login.php");
-                                    ?>
-                                }
-                                
-                            </script></button></button>Register</button>
+                            <button type="submit" class="btn btn-primary" onclick="addUser();"</button></button>Register</button>
+                            
                         </form>
                     </div>
                 </div>
