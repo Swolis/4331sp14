@@ -3,7 +3,7 @@
 <head> 
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script> 
     <title>Register</title>
     <style>
@@ -59,7 +59,7 @@
 
     <div class="navbar">
         <a class="navbar-brand" href="../#">Chess Connect</a>
-        <a class="nav-link" href="login/login.php">Login</a>
+        <a class="nav-link" href="../login/login.php">Login</a>
     </div>
     <div class="container">
         <div class="row justify-content-center">
