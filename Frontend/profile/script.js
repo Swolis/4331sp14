@@ -47,6 +47,7 @@ function addContact()
 
 function update(){
 	var conn=new XMLHttpRequest();
+	var baseurl = "https://chessconnect.xyz/profile";
 	conn.open("GET",baseurl+"/update.php");
 	conn.send();
 }
