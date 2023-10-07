@@ -76,8 +76,14 @@
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
-                            <button type="submit" class="btn btn-primary" onclick="addUser();"</button></button>Register</button>
-                            
+                            <button type="submit" id="submit" class="btn btn-primary" </button></button>Register</button>
+                                <script>
+                                    submit.addEventListener("click",function(){
+                                        if(addUser()){
+                                            window.location.href='https://chessconnect.xyz/login/login.php'
+                                        }
+                                    });
+                                </script>
                         </form>
                     </div>
                 </div>
