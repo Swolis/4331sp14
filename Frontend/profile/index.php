@@ -186,9 +186,10 @@
                                     $stmt->execute();
                                     $result = $stmt->get_result();
                                     $contacts = $result->fetch_all(MYSQLI_ASSOC);
+                                    $_SESSION['contacts'] = $contacts;
                                 ?>
                                 <?php
-                                    foreach ($contacts as $contact):
+                                    foreach ($_SESSION['contacts'] as $contact):
                                 ?>
                                 <tr id="data-<?php echo $contact['id']; ?>">
                                     <td class="name"><?php echo htmlspecialchars($contact["name"]?? ''); ?></td>
