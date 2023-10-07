@@ -29,11 +29,12 @@ function addUser()
 	try
 	{
 		xhr.send(jsonPayload);
-		window.location.href = 'login.php'
+		return true
         
 	}
 	catch(err)
 	{
+		return false
         // *** add error handler ***
 	}
 }
