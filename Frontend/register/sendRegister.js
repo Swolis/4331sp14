@@ -25,7 +25,7 @@ function addUser()
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", baseurl+extention, true);
 	console.log(xhr);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.setRequestHeader("Content-type", "application/json");
 	try
 	{
 		xhr.send(jsonPayload);
