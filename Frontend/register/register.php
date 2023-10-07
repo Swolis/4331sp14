@@ -81,7 +81,7 @@
                                   var submit=document.getElementById("submit");
                                   var relocate=addUser();
                                  console.log(relocate);
-                                  });
+                                 
                               </script>
                         </form>
                        
