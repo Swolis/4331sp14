@@ -79,11 +79,8 @@
                             <button type="submit" id="submit" class="btn btn-primary" >Register</button>
                               <script>
                                   var submit=document.getElementById("submit");
-                                  var relocate=addUser()
-                                  submit.addEventListener("click",function(){
-                                  if(relocate===false){
-                                      window.location.href="https://chessconnect.xyz/login/login.php"
-                                  }
+                                  var relocate=addUser();
+                                 console.log(relocate);
                                   });
                               </script>
                         </form>
