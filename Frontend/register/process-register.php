@@ -47,19 +47,18 @@ $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$data['us
                 // Execute the statement
                 if (!mysqli_num_rows($select)&&$stmt->execute()&&$username!=""&&$password!="") {
                     // Registration successful, redirect to the login page
-                    
+                    returnWithError("");
                    
                 }else {
                     // Registration failed, redirect back to the registration page with an error
                     
 
                 echo('Sorry, the Username '.$_POST['username'].' has already been used to register.');
-                returnWithError("");
-
+                returnWithError($conn->error);
                 }
 
                 // Close the connection
-                returnWithError("");
+               
                 $stmt->close();
                 $conn->close();
         function getRequestInfo()
