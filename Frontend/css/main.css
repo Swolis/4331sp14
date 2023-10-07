@@ -1,45 +1,9 @@
 
-@keyframes falling {
-    from {
-      transform: translateY(-100vh);
-    }
-    to {
-      transform: translateY(100vh);
-    }
-  }
-  
-  /* Apply animation to chess pieces */
-  .chess-piece {
-    position: absolute;
-    animation: falling linear infinite;
-  }
-  
-  /* Individual chess pieces with different starting positions and animation durations */
-  .chess-piece1 {
-    background-image: url('https://pics.clipartpng.com/Pawn_White_Chess_Piece_PNG_Clip_Art-2751.png');
-    width: 50px;
-    height: 50px;
-    animation-duration: 5s;
-    left: 10%;
-  }
-  
-  .chess-piece2 {
-    background-image: url('https://www.svgrepo.com/show/480483/chess-8.svg');
-    width: 10px;
-    height: 10px;
-    animation-duration: 7s;
-    left: 30%;
-  }
-  
-  .image-pawn {
-    width: 50px;
-  }
-  /* Add more chess pieces as needed */
   
   /* Style the body to fit the entire viewport and set the background color */
-  body {
+  html, body {
     margin: 0;
-    /*height: 100vh;*/
+    height: 100%;
     background-color: lightgreen;
   }
   
