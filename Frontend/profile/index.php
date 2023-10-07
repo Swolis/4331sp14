@@ -246,7 +246,7 @@ $userDetails = [
             
             <div class="container mt-5">
                 <h3>Create a new contact</h3>
-                <form action="create.php" method="POST" class="background-color p-3">
+                <form class="background-color p-3">
                 
                         <input type="text" name="name" placeholder="Name" required>
                     
@@ -259,7 +259,7 @@ $userDetails = [
                     <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
                     <input type="text" name="address" placeholder="Adress">
                     <input type="text" name="notes" placeholder="Notes">
-                    <button type="submit" class="btn btn-danger m-1">Create</button>
+                    <button type="submit" class="btn btn-danger m-1" click="addContact()">Create</button>
                 </form>
             </div>
             
