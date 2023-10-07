@@ -1,3 +1,50 @@
+function addContact()
+{
+
+    
+    var name = document.getElementById("name").value.trim();
+   
+    var email = document.getElementById("email").value.trim();
+    var phone = document.getElementById("phone").value.trim();
+    var country = document.getElementById("country").value.trim();
+    var chessRating = document.getElementById("chessRating").value.trim();
+    var favoriteOpening = document.getElementById("favoriteOpening").value.trim();
+    var title = document.getElementById("title").value.trim();
+    var address = document.getElementById("address").value.trim();
+    var notes = document.getElementById("notes").value.trim();
+
+
+	// login-data json that interfaces with php / api
+	var jsonPayload = '{"name" : "' + name+'", "email" : "' + email+'", "phone" : "' + phone+'", "country" : "' + country+'", "chessRating" : "' + chessRating+'", "favoriteOpening" : "' + favoriteOpening+'", "title" : "' + title+'", "address" : "' + address+'", "notes" : "' + notes+'"}';
+	var baseurl = "https://chessconnect.xyz/profile";
+	var extention="/create.php";
+	
+	
+	// http POST : Attempt to send json with new-account login and pasword data to server.	
+	var xhr = new XMLHttpRequest();
+	
+	xhr.open("POST", baseurl+extention,false);
+	
+	console.log(xhr);
+	xhr.setRequestHeader("Content-type", "application/json");
+	try{
+	xhr.send(jsonPayload);}
+	catch (err){
+
+		
+	}
+	console.log(xhr.responseText);
+	if(xhr.responseText==1){
+		console.log("hi");
+			return true;
+		}
+		else{
+			console.log("bye");
+			return false;
+		}
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     // Fields to be edited
