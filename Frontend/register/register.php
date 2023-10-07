@@ -84,7 +84,7 @@
                                  submit.addEventListener("click",function(){
                                      var relocate=addUser();
                                      if(relocate===true){
-                                         header("Location: https://chessconnect.xyz/login/login.php");
+                                        window.location.href="https://chessconnect.xyz/login/login.php"
                                      }else{
                                          console.log("nope")
                                      }
