@@ -79,10 +79,10 @@
                             <button type="submit" id="submit" class="btn btn-primary" >Register</button>
                               <script>
                                   var submit=document.getElementById("submit");
-                                  var relocate=addUser();
+                                  
                                  
                                  submit.addEventListener("click",function(){
-                                     console.log(relocate);
+                                     var relocate=addUser();
                                     
                                  });
                               </script>
