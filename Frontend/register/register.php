@@ -76,7 +76,7 @@
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
-                            <button type="submit" id="submit" class="btn btn-primary" click="addUser();" </button></button>Register</button>
+                            <button type="submit" class="btn btn-primary" onclick="addUser()">Register</button>
                               
                         </form>
                        
