@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // On success, remove the row from the table
                     document.querySelector('#data-' + id).remove();
                     document.querySelector('#edit-' + id).remove();
+		location.reload(true);
                 } else {
                     // Handle error - e.g., show an error message to the user
                     console.error("Error deleting record:", response.message);
