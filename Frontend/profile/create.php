@@ -1,33 +1,60 @@
 <?php
     session_start();
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With");
+    header('Content-Type: application/json');
+    error_reporting(E_ALL); // reports all errors
+    ini_set("display_errors", "1"); // shows all errors
+    ini_set("log_errors", 1);
+    ini_set("error_log", "/tmp/php-error.log");
+
+
+    $data=getRequestInfo();
         $conn = new mysqli("localhost", "newuser", "StrongerPassword123!", "chesscont");
     
         // Check the connection
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            returnWithError($conn->connect_error);
         }
         if (!isset($_SESSION['user_id'])) {
-            die("User ID not found in session. Please log in again.");
+            returnWithError("User ID not found in session. Please log in again.");
         }
         
         
         // Assuming you pass user_id from some other source like session
-        $userId = $_SESSION['user_id'];
-        $name = $_POST['name'];
-        $email = $_POST['email'] ?? null;  // Uses null coalescing for optional fields
-        $phone = $_POST['phone'] ?? null;
-        $country = $_POST['country'] ?? null;
-        $chessRating = $_POST['chess_rating'] ?? null;
-        $favoriteOpening = $_POST['favoriteOpening'] ?? null;
-        $title = $_POST['title'] ?? null;
-        $address = $_POST['address'] ?? null;
-        $notes = $_POST['notes'] ?? null;
+        $userId = $data['user_id'];
+        $name = $data['name'];
+        $email = $data['email'] ?? null;  // Uses null coalescing for optional fields
+        $phone = $data['phone'] ?? null;
+        $country = $data['country'] ?? null;
+        $chess_rating = $data['chessRating'] ?? null;
+        $favoriteOpening =$data['favoriteOpening'] ?? null;
+        $title = $data['title'] ?? null;
+        $address = $data['address'] ?? null;
+        $notes = $data['notes'] ?? null;
     
-        $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title,address,notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)");
-        $stmt->bind_param("issssissss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title,$address,$notes);
+        $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
         $stmt->execute();
-        header("Location: ../profile/");
-    }
+        
+        function getRequestInfo()
+        {
+        return json_decode(file_get_contents('php://input'), true);
+        }
+        
+        // send json
+function sendResultInfoAsJson( $obj )
+        {
+        header('Content-type: text/html');
+        echo $obj;
+        }
+        
+        // return json with error message
+function returnWithError( $err )
+        {
+        $retValue = '{"error":"' . $err . '"}';
+        sendResultInfoAsJson( $retValue );
+        }
 
 ?>
