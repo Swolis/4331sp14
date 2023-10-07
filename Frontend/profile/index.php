@@ -264,7 +264,7 @@ $userDetails = [
 
         <script>
             // Store the original content of the table body
-            const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+            var originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
 
             // Get the search input element
             const searchInput = document.getElementById('searchInput');
@@ -275,11 +275,11 @@ $userDetails = [
             const ed_button = document.getElementById("sedit"); 
             
             del_button.addEventListener("click", function() {
-                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
             ed_button.addEventListener("click", function() {
-                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
             // Function to filter and update the table based on the search term
