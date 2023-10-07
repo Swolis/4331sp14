@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     returnWithError($conn->connect_error);
 }
 $stmt = $conn->prepare("INSERT INTO users (username, password, first_name, last_name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
+$stmt->bind_param("sssssssiss", $username, $hashed_password, $firstName, $lastName, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
 
 $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$data['username']."'");
    // Check if the form is submitted
