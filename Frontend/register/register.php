@@ -80,7 +80,7 @@
                                 if(addUser()){
                                 <php?>
                                     header("Location: .login/login.php");
-                                    <php>;
+                                    ?>
                                 }
                                 
                             </script></button></button>Register</button>
