@@ -44,6 +44,7 @@ function addUser()
 	
         // *** add error handler ***
 	}
+	return false;
 }
 
 function redirect(){
