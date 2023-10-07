@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing threejs</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/js/loaders/OBJLoader.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@v0.157.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@v0.157.0/examples/jsm/"
+          }
+        }
+      </script>
+</head>
+<body>
+    <script>
+        var scene, camera, renderer, loader, chessPieces;
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xad60f0); // purple background
+            
+            // Camera
+            camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 20, 15); 
+            camera.lookAt(0, 0, 0);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Lights
+            var ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+
+            var directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
+            directionalLight.position.set(-180,500, 90).normalize();
+            scene.add(directionalLight);
+
+            // Chess pieces group
+            chessPieces = new THREE.Group();
+            scene.add(chessPieces);
+
+            // Load Chess Piece Model
+            loader = new THREE.OBJLoader();
+
+            // Add pieces, chessboard, and handle window resize
+            //pieces for the white side
+            addPiece('king', 1.0, 7, 'white');
+            addPiece('queen', -1, 7, 'white');
+            addPiece('rook', 7, 7, 'white');
+            addPiece('rook', -7, 7, 'white');
+            addPiece('bishop',3,7, 'white');
+            addPiece('bishop', -3,7, 'white');
+            addPiece('knight',-5,7, 'white');
+            addPiece('knight',5,7, 'white');
+            addPiece('pawn',3,5, 'white');
+            addPiece('pawn',5,5, 'white');
+            addPiece('pawn',7,5, 'white');
+            addPiece('pawn',1,5, 'white');
+            addPiece('pawn',-1,5, 'white');
+            addPiece('pawn',-3,5, 'white');
+            addPiece('pawn',-5,5, 'white');
+            addPiece('pawn',-7,5, 'white');
+
+            //pieces for the black side:
+            addPiece('king', 1.0, -7, 0x483C32);
+            addPiece('queen', -1, -7, 0x483C32);
+            addPiece('rook', 7, -7, 0x483C32);
+            addPiece('rook', -7, -7, 0x483C32);
+            addPiece('bishop',3,-7, 0x483C32);
+            addPiece('bishop', -3,-7, 0x483C32);
+            addPiece('knight',-5,-7, 0x483C32);
+            addPiece('knight',5,-7, 0x483C32);
+            addPiece('pawn',3,-5, 0x483C32);
+            addPiece('pawn',5,-5, 0x483C32);
+            addPiece('pawn',7,-5, 0x483C32);
+            addPiece('pawn',1,-5, 0x483C32);
+            addPiece('pawn',-1,-5, 0x483C32);
+            addPiece('pawn',-3,-5, 0x483C32);
+            addPiece('pawn',-5,-5, 0x483C32);
+            addPiece('pawn',-7,-5, 0x483C32);
+            createChessboard();
+
+            window.addEventListener('resize', function () {
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                renderer.setSize(width, height);
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+        
+            chessPieces.children.forEach(piece => {
+                var deltaPosition = new THREE.Vector3().subVectors(piece.targetPosition, piece.position);
+                var acceleration = deltaPosition.multiplyScalar(0.01); 
+        
+                // Gravity
+                acceleration.y -= 0.2;
+                
+                piece.velocity.add(acceleration);
+                piece.velocity.multiplyScalar(0.7);
+                piece.position.add(piece.velocity);
+        
+                // Prevent from Going Below the Board
+                if(piece.position.y < 1) {
+                    piece.position.y = 1;
+                    piece.velocity.y = 0;
+                }
+        
+                // Check if the piece is actively moving
+                piece.isMoving = piece.velocity.length() > 0.05;
+        
+                // Determine Tipping Axis
+                piece.tippingAxis = Math.abs(piece.velocity.x) > Math.abs(piece.velocity.z) ? 'x' : 'z';
+        
+                // Basic tipping based on velocity
+                if(piece.isMoving && Math.abs(piece.rotation[piece.tippingAxis]) < Math.PI / 4 && !piece.isFalling) {
+                    piece.rotation[piece.tippingAxis] += 0.29 * Math.sign(piece.velocity[piece.tippingAxis]);
+                    piece.isTipping = true;
+                } else if(Math.abs(piece.rotation[piece.tippingAxis]) > 0 && !piece.isTipping && !piece.isFalling) {
+                    piece.rotation[piece.tippingAxis] -= 0.29 * Math.sign(piece.rotation[piece.tippingAxis]);
+                }
+        
+                // Jumping motion
+                if (piece.isMoving) {
+                    piece.velocity.y += 0.235; // Add upward velocity
+                }
+        
+                checkCollisions(piece);
+                keepWithinBounds(piece);
+            });
+        
+            renderer.render(scene, camera);
+        }                   
+        
+        function checkCollisions(piece) {
+            chessPieces.children.forEach(otherPiece => {
+                if (piece !== otherPiece) {
+                    var distance = piece.position.distanceTo(otherPiece.position);
+                    var minDistance = 1.5;  // Adjust as needed
+        
+                    if (distance < minDistance) {
+                        // Collision detected!
+                        console.log("collision detected");
+        
+                        // Simple response: move pieces away from each other
+                        var collisionResponse = piece.position.clone().sub(otherPiece.position).normalize().multiplyScalar(0.05);
+                        piece.targetPosition.add(collisionResponse);
+                        otherPiece.targetPosition.sub(collisionResponse);
+                    }
+                }
+            });
+        }
+        
+        
+
+        function addPiece(pieceName, x, z, color) {
+            loader.load(pieceName + '.obj', function (object) {
+                object.scale.set(0.45, 0.45, 0.45);
+                object.position.set(x, 1, z);
+                object.initialPosition = object.position.clone(); // Store initial position
+                object.targetPosition = object.position.clone();
+                object.velocity = new THREE.Vector3(0, 0, 0);
+                object.isTipping = false;  
+                object.traverse(function (child) {
+                    if (child instanceof THREE.Mesh) {
+                        child.material.color.set(color);
+                    }
+                });
+                chessPieces.add(object);
+            });
+        }
+        
+        function createChessboard() {
+            var boardSize = 8; // 8x8 board
+            var squareSize = 2; // Each square is 2x2 units
+            for (var i = 0; i < boardSize; i++) {
+                for (var j = 0; j < boardSize; j++) {
+                    var geometry = new THREE.PlaneGeometry(squareSize, squareSize);
+                    var color = (i + j) % 2 === 0 ? 0xffffff : 0x000000; // Alternate squares
+                    var material = new THREE.MeshBasicMaterial({ color: color, side: THREE.DoubleSide });
+                    var square = new THREE.Mesh(geometry, material);
+                    square.rotation.x = Math.PI / 2; // Rotate to lie flat
+                    square.position.set(
+                        i * squareSize - boardSize * squareSize / 2 + squareSize / 2, 
+                        0, 
+                        j * squareSize - boardSize * squareSize / 2 + squareSize / 2
+                    );
+                    scene.add(square);
+                }
+            }
+        }
+
+        // Event listener for mouse move
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        function onMouseMove(event) {
+            // Normalize mouse position
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+            
+            // Find intersects
+            raycaster.setFromCamera(mouse, camera);
+            var intersects = raycaster.intersectObjects(chessPieces.children, true);
+            
+            if (intersects.length > 0) {
+                if (intersects[0].object instanceof THREE.Mesh) {
+                    var intersected = intersects[0].object;
+                    var objectToMove = intersected;
+        
+                    // Ascend through the hierarchy until reaching the parent object (chess piece)
+                    while(objectToMove.parent && objectToMove.parent !== chessPieces) {
+                        objectToMove = objectToMove.parent;
+                    }
+        
+                    // Get direction and remove vertical movement
+                    var direction = new THREE.Vector3().subVectors(objectToMove.position, intersects[0].point);
+                    direction.y = 0;
+                    direction.normalize();
+                    direction.multiplyScalar(0.5);
+        
+                    objectToMove.targetPosition.add(direction);  // Update target position
+                }
+            }
+        }        
+
+        function keepWithinBounds(piece) {
+            var bounds = 10;  // adjust as needed
+            if(piece.position.x > bounds) {
+                piece.position.x = bounds;
+                piece.targetPosition.x = bounds;
+            } else if(piece.position.x < -bounds) {
+                piece.position.x = -bounds;
+                piece.targetPosition.x = -bounds;
+            }
+            if(piece.position.z > bounds) {
+                piece.position.z = bounds;
+                piece.targetPosition.z = bounds;
+            } else if(piece.position.z < -bounds) {
+                piece.position.z = -bounds;
+                piece.targetPosition.z = -bounds;
+            }
+        }
+
+        function resetPieces() {
+            chessPieces.children.forEach(piece => {
+                // Reset position
+                piece.position.copy(piece.initialPosition);
+                piece.targetPosition.copy(piece.initialPosition);
+        
+                // Reset velocity
+                piece.velocity.set(0, 0, 0);
+        
+                // Reset rotation
+                piece.rotation.set(0, 0, 0);
+        
+                // Reset tipping and falling flags
+                piece.isTipping = false;
+                piece.isFalling = false;
+            });
+        }        
+        
+
+        init();
+        animate();
+    </script>
+
+    <button onclick="resetPieces()" style="position: fixed; bottom: 30px; left: 30px; height: 5em; width: 10em; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Reset Pieces</button>
+
+</body>
+</html>

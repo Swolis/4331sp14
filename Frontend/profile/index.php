@@ -66,8 +66,8 @@ $userDetails = [
                     mouseControls: true,
                     touchControls: true,
                     gyroControls: false,
-                    minHeight: 200.00,
-                    minWidth: 200.00,
+                    minHeight: window.innerHeight,
+                    minWidth: window.innerWidth,
                     scale: 1.00,
                     scaleMobile: 1.00,
                     backgroundColor: 0xfae7e7,
@@ -80,7 +80,14 @@ $userDetails = [
 
         
 </head>
-    <body id ="vanta-canvas">
+    <body>
+
+    
+    <video autoplay muted loop id="myVideo" >
+        <source src="chessvideo.mp4" type="video/mp4">
+    </video>
+    
+    <div class="content">
     <div >
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -210,7 +217,7 @@ $userDetails = [
                             <!-- ... other data cells ... -->
                             <td>
                             <button type="button" class="edit-button" data-id="<?php echo $contact['id']; ?>">Edit</button>
-                            <button type="button" class="delete-button" id= "sdelete" data-id="<?php echo $contact['id']; ?>">Delete</button>
+                            <button type="button" class="delete-button" data-id="<?php echo $contact['id']; ?>">Delete</button>
 
                             </td>
                         </tr>
@@ -227,8 +234,8 @@ $userDetails = [
                             <td class="notes"><input type="text" name="notes" value="<?php echo htmlspecialchars($contact['notes']?? ''); ?>"/></td>
                             <!-- ... other editable cells ... -->
                             <td>
-                                <button type="button" class="end-editing" id= "sdone" data-id="<?php echo $contact['id']; ?>">Done</button>
-                                <button type="button" class="cancel-editing" data-id="<?php echo $contact['id']; ?>">Cancel</button>
+                                <button type="button" class="end-editing" id= "sdelete" data-id="<?php echo $contact['id']; ?>">Done</button>
+                                <button type="button" class="cancel-editing" id= "sedit" data-id="<?php echo $contact['id']; ?>">Cancel</button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -264,7 +271,7 @@ $userDetails = [
 
         <script>
             // Store the original content of the table body
-            var originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+            const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
 
             // Get the search input element
             const searchInput = document.getElementById('searchInput');
@@ -272,14 +279,14 @@ $userDetails = [
             const contactsTableBody = document.getElementById('contactsTable');
             
             const del_button = document.getElementById("sdelete");
-            const do_button = document.getElementById("sdone"); 
+            const ed_button = document.getElementById("sedit"); 
             
             del_button.addEventListener("click", function() {
-                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
-            do_button.addEventListener("click", function() {
-                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+            ed_button.addEventListener("click", function() {
+                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
             // Function to filter and update the table based on the search term
@@ -316,6 +323,10 @@ $userDetails = [
                 filterContacts(searchTerm);
             });
         </script>
+        
+    </div>
+
+        
       
 
     </body>
