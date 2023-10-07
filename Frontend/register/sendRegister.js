@@ -18,7 +18,7 @@ function addUser()
 	// login-data json that interfaces with php / api
 	var jsonPayload = '{"username" : "' + username + '", "password" : "' + password +'", "firstName" : "' +firstName+'", "lastName" : "' + lastName+'", "email" : "' + email+'", "phone" : "' + phone+'", "country" : "' + country+'", "chessRating" : "' + chessRating+'", "favoriteOpening" : "' + favoriteOpening+'", "title" : "' + title+'"}';
 	var url = "https://chessconnect.xyz/register/process-register.php";
-
+	console.log(username);
 	// http POST : Attempt to send json with new-account login and pasword data to server.	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
