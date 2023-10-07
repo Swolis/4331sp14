@@ -26,19 +26,7 @@ function addUser()
 	xhr.open("POST", baseurl+extention,false);
 	console.log(xhr);
 	xhr.setRequestHeader("Content-type", "application/json");
-	try
-	{
-		xhr.send(jsonPayload);
-		
-		
-        
-	}
-	catch(err)
-	{
-		
-	
-        // *** add error handler ***
-	}
+	xhr.send(jsonPayload);
 	if(err==="works"){
 			return true;
 		}
