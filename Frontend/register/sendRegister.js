@@ -30,12 +30,12 @@ function addUser()
 	{
 		xhr.send(jsonPayload);
 		
-		return false;
+		
         
 	}
 	catch(err)
 	{
-	return true;
+	redirect();
         // *** add error handler ***
 	}
 }
