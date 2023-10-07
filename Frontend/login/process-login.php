@@ -48,15 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Password is incorrect
-            alert("Incorrect Username or Password");
-            header("Location: login.php");
+            header("Location: wronglogin.php");
             echo "Wrong Password";
             exit();
         }
     } else {
         // No user found
-        alert("Incorrect Username or Password");
-        header("Location: login.php");
+        header("Location: wronglogin.php");
         echo "Username not found";
         exit();
     }
