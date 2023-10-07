@@ -26,8 +26,13 @@ function addUser()
 	xhr.open("POST", baseurl+extention,false);
 	console.log(xhr);
 	xhr.setRequestHeader("Content-type", "application/json");
-	xhr.send(jsonPayload);
-	if(err==="works"){
+	try{
+	xhr.send(jsonPayload);}
+	catch (err){
+
+		
+	}
+	if(xhr.responseText==="works"){
 			return true;
 		}
 		else{
