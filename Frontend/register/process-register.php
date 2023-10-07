@@ -49,7 +49,7 @@ $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$data['us
                     // Registration successful, redirect to the login page
                     header('Location: https://chessconnect.xyz/login/login.php');
 
-                    exit();
+                   
                 }else {
                     // Registration failed, redirect back to the registration page with an error
                     
