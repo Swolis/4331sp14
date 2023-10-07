@@ -35,7 +35,7 @@ function addUser()
 	}
 	catch(err)
 	{
-	redirect();
+	
         // *** add error handler ***
 	}
 }
