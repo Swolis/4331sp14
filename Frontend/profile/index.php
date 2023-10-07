@@ -249,8 +249,10 @@
                   <button type="reset" id="create" class="btn btn-danger m-1">Create</button>
                 <script>
                     create.addEventListener('click',function(){
-                        addContact();
+                        var result =addContact();
+                        if(result){
                         location.reload(true);
+                        }
                     });
                 </script>
                 
