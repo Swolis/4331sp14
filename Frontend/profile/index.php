@@ -263,18 +263,18 @@ $userDetails = [
         </div>
 
         <script>
-            // Store the original content of the table body
-            const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
-
-            // Get the search input element
-            const searchInput = document.getElementById('searchInput');
-            // Get the contacts table body by ID
-            const contactsTableBody = document.getElementById('contactsTable');
+            
 
             // Function to filter and update the table based on the search term
             function filterContacts(searchTerm) {
-                // Reset the table body content to the original content
-                //contactsTableBody.innerHTML = originalTableBodyContent;
+                // Store the original content of the table body
+                const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
+
+                // Get the search input element
+                const searchInput = document.getElementById('searchInput');
+                // Get the contacts table body by ID
+                const contactsTableBody = document.getElementById('contactsTable');
+                
 
                 // Get all rows in the table body
                 const rows = contactsTableBody.querySelectorAll('tr');
@@ -295,6 +295,9 @@ $userDetails = [
                         row.style.display = 'none';
                     }
                 });
+
+                // Reset the table body content to the original content
+                contactsTableBody.innerHTML = originalTableBodyContent;
             }
 
             // Add an event listener for the 'input' event on the search input
