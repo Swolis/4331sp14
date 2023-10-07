@@ -41,7 +41,11 @@
         }
 
         .main-content h1 {
-            font-size: 50px;
+            font-size: 45px;
+        }
+
+        .main-content p {
+          font-size: 20px;
         }
 
         .main-content a {
