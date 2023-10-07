@@ -244,8 +244,16 @@
                     <input type="text" name="title" id="title" placeholder="Title (e.g. IM, GM)">
                     <input type="text" name="address" id="address" placeholder="Adress">
                     <input type="text" name="notes" id="notes" placeholder="Notes">
-                    <button type="reset" class="btn btn-danger m-1" onclick="addContact()">Create</button>
+                  
                 </form>
+                  <button type="reset" id="create" class="btn btn-danger m-1">Create</button>
+                <script>
+                    create.addEventListener('click',function(){
+                        addContact();
+                        location.reload(true);
+                    });
+                </script>
+                
             </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
             <script>
