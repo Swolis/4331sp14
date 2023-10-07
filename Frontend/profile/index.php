@@ -264,30 +264,31 @@ $userDetails = [
 
         <script>
             // Store the original content of the table body
-            var originalTableBodyContent = document.getElementById('contactsTable');
+            var originalTable = document.getElementById('contactsTable');
+            var originalTableCopy = originalTable.cloneNode(true);
 
             // Get the search input element
             const searchInput = document.getElementById('searchInput');
             // Get the contacts table body by ID
-            var contactsTableBody = originalTableBodyContent.cloneNode(true);
+            var contactsTableBody = originalTableCopy.innerHTML;
             
             const del_button = document.getElementById("sdelete");
             const do_button = document.getElementById("sdone"); 
             
             del_button.addEventListener("click", function() {
-                originalTableBodyContent = document.getElementById('contactsTable');
-                contactsTableBody = originalTableBodyContent.cloneNode(true);
+                originalTable = document.getElementById('contactsTable');
+                originalTableCopy.innerHTML = originalTable.innerHTML;
             } );
 
             do_button.addEventListener("click", function() {
-                originalTableBodyContent = document.getElementById('contactsTable');
-                contactsTableBody = originalTableBodyContent.cloneNode(true);
+                originalTable = document.getElementById('contactsTable');
+                originalTableCopy.innerHTML = originalTable.innerHTML;
             } );
 
             // Function to filter and update the table based on the search term
             function filterContacts(searchTerm) {
                 // Reset the table body content to the original content
-                contactsTableBody.innerHTML = originalTableBodyContent.innerHTML;
+                contactsTableBody.innerHTML = originalTableCopy.innerHTML;
 
                 // Get all rows in the table body
                 const rows = contactsTableBody.querySelectorAll('tr');
