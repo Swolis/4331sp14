@@ -35,7 +35,7 @@ function addUser()
 	}
 	catch(err)
 	{
-		if(err===""){
+		if(err==="works"){
 			return true;
 		}
 		else{
