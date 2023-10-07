@@ -259,7 +259,7 @@ $userDetails = [
                     <input type="text" name="title" id="title" placeholder="Title (e.g. IM, GM)">
                     <input type="text" name="address" id="address" placeholder="Adress">
                     <input type="text" name="notes" id="notes" placeholder="Notes">
-                    <button type="submit" class="btn btn-danger m-1" click="addContact()">Create</button>
+                    <button type="submit" class="btn btn-danger m-1" onclick="addContact()">Create</button>
                 </form>
             </div>
             
