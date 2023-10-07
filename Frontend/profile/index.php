@@ -284,7 +284,9 @@ $userDetails = [
                     // Get the data from the row for filtering
                     let rowData = row.innerText.toLowerCase();
 
-                    //remove 'edit' and 'delete' from end of row string
+                    // Remove 'edit' and 'delete' from end of row string
+                    // Yes this means if your contact contains the word 'edit' and
+                    // You search for it then it won't show up but I'll fix it better later
                     rowData = rowData.replace(/edit/g, '');
                     rowData = rowData.replace(/delete/g, '');
 
