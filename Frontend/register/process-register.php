@@ -69,7 +69,7 @@ $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$data['us
                 // send json
         function sendResultInfoAsJson( $obj )
                 {
-                header('Content-type: text/plain');
+                header('Content-type: text/html');
                 echo $obj;
                 }
                 
