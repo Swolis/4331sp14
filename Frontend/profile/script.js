@@ -35,12 +35,10 @@ function addContact()
 	}
 	console.log(xhr.responseText);
 	if(xhr.responseText==1){
-		var conn=new XMLHttpRequest();
-		conn.open("GET",baseurl+"/update.php");
-		conn.send();
+		return true;
 		}
 		else{
-			console.log("bye");
+			return false;
 			
 		}
 }
