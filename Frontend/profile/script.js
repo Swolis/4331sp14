@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (target.classList.contains('cancel-editing')) {
             var id = target.getAttribute('data-id');
             console.log("Checking ID:", id);
+            console.log("Why the fuck");
             document.querySelector('#data-' + id).style.display = ''; // Show the data row
             document.querySelector('#edit-' + id).style.display = 'none'; // Hide the edit row
             
