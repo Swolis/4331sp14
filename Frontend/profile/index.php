@@ -248,17 +248,17 @@ $userDetails = [
                 <h3>Create a new contact</h3>
                 <form class="background-color p-3">
                 
-                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="text" name="name" id= "name" placeholder="Name" required>
                     
                     
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="text" name="phone" placeholder="Phone">
-                    <input type="text" name="country" placeholder="Country">
-                    <input type="number" name="chess_rating" placeholder="Chess Rating">
-                    <input type="text" name="favoriteOpening" placeholder="Favorite Opening">
-                    <input type="text" name="title" placeholder="Title (e.g. IM, GM)">
-                    <input type="text" name="address" placeholder="Adress">
-                    <input type="text" name="notes" placeholder="Notes">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="text" name="phone" id="phone" placeholder="Phone">
+                    <input type="text" name="country" id="country" placeholder="Country">
+                    <input type="number" name="chess_rating" id="chessRating"placeholder="Chess Rating">
+                    <input type="text" name="favoriteOpening" id="favoriteOpening" placeholder="Favorite Opening">
+                    <input type="text" name="title" id="title" placeholder="Title (e.g. IM, GM)">
+                    <input type="text" name="address" id="address" placeholder="Adress">
+                    <input type="text" name="notes" id="notes" placeholder="Notes">
                     <button type="submit" class="btn btn-danger m-1" click="addContact()">Create</button>
                 </form>
             </div>
