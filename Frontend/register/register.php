@@ -80,8 +80,11 @@
                               <script>
                                   var submit=document.getElementById("submit");
                                   var relocate=addUser();
-                                 console.log(relocate);
-                                  });
+                                 
+                                 submit.addEventListener("click",function(){
+                                     console.log(relocate);
+                                    
+                                 });
                               </script>
                         </form>
                        

@@ -276,7 +276,7 @@ $userDetails = [
             // Get the search input element
             const searchInput = document.getElementById('searchInput');
             // Get the contacts table body by ID
-            const contactsTableBody = document.getElementById('contactsTable');
+            var contactsTableBody = document.getElementById('contactsTable');
             
             const del_button = document.getElementById("sdelete");
             const ed_button = document.getElementById("sedit"); 
@@ -295,7 +295,7 @@ $userDetails = [
                 contactsTableBody.innerHTML = originalTableBodyContent;
 
                 // Get all rows in the table body
-                const rows = contactsTableBody.querySelectorAll('tr');
+                var rows = contactsTableBody.querySelectorAll('tr');
 
                 // Loop through rows and hide those that do not match the search term
                 rows.forEach(row => {
