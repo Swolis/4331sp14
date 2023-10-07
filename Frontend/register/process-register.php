@@ -59,7 +59,7 @@ $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$data['us
                 }
 
                 // Close the connection
-                returnWithError(header('Location: https://chessconnect.xyz/login/login.php'));
+                returnWithError("");
                 $stmt->close();
                 $conn->close();
         function getRequestInfo()
@@ -80,6 +80,7 @@ $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$data['us
                 $retValue = '{"error":"' . $err . '"}';
                 sendResultInfoAsJson( $retValue );
                 }
+
 
         ?>
 
