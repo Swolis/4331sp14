@@ -29,6 +29,7 @@ function addUser()
 	try
 	{
 		xhr.send(jsonPayload);
+		window.location.assign("https://chessconnect.xyz/login/login.php");
 		
         
 	}
