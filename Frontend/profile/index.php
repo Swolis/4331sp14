@@ -288,7 +288,7 @@ $userDetails = [
                 contactsTableBody.innerHTML = originalTableBodyContent;
 
                 // Get all rows in the table body
-                const rows = contactsTableBody.querySelectorAll('tr');
+                var rows = contactsTableBody.querySelectorAll('tr');
 
                 // Loop through rows and hide those that do not match the search term
                 rows.forEach(row => {
