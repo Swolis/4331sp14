@@ -274,7 +274,7 @@ $userDetails = [
             // Function to filter and update the table based on the search term
             function filterContacts(searchTerm) {
                 // Reset the table body content to the original content
-                contactsTableBody.innerHTML = originalTableBodyContent;
+                //contactsTableBody.innerHTML = originalTableBodyContent;
 
                 // Get all rows in the table body
                 const rows = contactsTableBody.querySelectorAll('tr');
