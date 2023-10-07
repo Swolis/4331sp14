@@ -81,7 +81,7 @@
                                   var submit=document.getElementById("submit");
                                   var relocate=addUser()
                                   submit.addEventListener("click",function(){
-                                  if(relocate==true){
+                                  if(relocate===true){
                                       window.location.href="https://chessconnect.xyz/login/login.php"
                                   }
                                   });
