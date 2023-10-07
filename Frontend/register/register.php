@@ -109,7 +109,9 @@
                                 <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
-                            <button type="submit" id="submit" class="btn btn-primary" >Register</button>
+                            
+                        </form>
+                       <button type="submit" id="submit" class="btn btn-primary" >Register</button>
                               <script>
                                   var submit=document.getElementById("submit");
                                   
@@ -120,7 +122,7 @@
                                      if(relocate){
                                          console.log("urclose")
                                         console.log("why")
-                                         window.location.replace("https://chessconnect.xyz/login/login.php")
+                                         location.replace("https://chessconnect.xyz/login/login.php")
                                         
                                      }else{
                                          console.log("nope")
@@ -128,8 +130,6 @@
                                     
                                  });
                               </script>
-                        </form>
-                       
                     </div>
                 </div>
             </div>
