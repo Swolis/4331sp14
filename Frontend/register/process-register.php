@@ -47,6 +47,7 @@ $select = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$data['us
                 // Execute the statement
                 if (!mysqli_num_rows($select)&&$stmt->execute()&&$username!=""&&$password!="") {
                     // Registration successful, redirect to the login page
+                    header('Location: https://chessconnect.xyz/login/login.php');
 
                     exit();
                 }else {
