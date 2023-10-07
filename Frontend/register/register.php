@@ -78,7 +78,9 @@
                             <!-- Add fields for other user information (email, country, etc.) -->
                             <button type="submit" class="btn btn-primary" onclick=<script>
                                 if(addUser()){
-                                window.location.href="login/login.php";
+                                <php?>
+                                    header("Location: .login/login.php");
+                                    <php>;
                                 }
                                 
                             </script></button></button>Register</button>
