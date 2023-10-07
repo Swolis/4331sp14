@@ -264,31 +264,28 @@ $userDetails = [
 
         <script>
             // Store the original content of the table body
-            var originalTable = document.getElementById('contactsTable');
-            var originalTableCopy = originalTable.cloneNode(true);
+            var originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
 
             // Get the search input element
             const searchInput = document.getElementById('searchInput');
             // Get the contacts table body by ID
-            var contactsTableBody = originalTableCopy.innerHTML;
+            var contactsTableBody = document.getElementById('contactsTable');
             
             const del_button = document.getElementById("sdelete");
             const do_button = document.getElementById("sdone"); 
             
             del_button.addEventListener("click", function() {
-                originalTable = document.getElementById('contactsTable');
-                originalTableCopy.innerHTML = originalTable.innerHTML;
+                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
             do_button.addEventListener("click", function() {
-                originalTable = document.getElementById('contactsTable');
-                originalTableCopy.innerHTML = originalTable.innerHTML;
+                originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
             } );
 
             // Function to filter and update the table based on the search term
             function filterContacts(searchTerm) {
                 // Reset the table body content to the original content
-                contactsTableBody.innerHTML = originalTableCopy.innerHTML;
+                contactsTableBody.innerHTML = originalTableBodyContent;
 
                 // Get all rows in the table body
                 const rows = contactsTableBody.querySelectorAll('tr');
