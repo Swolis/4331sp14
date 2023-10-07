@@ -85,6 +85,8 @@
                                      var relocate=addUser();
                                      if(relocate===true){
                                          header("Location: https://chessconnect.xyz/login/login.php");
+                                     }else{
+                                         console.log("nope")
                                      }
                                     
                                  });
