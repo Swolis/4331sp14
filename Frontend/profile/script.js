@@ -128,53 +128,53 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     });
+
+    function deleteRecord(id, callback) {
+        var xr = new XMLHttpRequest();
+        var url = "delete.php"; // Use your actual delete endpoint
+        var vars = "id=" + id;
+        
+        xr.onreadystatechange = function () {
+            if (xr.readyState == 4 && xr.status == 200) {
+                var response = JSON.parse(xr.responseText);
+                if (callback) callback(response);
+            }
+        };
+        
+        xr.open("POST", url, true);
+        xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xr.send(vars);
+    }
+
+    function saveText(sid, callback) {
+        console.log('saveText called correctly', sid);
+        var xr = new XMLHttpRequest();
+        var baseurl = "https://chessconnect.xyz/profile";
+        var url = "edit.php";
+        
+        // Begin with the id parameter in the vars string
+        var vars = "id=" + sid;
+
+        // Add each field's textContent to the vars string, URL-encoded
+        fields.forEach(function(field) {
+            var inputEl = document.querySelector('#edit-' + sid + ' input[name=' + field + ']');
+            if (inputEl) {
+                vars += "&" + field + "=" + encodeURIComponent(inputEl.value.trim());
+            }
+        });
+
+        // Handling server response
+        xr.onreadystatechange = function () {
+            if (xr.readyState == 4 && xr.status == 200) {
+                console.log('Server response:', xr.responseText);
+                var response = JSON.parse(xr.responseText);
+                if (callback) callback(response); // Call the callback with the response
+            }
+        };
+        
+        xr.open("POST", url, true);
+        xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        console.log('Sending vars: ', vars);
+        xr.send(vars);
+    }
 });
-
-function deleteRecord(id, callback) {
-    var xr = new XMLHttpRequest();
-    var url = "delete.php"; // Use your actual delete endpoint
-    var vars = "id=" + id;
-    
-    xr.onreadystatechange = function () {
-        if (xr.readyState == 4 && xr.status == 200) {
-            var response = JSON.parse(xr.responseText);
-            if (callback) callback(response);
-        }
-    };
-    
-    xr.open("POST", url, true);
-    xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xr.send(vars);
-}
-
-function saveText(sid, callback) {
-    console.log('saveText called correctly', sid);
-    var xr = new XMLHttpRequest();
-    var baseurl = "https://chessconnect.xyz/profile";
-    var url = "edit.php";
-    
-    // Begin with the id parameter in the vars string
-    var vars = "id=" + sid;
-
-    // Add each field's textContent to the vars string, URL-encoded
-    fields.forEach(function(field) {
-        var inputEl = document.querySelector('#edit-' + sid + ' input[name=' + field + ']');
-        if (inputEl) {
-            vars += "&" + field + "=" + encodeURIComponent(inputEl.value.trim());
-        }
-    });
-
-    // Handling server response
-    xr.onreadystatechange = function () {
-        if (xr.readyState == 4 && xr.status == 200) {
-            console.log('Server response:', xr.responseText);
-            var response = JSON.parse(xr.responseText);
-            if (callback) callback(response); // Call the callback with the response
-        }
-    };
-    
-    xr.open("POST", url, true);
-    xr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    console.log('Sending vars: ', vars);
-    xr.send(vars);
-}
