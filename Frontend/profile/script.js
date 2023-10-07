@@ -32,7 +32,12 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelector('#data-' + id).style.display = ''; // Show the data row
             document.querySelector('#edit-' + id).style.display = 'none'; // Hide the edit row
             
-            
+            fields.forEach(field => {
+                var el = document.querySelector('#edit-' + field + '-' + id);
+                var da = document.querySelector('#data-' + field + '-' + id);
+                if (el) el.value = da.value;
+            });
+
             fields.forEach(field => {
                 var el = document.querySelector('#edit-' + field + '-' + id);
                 if (el) el.contentEditable = false;
