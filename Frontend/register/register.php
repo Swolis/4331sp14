@@ -40,39 +40,39 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" value="<?php echo $password ?>"required>
+                                <input type="password" class="form-control" id="password" name="password" "required>
                             </div>
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName"value="<?php echo $firstName ?>">
+                                <input type="text" class="form-control" id="firstName" name="firstName">
                             </div>
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName"value="<?php echo $lastName ?>">
+                                <input type="text" class="form-control" id="lastName" name="lastName"">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email"value="<?php echo $email ?>">
+                                <input type="email" class="form-control" id="email" name="email">
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $phone ?>">
+                                <input type="text" class="form-control" id="phone" name="phone" >
                             </div>
                             <div class="mb-3">
                                 <label for="country" class="form-label">Country</label>
-                                <input type="text" class="form-control" id="country" name="country" value="<?php echo $country?>">
+                                <input type="text" class="form-control" id="country" name="country" >
                             </div>
                             <div class="mb-3">
                                 <label for="chessRating" class="form-label">Chess Rating</label>
-                                <input type="number" class="form-control" id="chessRating" name="chessRating"value="<?php echo $chessRating ?>">
+                                <input type="number" class="form-control" id="chessRating" name="chessRating">
                             </div>
                             <div class="mb-3">
                                 <label for="favoriteOpening" class="form-label">Favorite Opening</label>
-                                <input type="text" class="form-control" id="favoriteOpening" name="favoriteOpening"value="<?php echo $favoriteOpening ?>">
+                                <input type="text" class="form-control" id="favoriteOpening" name="favoriteOpening">
                             </div>
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="title" name="title"value="<?php echo $title ?>">
+                                <input type="text" class="form-control" id="title" name="title">
                             </div>
                             <!-- Add fields for other user information (email, country, etc.) -->
                             <button type="submit" class="btn btn-primary" onclick="addUser()">Register</button>
