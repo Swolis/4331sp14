@@ -124,7 +124,7 @@
                                          location.replace("https://chessconnect.xyz/login/login.php")
                                         
                                      }else{
-                                        var rename=document.getElementById("lusername");
+                                        var rename=document.getElementById("username");
                                         rename.value="Username is taken";
                                      }
                                     
