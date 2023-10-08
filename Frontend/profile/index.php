@@ -100,7 +100,7 @@
             <!--end of nav-->
               <div class="navbar">
         <a class="navbar-brand" href="#">Chess Connect</a>
-        <a class="nav-link" href="../register/register.php">Register</a>
+        <a class="nav-link" href="../login/login.php">Log Out</a>
                 </div>
             <!--beginning of the users profile info -->
             <div class="container mt-5">
