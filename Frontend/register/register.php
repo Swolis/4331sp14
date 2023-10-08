@@ -69,7 +69,7 @@
                     <div class="card-body">
                         <form>
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
+                                <label for="username" id="lusername" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
                             <div class="mb-3">
@@ -120,12 +120,12 @@
                                      var relocate=addUser();
                                      console.log(relocate);
                                      if(relocate){
-                                         console.log("urclose")
-                                        console.log("why")
+                                         
                                          location.replace("https://chessconnect.xyz/login/login.php")
                                         
                                      }else{
-                                         console.log("nope")
+                                        var rename=document.getElementById("lusername");
+                                        rename.value="Username is taken";
                                      }
                                     
                                  });
