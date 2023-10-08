@@ -76,14 +76,7 @@
                 })
             });
         </script>
-            <script>
-                   document.getElementById("create").innerHTML.addEventListener('click',function(){
-                        var result =addContact();
-                        if(result){
-                        setTimeout(function(){location.reload()}, 3000);
-                        }
-                    });
-                </script>
+            
             
     </head>
     <body>
@@ -254,7 +247,14 @@
                   
                 </form>
                   <button type="reset" id="create" class="btn btn-danger m-1">Create</button>
-            
+                <script>
+                   create.addEventListener('click',function(){
+                        var result =addContact();
+                        if(result){
+                        location.reload(true);
+                        }
+                    });
+                </script>
                 
             </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
