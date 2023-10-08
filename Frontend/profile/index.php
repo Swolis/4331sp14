@@ -251,7 +251,7 @@
                     create.addEventListener('click',function(){
                         var result =addContact();
                         if(result){
-                        setTimeout(function(){window.location = window.location}, 50);
+                        setTimeout(function(){window.location = window.location}, 100);
                         }
                     });
                 </script>
