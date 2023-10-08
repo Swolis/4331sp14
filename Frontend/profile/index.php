@@ -273,7 +273,7 @@
                    create.addEventListener('click',function(){
                         var result =addContact();
                         if(result){
-                        
+                        location.reload(true)
                         }
                     });
                 </script>
