@@ -32,7 +32,7 @@
     $title = $data['title'] ?? null;
     $address = $data['address'] ?? null;
     $notes = $data['notes'] ?? null;
-    $date=$data['date']
+    $date=$data['date'];
 
     if($name!=""){
         $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title,date) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
