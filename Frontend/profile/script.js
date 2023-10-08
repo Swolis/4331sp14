@@ -100,11 +100,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         if (inputEl) {
                             document.querySelector('#data-' + id + ' .' + field).textContent = inputEl.value.trim();
                         }
+		
                     });
 
                     // Switch visibility
                     document.querySelector('#data-' + id).style.display = ''; // Show the data row
                     document.querySelector('#edit-' + id).style.display = 'none'; // Hide the edit row
+		location.reload(true);
                 } else {
                     // Handle error - e.g., show an error message to the user
                     console.log("You got an error");
