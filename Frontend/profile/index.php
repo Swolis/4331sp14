@@ -266,20 +266,6 @@
                 const searchInput = document.getElementById('searchInput');
                 // Get the contacts table body by ID
                 var contactsTableBody = document.getElementById('contactsTable');
-                
-                //attempt to fix search issues
-                /*
-                const del_button = document.getElementById("sdelete");
-                const ed_button = document.getElementById("sedit"); 
-                
-                del_button.addEventListener("click", function() {
-                    const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
-                } );
-
-                ed_button.addEventListener("click", function() {
-                    const originalTableBodyContent = document.getElementById('contactsTable').innerHTML;
-                } );
-                */
 
                 // Function to filter and update the table based on the search term
                 function filterContacts(searchTerm) {
