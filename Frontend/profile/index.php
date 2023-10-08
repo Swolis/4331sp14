@@ -294,11 +294,20 @@
                         // Get the data from the row for filtering
                         let rowData = row.innerText.toLowerCase();
 
-                        // Remove 'edit' and 'delete' from end of row string
-                        // Yes this means if your contact contains the word 'edit' and
-                        // You search for it then it won't show up but I'll fix it better later
-                        rowData = rowData.replace(/edit/g, '');
-                        rowData = rowData.replace(/delete/g, '');
+                        // Check if "edit" or "delete" appear once in the string
+                        // If they appear only one time, delete the substrings "edit" and "delete"
+                        // Otherwise, leave them in as they are part of the actual contact info
+                        var count = (rowData.match(/edit/g) || []).length;
+                        console.log(count);
+                        if(count == 1){
+                            rowData = rowData.replace(/edit/g, '');
+                        }
+
+                        count = (rowData.match(/delete/g) || []).length;
+                        console.log(count);
+                        if(count == 1){
+                            rowData = rowData.replace(/delete/g, '');
+                        }
 
                         // If the search term is not found in the row's data, hide the row
                         if (rowData.indexOf(searchTerm.toLowerCase()) === -1) {
