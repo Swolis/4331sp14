@@ -32,10 +32,11 @@
     $title = $data['title'] ?? null;
     $address = $data['address'] ?? null;
     $notes = $data['notes'] ?? null;
+    $date=$data['date']
 
     if($name!=""){
-        $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("issssiss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title);
+        $stmt = $conn->prepare("INSERT INTO contacts (user_id, name, email, phone, country, chess_rating, favorite_opening, title,date) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
+        $stmt->bind_param("issssisss", $userId, $name, $email, $phone, $country, $chessRating, $favoriteOpening, $title,$date);
         $stmt->execute();
         sendResultInfoAsJson(1);
     }
