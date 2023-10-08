@@ -99,7 +99,7 @@
             </nav> -->
             <!--end of nav-->
               <div class="navbar">
-        <a class="navbar-brand" href="../#">Chess Connect</a>
+        <a class="navbar-brand" href="#">Chess Connect</a>
         <a class="nav-link" href="../register/register.php">Register</a>
                 </div>
             <!--beginning of the users profile info -->
