@@ -85,7 +85,7 @@
                 <source src="chessvideo.mp4" type="video/mp4">
             </video>
             <!-- Navigation Bar -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!--    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
                     <a class="navbar-brand" href="#">Chess Connect</a>
                     <div class="collapse navbar-collapse">
@@ -96,7 +96,7 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
             <!--end of nav-->
             <!--beginning of the users profile info -->
             <div class="container mt-5">
