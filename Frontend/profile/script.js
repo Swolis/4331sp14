@@ -8,9 +8,15 @@ function addContact() {
     var title = document.getElementById("title").value.trim();
     var address = document.getElementById("address").value.trim();
     var notes = document.getElementById("notes").value.trim();
-
+var currentdate = new Date(); 
+var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
 	// login-data json that interfaces with php / api
-	var jsonPayload = '{"name" : "' + name+'", "email" : "' + email+'", "phone" : "' + phone+'", "country" : "' + country+'", "chessRating" : "' + chessRating+'", "favoriteOpening" : "' + favoriteOpening+'", "title" : "' + title+'", "address" : "' + address+'", "notes" : "' + notes+'"}';
+	var jsonPayload = '{"name" : "' + name+'", "email" : "' + email+'", "phone" : "' + phone+'", "country" : "' + country+'", "chessRating" : "' + chessRating+'", "favoriteOpening" : "' + favoriteOpening+'", "title" : "' + title+'", "address" : "' + address+'", "notes" : "' + notes+'", "date" : "' + datetime+'"}';
 	var baseurl = "https://chessconnect.xyz/profile";
 	var extention="/create.php";
 	
