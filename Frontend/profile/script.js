@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // This container allows the buttons to still work after the search bar is used
     // Previously, the js would not apply to buttons after they were reloaded following a search
     // This keeps the js for the buttons attached to the container rather than the buttons themselves
-    // Click event for the common ancestor of edit, end-editing, and delete buttons
+    // Functions as click event for the common ancestor of edit, end-editing, and delete buttons
     document.querySelector('#contactsTable').addEventListener('click', function(event) {
         var target = event.target;
 
