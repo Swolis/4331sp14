@@ -34,7 +34,7 @@ CREATE TABLE `contacts` (
   `title` varchar(50) DEFAULT NULL,
   `address` text,
   `notes` text,
-  'date' text,
+  `date` text,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
