@@ -54,6 +54,23 @@
                 border-radius: 10px;
                 padding: 15px;
             }
+            .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 2% 5%;
+        }
+
+        .navbar-brand, .nav-link {
+            font-size: 25px;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: red; 
+        }
+
         </style>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
