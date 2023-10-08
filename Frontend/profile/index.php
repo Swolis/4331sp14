@@ -77,7 +77,7 @@
             });
         </script>
             <script>
-                   document.getElementById("create").addEventListener('click',function(){
+                   document.getElementById("create").innerHTML.addEventListener('click',function(){
                         var result =addContact();
                         if(result){
                         setTimeout(function(){location.reload()}, 3000);
