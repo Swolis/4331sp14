@@ -29,7 +29,7 @@
         "title" => $_SESSION["title"]
     ];
     // After displaying the user profile, retrieve the contacts
-    while(true){            
+            
     $contacts_query = "SELECT * FROM contacts WHERE user_id = ?";
     $stmt = $conn->prepare($contacts_query);
     $stmt->bind_param("i", $_SESSION["user_id"]);
@@ -39,7 +39,7 @@
 
     // Write $contacts to a session variable
     $_SESSION['contacts'] = $contacts;
-    }
+    
 ?>
 
 <!DOCTYPE html>
