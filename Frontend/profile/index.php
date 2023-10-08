@@ -251,7 +251,7 @@
                     create.addEventListener('click',function(){
                         var result =addContact();
                         if(result){
-                        setTimeout(function(){location.reload(true), 100);
+                        setTimeout(function(){window.location = window.location}, 300);
                         }
                     });
                 </script>
