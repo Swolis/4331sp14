@@ -12,10 +12,7 @@ function addUser()
     var favoriteOpening = document.getElementById("favoriteOpening").value.trim();
     var title = document.getElementById("title").value.trim();
 
-    // log in user if they already have an account and return    
    
-
-	// login-data json that interfaces with php / api
 	var jsonPayload = '{"username" : "' + username + '", "password" : "' + password +'", "firstName" : "' +firstName+'", "lastName" : "' + lastName+'", "email" : "' + email+'", "phone" : "' + phone+'", "country" : "' + country+'", "chessRating" : "' + chessRating+'", "favoriteOpening" : "' + favoriteOpening+'", "title" : "' + title+'"}';
 	var baseurl = "https://chessconnect.xyz/register";
 	var extention="/process-register.php";
@@ -36,20 +33,12 @@ function addUser()
 	}
 	console.log(xhr.responseText);
 	if(xhr.responseText==1){
-		console.log("hi");
+		
 			return true;
 		}
 		else{
-			console.log("bye");
+			
 			return false;
 		}
 }
 
-function redirect(){
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "https://chessconnect.xyz/login/login.php", false);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	xhr.send();
-	
-	
-}
